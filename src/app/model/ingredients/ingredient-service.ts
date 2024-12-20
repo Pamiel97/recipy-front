@@ -3,16 +3,19 @@ import { IngredientDto } from "./ingredient-dto";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-@Injectable({
-    providedIn: 'root' //DOVE INIETTARLO? 
-  })
+ @Injectable({
+    providedIn: 'root' 
+ })
+
   export class IngredientService {
-    constructor(private http: HttpClient) {} 
-  
+    
+    constructor(private http: HttpClient) {}
+
     getIngredientDto(): Observable<IngredientDto[]> {
       let params = new HttpParams();
-      params = params.set("active", "true");  
+      params = params.set("active", "true");  // Parametro query
   
-      return this.http.get<IngredientDto[]>("http://localhost:8080/api/ingredients", { params });
+      return this.http.get<IngredientDto[]>('http://localhost:8080/api/ingredients', { params });
     }
+
   }

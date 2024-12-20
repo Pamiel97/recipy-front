@@ -1,1 +1,57 @@
 <p>recipe-add-form works!</p>
+
+<form [formGroup]="recipeForm">
+    <div>
+      <label for="title">Titolo:</label>
+      <input id="title" formControlName="title" type="text" />
+    </div>
+  
+    <div>
+      <label for="description">Descrizion:</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+  
+    <div>
+      <label for="course">Portata:</label>
+      <select id="course" formControlName="course">
+        <option value="antipasto">Antipasto</option>
+        <option value="primo">Primo</option>
+        <option value="secondo">Secondo</option>
+        <option value="dolce">Dolce</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="prepTime">Tempo di preparazuine:</label>
+      <input id="prepTime" formControlName="prepTime" type="number" />
+    </div>
+  
+    <div>
+      <label for="cookingTime">Tempo di cottura:</label>
+      <input id="cookingTime" formControlName="cookingTime" type="number" />
+    </div>
+  
+    <div>
+      <label for="difficulty">Difficoltà:</label>
+      <select id="difficulty" formControlName="difficulty">
+        <option value="facile">Facile</option>
+        <option value="medio">Medio</option>
+        <option value="difficile">Difficile</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="kCalories">Calorie (kcal):</label>
+      <input id="kCalories" formControlName="kCalories" type="number" step="0.1" />
+    </div>
+  
+  
+    <div>
+      <label for="imgUrl">Immagine:</label>
+      <input id="imgUrl" formControlName="imgUrl" type="file" />
+    </div>
+  
+    
+  
+    <button type="submit" [disabled]="recipeForm.invalid">Submit</button>
+  </form>
