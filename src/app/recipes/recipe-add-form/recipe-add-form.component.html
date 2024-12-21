@@ -1,57 +1,97 @@
-<p>recipe-add-form works!</p>
+<form [formGroup]="recipeForm" (ngSubmit)="saveRecipe()">
+  <div>
+    <label for="title">Titolo</label>
+    <input formControlName="title" id="title" type="text" />
+  </div>
 
-<form [formGroup]="recipeForm">
-    <div>
-      <label for="title">Titolo:</label>
-      <input id="title" formControlName="title" type="text" />
+  <div>
+    <label for="description">Descrizione</label>
+    <input formControlName="description" id="description" type="text" />
+  </div>
+
+ 
+
+  <div>
+    <label for="course">Portata</label>
+    <select formControlName="course" id="course">
+      <option value="antipasto">antipasto</option>
+      <option value="primo">primo</option>
+      <option value="secondo">  secondo</option>
+      <option value="dolce">  dolce</option>
+      <option value="bevanda">  bevanda</option>
+      <option value="contorno">  contorno</option>
+      <option value="snacK">  snac</option>
+
+    </select>
+  </div>
+
+
+
+  <div>
+    <label for="prepTime">Tempo di preparazione</label>
+    <input formControlName="prepTime" id="prepTime" type="number" />
+  </div>
+
+  <div>
+    <label for="cookingTime">Tempo di cottura</label>
+    <input formControlName="cookingTime" id="cookingTime" type="number" />
+  </div>
+
+  <div>
+    <label for="difficulty">Difficoltà</label>
+    <select formControlName="difficulty" id="difficulty">
+      <option value="FACILE">Facile</option>
+      <option value="MEDIO">Medio</option>
+      <option value="DIFFICILE">Difficile</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="kCalories">Kcalorie</label>
+    <input formControlName="kCalories" id="kCalories" type="number" />
+  </div>
+
+  <div>
+    <label for="imgUrl">Immagine del Piatto</label>
+    <input formControlName="imgUrl" id="imgUrl" type="file" />
+  </div>
+
+  <div formArrayName="recipeSteps">
+    <div *ngFor="let step of recipeSteps.controls; let i = index" [formGroupName]="i">
+      <div>
+        <label for="description-{{ i }}">Descrizione Passaggio</label>
+        <textarea formControlName="description" id="description-{{ i }}"></textarea>
+      </div>
+
+      <div>
+        <label for="stepImgUrl-{{ i }}">Immagine Passaggio</label>
+        <input formControlName="stepImgUrl" id="stepImgUrl-{{ i }}" type="file" />
+      </div>
+
+
+
+      
+
+
+      <div>
+        <label for="ingredientId-{{ i }}">Ingrediente</label>
+        <select formControlName="ingredientId" id="ingredientId-{{ i }}">
+          <option *ngFor="let ingredient of ingredients" [value]="ingredient.id">
+            {{ ingredient.name }}
+          </option>
+        </select>
+      </div>
+
+
+
+
+
+
+      <button type="button" (click)="removeRecipeStep(i)">Rimuovi Passaggio</button>
     </div>
-  
-    <div>
-      <label for="description">Descrizion:</label>
-      <textarea id="description" formControlName="description"></textarea>
-    </div>
-  
-    <div>
-      <label for="course">Portata:</label>
-      <select id="course" formControlName="course">
-        <option value="antipasto">Antipasto</option>
-        <option value="primo">Primo</option>
-        <option value="secondo">Secondo</option>
-        <option value="dolce">Dolce</option>
-      </select>
-    </div>
-  
-    <div>
-      <label for="prepTime">Tempo di preparazuine:</label>
-      <input id="prepTime" formControlName="prepTime" type="number" />
-    </div>
-  
-    <div>
-      <label for="cookingTime">Tempo di cottura:</label>
-      <input id="cookingTime" formControlName="cookingTime" type="number" />
-    </div>
-  
-    <div>
-      <label for="difficulty">Difficoltà:</label>
-      <select id="difficulty" formControlName="difficulty">
-        <option value="facile">Facile</option>
-        <option value="medio">Medio</option>
-        <option value="difficile">Difficile</option>
-      </select>
-    </div>
-  
-    <div>
-      <label for="kCalories">Calorie (kcal):</label>
-      <input id="kCalories" formControlName="kCalories" type="number" step="0.1" />
-    </div>
-  
-  
-    <div>
-      <label for="imgUrl">Immagine:</label>
-      <input id="imgUrl" formControlName="imgUrl" type="file" />
-    </div>
-  
-    
-  
-    <button type="submit" [disabled]="recipeForm.invalid">Submit</button>
-  </form>
+  </div>
+
+  <button type="button" (click)="addRecipeStep()">Aggiungi Passaggio</button>
+
+  <button type="submit" [disabled]="recipeForm.invalid">Salva Ricetta</button>
+</form>

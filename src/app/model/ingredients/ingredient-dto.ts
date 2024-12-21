@@ -5,7 +5,7 @@ export interface IngredientDto{
     carbs: number;
     prots: number;
     fats: number;
-    category: string;
+    ingredientCategory: string;
     weight: number;
     price: number;
     imgUrl: string;
