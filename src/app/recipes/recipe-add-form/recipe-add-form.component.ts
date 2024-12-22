@@ -21,13 +21,6 @@ export class RecipeAddFormComponent implements OnInit {
   ingredients: IngredientDto[] = [];  
 
   
-  //STO COSO DOVREBBE ESSERE L'UNTENTE LOGGATO NO IDEA, intanto piglio Mirko 
-  currentUser: UserDto = {
-    id: 1,
-    firstname: 'Mirko',
-    lastname: 'Risuleo',
-    profile: 'utente_base'
-  };
 
   constructor(
     private recipeService: RecipeService,
@@ -60,9 +53,9 @@ export class RecipeAddFormComponent implements OnInit {
       description: ['', [Validators.required]],
       course: ['', [Validators.required]],
       prepTime: ['',],
-      cookingTime: ['', [Validators.required, Validators.min(1)]],
+      cookingTime: ['', [Validators.required]],
       difficulty: ['', [Validators.required]],
-      kCalories: ['', Validators.min(0)],
+      kCalories: ['',],
       imgUrl: ['', ],
       tags: this.fb.array([]),
       recipeSteps: this.fb.array([]),  
@@ -77,9 +70,9 @@ export class RecipeAddFormComponent implements OnInit {
   
   addRecipeStep(): void {
     const ricetteStep = this.fb.group({
-      description: ['',],
-      stepImgUrl: ['', ],
-      ingredientId: [null,] 
+      description: [''],
+      stepImgUrl: ['' ],
+      ingredientId: [null] 
     });
     this.recipeSteps.push(ricetteStep);  //aggiunge questo nel array
   }
@@ -98,33 +91,12 @@ export class RecipeAddFormComponent implements OnInit {
 
     const ricettaCompilata = this.recipeForm.value;
 
-    
-    const ricetta: RecipeDto = {
-      id: null,  
-      title: ricettaCompilata.title,
-      description: ricettaCompilata.description,
-      course: ricettaCompilata.course,
-      prepTime: ricettaCompilata.prepTime,
-      cookingTime: ricettaCompilata.cookingTime,
-      difficulty: ricettaCompilata.difficulty as Difficulty,  
-      kCalories: ricettaCompilata.kCalories,
-      creationDate: new Date().toLocaleDateString(),
-      imgUrl: ricettaCompilata.imgUrl,
-      user: this.currentUser,  // IL TIZIO FINTO DA SISTEMARE...
-      tags: ricettaCompilata.tags || [],
-      recipeSteps: ricettaCompilata.recipeSteps.map((step: any) => ({
-        description: step.description,
-        stepImgUrl: step.stepImgUrl,
-        ingredientId: step.ingredientId,  
-        recipeId: undefined  
-      }))
-    };
 
    
-    this.recipeService.createRecipe(ricetta).subscribe({
+    this.recipeService.createRecipe(ricettaCompilata).subscribe({
       next: () => {
   
-        this.router.navigate(['/recipes']); // scegliere dove farlo navigare poi...
+        this.router.navigate(['/search-recipe']); // scegliere dove farlo navigare poi...
       },
       error: (err) => {
         console.error('Errore nel salvataggio della ricetta:', err);
