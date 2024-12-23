@@ -71,7 +71,8 @@ export class RecipeAddFormComponent implements OnInit {
   addRecipeStep(): void {
     const ricetteStep = this.fb.group({
       description: [''],
-      stepImgUrl: ['' ],
+      ordinal:[],
+      stepImgUrl: [''],
       ingredientId: [null] 
     });
     this.recipeSteps.push(ricetteStep);  //aggiunge questo nel array
