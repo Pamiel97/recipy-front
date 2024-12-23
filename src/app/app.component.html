@@ -1,8 +1,17 @@
-<div>
-  <nav>
-    <ul>
-      <li><a routerLink="/search-recipe">Lista Ricette</a></li> 
-    </ul>
-  </nav>
+<div class="navbar">
+  <div class="logo">RECIPY |
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a routerLink="/search-recipe">Lista Ricette</a></li>
+  </ul>
+</div>
+  <div class="search-bar">
+    <input type="text" placeholder="Cerca ricette" />
+    <button type="submit">></button>
+  </div>
+  <div class="auth-buttons">
+    <a href="#signin" class="signin">Sign in</a>
+    <a href="#signup" class="signup">Sign up</a>
+  </div>
 </div>
 <router-outlet />
