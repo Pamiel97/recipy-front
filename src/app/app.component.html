@@ -5,13 +5,25 @@
     <li><a routerLink="/search-recipe">Lista Ricette</a></li>
   </ul>
 </div>
+
+  <!-- Barra di ricerca -->
   <div class="search-bar">
     <input type="text" placeholder="Cerca ricette" />
     <button type="submit">></button>
   </div>
+
+  <!-- Se l'utente è autenticato, mostra "Vai alla tua pagina", altrimenti mostra "Login" e "Sign Up" -->
   <div class="auth-buttons">
-    <a href="#signin" class="signin">Sign in</a>
-    <a href="#signup" class="signup">Sign up</a>
+    <ng-container *ngIf="!isAuthenticated; else userPage">
+      <a routerLink="/login" class="signin">Login</a>
+      <a routerLink="/signup" class="signup">Sign up</a>
+    </ng-container>
+
+    <!-- Se l'utente è autenticato, mostra il link per la pagina dell'utente -->
+    <ng-template #userPage>
+      <a routerLink="/user-page" class="user-page">Vai alla tua pagina</a>
+      <button (click)="logout()">Logout</button>
+    </ng-template>
   </div>
 </div>
 
