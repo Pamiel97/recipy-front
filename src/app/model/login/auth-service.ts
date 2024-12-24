@@ -4,6 +4,7 @@ import { LoginDto } from "./login-dto";
 import { BehaviorSubject, Observable } from "rxjs";
 import { TokenResponse } from "./token-response";
 import { HttpConfig } from "../../config/http-config";
+import { RegisterDto } from "./register-dto";
 
 @Injectable({
     providedIn: 'root',
@@ -45,7 +46,12 @@ export class AuthService {
       localStorage.removeItem('jwtToken'); // Rimuovi il token dal localStorage
     }
 
-
+    register(r: RegisterDto): Observable<RegisterDto> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post<RegisterDto>(`${HttpConfig.apiUrl}${this.urlExtension}/register`, r, {headers});
+    }
 
 
 }
