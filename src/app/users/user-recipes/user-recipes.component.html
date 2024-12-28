@@ -1,10 +1,7 @@
 <p>user-recipes works!</p>
-<div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
-  
+
   <div *ngIf="recipes.length === 0">
-    <p>No recipes found for this user.</p>
+    <p>Non hai ancora nessuna ricetta.</p>
   </div>
   
   <div *ngIf="recipes.length > 0">
