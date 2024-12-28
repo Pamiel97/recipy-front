@@ -1,1 +1,17 @@
 <p>user-recipes works!</p>
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngIf="recipes.length === 0">
+    <p>No recipes found for this user.</p>
+  </div>
+  
+  <div *ngIf="recipes.length > 0">
+    <ul>
+      <li *ngFor="let recipe of recipes">
+        <h3>{{ recipe.title }}</h3>
+        <p>{{ recipe.description }}</p>
+      </li>
+    </ul>
+  </div>

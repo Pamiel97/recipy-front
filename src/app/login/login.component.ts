@@ -26,6 +26,8 @@ export class LoginComponent  implements OnInit {
     this.authService.login(this.loginForm.value).subscribe({
       next: (r) => {
         localStorage.setItem('jwtToken', r.token);  // Memorizza il token
+        localStorage.setItem('userEmail', this.loginForm.value.email);  // Memorizza l'email
+        this.authService.loginSuccessful(this.loginForm.value.email);   // Salva l'email come "utente connesso"
         this.authService.loginSuccessful('User');   // Puoi sostituire 'User' con un nome utente più specifico
         this.router.navigate(['/home']);            // Redirigi alla home o alla pagina dell'utente
       },

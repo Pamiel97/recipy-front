@@ -43,7 +43,9 @@ export class AuthService {
     logout(): void {
       this.isAuthenticatedSubject.next(false);
       this.currentUserSubject.next(null);
+      
       localStorage.removeItem('jwtToken'); // Rimuovi il token dal localStorage
+      localStorage.removeItem('userEmail'); //Rimuovi email dal LocalStorage
     }
 
     register(r: RegisterDto): Observable<RegisterDto> {

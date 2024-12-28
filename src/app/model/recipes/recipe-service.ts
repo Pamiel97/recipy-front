@@ -24,4 +24,15 @@ export class RecipeService{
         return this.http.post<RecipeDto>(this.apiUrl, recipe, { headers });
     }
 
+
+    //GET PER AVERE LE RICETTE TRAMITE EMAIL UTENTE PRESO DAL LOCAL STORAGE
+    getRecipesByEmail(): Observable<RecipeDto[]> {
+        const email = localStorage.getItem('userEmail'); // Recupera l'email dal localStorage
+        if (!email) {
+          throw new Error('Email not found in localStorage');
+        }
+        //aggiunge l'email preso come parmetro                         
+        return this.http.get<RecipeDto[]>(`${this.apiUrl}/user/email/${email}`);
+      }
+
 }

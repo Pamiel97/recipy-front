@@ -102,6 +102,7 @@ export class RecipeAddFormComponent implements OnInit {
       error: (err) => {
         console.error('Errore nel salvataggio della ricetta:', err);
         console.log('Recipe Payload:', ricettaCompilata);
+        this.router.navigate(['/search-recipe']);
       }
     });
   }
