@@ -3,7 +3,7 @@ import { UserDto } from "../users/user-dto";
 import { Difficulty } from "./difficulty.enum";
 
 export interface RecipeDto {
-    id: number | null;
+    id: number;
     title: string;
     description: string;
     course: string;

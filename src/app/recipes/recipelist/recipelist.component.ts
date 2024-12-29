@@ -10,13 +10,12 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class RecipelistComponent implements OnInit{
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   constructor(private router: Router){}
 
-  goToCreateRecipe(): void {
-    this.router.navigate(['/create-recipe']);
-  }
+  // goToCreateRecipe(): void {
+  //   this.router.navigate(['/create-recipe']);
+  // }
 
 }

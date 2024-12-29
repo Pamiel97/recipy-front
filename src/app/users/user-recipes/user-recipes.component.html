@@ -1,14 +1,18 @@
-<p>user-recipes works!</p>
-
-  <div *ngIf="recipes.length === 0">
-    <p>Non hai ancora nessuna ricetta.</p>
-  </div>
-  
-  <div *ngIf="recipes.length > 0">
-    <ul>
-      <li *ngFor="let recipe of recipes">
+<button (click)="goToCreateRecipe()">Crea una nuova Ricetta</button>
+<ul>
+  <li *ngFor="let recipe of recipes; let i = index">
+    <div class="recipe-card">
+      <!--  -->
+      <img [src]="recipe.imgUrl" alt="{{ recipe.title }}" />
+      <div class="recipe-info">
         <h3>{{ recipe.title }}</h3>
         <p>{{ recipe.description }}</p>
-      </li>
-    </ul>
-  </div>
+      </div>
+      <div class="recipe-actions">
+        <button (click)="deleteRecipe(recipe.id)">Elimina</button>
+        <button (click)="goToEditRecipe(recipe.id)">Modifica</button>
+      </div>
+      
+    </div>
+  </li>
+</ul>

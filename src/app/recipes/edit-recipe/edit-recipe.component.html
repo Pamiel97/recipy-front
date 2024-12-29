@@ -1,0 +1,87 @@
+<form [formGroup]="recipeForm" (ngSubmit)="updateRecipe()">
+    <div>
+      <label for="title">Titolo</label>
+      <input formControlName="title" id="title" type="text" />
+    </div>
+  
+    <div>
+      <label for="description">Descrizione</label>
+      <input formControlName="description" id="description" type="text" />
+    </div>
+  
+    <div>
+      <label for="course">Portata</label>
+      <select formControlName="course" id="course">
+        <option value="antipasto">antipasto</option>
+        <option value="primo">primo</option>
+        <option value="secondo">secondo</option>
+        <option value="dolce">dolce</option>
+        <option value="bevanda">bevanda</option>
+        <option value="contorno">contorno</option>
+        <option value="snack">snack</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="prepTime">Tempo di preparazione</label>
+      <input formControlName="prepTime" id="prepTime" type="number" />
+    </div>
+  
+    <div>
+      <label for="cookingTime">Tempo di cottura</label>
+      <input formControlName="cookingTime" id="cookingTime" type="number" />
+    </div>
+  
+    <div>
+      <label for="difficulty">Difficoltà</label>
+      <select formControlName="difficulty" id="difficulty">
+        <option value="facile">Facile</option>
+        <option value="medio">Medio</option>
+        <option value="difficile">Difficile</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="kCalories">Kcalorie</label>
+      <input formControlName="kCalories" id="kCalories" type="number" />
+    </div>
+  
+    <div>
+      <label for="imgUrl">Immagine del Piatto</label>
+      <input formControlName="imgUrl" id="imgUrl" type="file" />
+    </div>
+  
+    <div formArrayName="recipeSteps">
+      <div *ngFor="let step of recipeSteps.controls; let i = index" [formGroupName]="i">
+        <div>
+          <label for="description-{{ i }}">Descrizione Passaggio</label>
+          <textarea formControlName="description" id="description-{{ i }}"></textarea>
+        </div>
+  
+        <div>
+          <label for="ordinal-{{ i }}">Passaggio numero:</label>
+          <input formControlName="ordinal" id="ordinal-{{ i }}" type="number" />
+        </div>
+  
+        <div>
+          <label for="stepImgUrl-{{ i }}">Immagine Passaggio</label>
+          <input formControlName="stepImgUrl" id="stepImgUrl-{{ i }}" type="file" />
+        </div>
+  
+        <div>
+          <label for="ingredientId-{{ i }}">Ingrediente</label>
+          <select formControlName="ingredientId" id="ingredientId-{{ i }}">
+            <option *ngFor="let ingredient of ingredients" [value]="ingredient.id">
+              {{ ingredient.name }}
+            </option>
+          </select>
+        </div>
+  
+        <button type="button" (click)="removeRecipeStep(i)">Rimuovi Passaggio</button>
+      </div>
+    </div>
+  
+    <button type="button" (click)="addRecipeStep()">Aggiungi Passaggio</button>
+  
+    <button type="submit" [disabled]="recipeForm.invalid">Salva Ricetta</button>
+  </form>

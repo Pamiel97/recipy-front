@@ -29,10 +29,24 @@ export class RecipeService{
     getRecipesByEmail(): Observable<RecipeDto[]> {
         const email = localStorage.getItem('userEmail'); // Recupera l'email dal localStorage
         if (!email) {
-          throw new Error('Email not found in localStorage');
+          throw new Error('Nessuna ricetta trovata');
         }
         //aggiunge l'email preso come parmetro                         
         return this.http.get<RecipeDto[]>(`${this.apiUrl}/user/email/${email}`);
-      }
+    }
+
+   //elimina ricett
+    deleteRecipe(id: number): Observable<void> {
+        return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    }
+
+    //udat delle ricette
+    updateRecipe(recipe: RecipeDto): Observable<RecipeDto> {
+        return this.http.put<RecipeDto>(`${this.apiUrl}/${recipe.id}`, recipe);
+    }
+
+    getRecipeById(id: number): Observable<RecipeDto> {
+        return this.http.get<RecipeDto>(`${this.apiUrl}/${id}`);
+    }
 
 }
