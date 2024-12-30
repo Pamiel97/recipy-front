@@ -84,20 +84,20 @@ export class EditRecipeComponent implements OnInit {
   }
 
   
-  addRecipeStep(): void {
-    const recipeStep = this.fb.group({ 
-      description: [''],
-      ordinal: [],
-      stepImgUrl: [''],
-      ingredientId: [null]
-    });
-    this.recipeSteps.push(recipeStep);  
-  }
+  // addRecipeStep(): void {
+  //   const recipeStep = this.fb.group({ 
+  //     description: [''],
+  //     ordinal: [],
+  //     stepImgUrl: [''],
+  //     ingredientId: [null]
+  //   });
+  //   this.recipeSteps.push(recipeStep);  
+  // }
 
   
-  removeRecipeStep(index: number): void {
-    this.recipeSteps.removeAt(index);  
-  }
+  // removeRecipeStep(index: number): void {
+  //   this.recipeSteps.removeAt(index);  
+  // }
 
   
   private populateForm(recipe: RecipeDto): void {
@@ -114,9 +114,18 @@ export class EditRecipeComponent implements OnInit {
 
     
     if (recipe.recipeSteps && recipe.recipeSteps.length > 0) {
-      recipe.recipeSteps.forEach(step => this.addRecipeStep());
+      recipe.recipeSteps.forEach(step => {
+        const stepGroup = this.fb.group({ 
+          id: [step.id], // Aggiungi l'ID
+          description: [''],
+          ordinal: [],
+          stepImgUrl: [''],
+          ingredientId: [null]
+        });
+        this.recipeSteps.push(stepGroup);
+      });
       this.recipeSteps.controls.forEach((stepCtrl, index) => {
-        stepCtrl.patchValue(recipe.recipeSteps[index]); //PER MODIFICARE SINGOLO CAMPO ANZICHè TUTTO
+        stepCtrl.patchValue(recipe.recipeSteps[index]);
       });
     }
   }
@@ -133,12 +142,15 @@ export class EditRecipeComponent implements OnInit {
     updatedRecipeDto.id = this.recipeId!;  
 
     //PER AGGIUNGERE EVENTALI STEP NUOVI
-    updatedRecipeDto.recipeSteps = updatedRecipeDto.recipeSteps.map((step: any) => {
-      if (step.id === undefined || step.id === 0) {
-        step.id = 0; 
-      }
-      return step;
-    });
+    // updatedRecipeDto.recipeSteps = updatedRecipeDto.recipeSteps.map((step: any) => {
+    //   // if (step.id === undefined || step.id === 0) {
+    //   //   step.id = 0; 
+    //   // }
+    //  // return step;
+    // });
+
+    
+
 
     
     console.log('Updated Recipe:', updatedRecipeDto);
@@ -151,6 +163,7 @@ export class EditRecipeComponent implements OnInit {
       },
       error: (err) => {
         console.error('Errore nell\'aggiornamento della ricetta:', err);
+        console.log('Payload inviato:', JSON.stringify(updatedRecipeDto, null, 2));
       }
     });
   }

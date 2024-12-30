@@ -42,11 +42,7 @@ export class RecipeService{
 
     //udat delle ricette
     updateRecipe(recipe: RecipeDto): Observable<RecipeDto> {
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${this.token}`
-        });
-        return this.http.put<RecipeDto>(`${this.apiUrl}/${recipe.id}`, recipe, { headers });
+        return this.http.put<RecipeDto>(`${this.apiUrl}/${recipe.id}`, recipe);
     }
 
     getRecipeById(id: number): Observable<RecipeDto> {
