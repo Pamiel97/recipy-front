@@ -85,8 +85,7 @@ export class EditRecipeComponent implements OnInit {
 
   
   addRecipeStep(): void {
-    const recipeStep = this.fb.group({
-      id: [0], 
+    const recipeStep = this.fb.group({ 
       description: [''],
       ordinal: [],
       stepImgUrl: [''],

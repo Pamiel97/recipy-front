@@ -48,6 +48,8 @@ export class RecipeAddFormComponent implements OnInit {
 
   
   private initializeForm(): void {
+    const todayDate = new Date().toISOString().split('T')[0];
+
     this.recipeForm = this.fb.group({
       title: ['', [Validators.required]],
       description: ['', [Validators.required]],
@@ -57,6 +59,7 @@ export class RecipeAddFormComponent implements OnInit {
       difficulty: ['', [Validators.required]],
       kCalories: ['',],
       imgUrl: ['', ],
+      creationDate: [todayDate],
       tags: this.fb.array([]),
       recipeSteps: this.fb.array([]),  
     });
@@ -83,6 +86,12 @@ export class RecipeAddFormComponent implements OnInit {
     this.recipeSteps.removeAt(index);  
   }
 
+
+  private extractFileName(url: string): string {
+    const arrayString = url.split("\\"); 
+    return arrayString[arrayString.length - 1];
+  }
+
   
   saveRecipe(): void {
     if (this.recipeForm.invalid) {
@@ -92,7 +101,9 @@ export class RecipeAddFormComponent implements OnInit {
 
     const ricettaCompilata = this.recipeForm.value;
 
-
+    if (ricettaCompilata.imgUrl) {
+      ricettaCompilata.imgUrl = this.extractFileName(ricettaCompilata.imgUrl);
+    }
    
     this.recipeService.createRecipe(ricettaCompilata).subscribe({
       next: () => {
@@ -102,7 +113,7 @@ export class RecipeAddFormComponent implements OnInit {
       error: (err) => {
         console.error('Errore nel salvataggio della ricetta:', err);
         console.log('Recipe Payload:', ricettaCompilata);
-        this.router.navigate(['/search-recipe']);
+        //this.router.navigate(['/search-recipe']);
       }
     });
   }
