@@ -8,6 +8,7 @@ import { Injectable } from "@angular/core";
  })
 
   export class IngredientService {
+    private apiUrl = 'http://localhost:8080/api/ingredients';
     
     constructor(private http: HttpClient) {}
 
@@ -16,6 +17,10 @@ import { Injectable } from "@angular/core";
       params = params.set("active", "true");  // Parametro query
   
       return this.http.get<IngredientDto[]>('http://localhost:8080/api/ingredients', { params });
+    }
+
+    getIngredientById(id: number): Observable<IngredientDto> {
+      return this.http.get<IngredientDto>(`${this.apiUrl}/${id}`);
     }
 
   }

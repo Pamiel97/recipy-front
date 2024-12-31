@@ -29,6 +29,10 @@ export class UserRecipesComponent implements OnInit{
     this.router.navigate([`/edit-recipe/${recipeId}`]); 
   }
 
+  goToDetailRecipe(recipeId: number): void {
+    this.router.navigate([`/recipe-detail/${recipeId}`]); 
+  }
+
 
   loadRecipes(): void {
     this.recipeService.getRecipesByEmail().subscribe({
