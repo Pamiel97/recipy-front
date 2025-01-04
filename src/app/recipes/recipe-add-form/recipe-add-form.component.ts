@@ -104,6 +104,16 @@ export class RecipeAddFormComponent implements OnInit {
     if (ricettaCompilata.imgUrl) {
       ricettaCompilata.imgUrl = this.extractFileName(ricettaCompilata.imgUrl);
     }
+
+    for (const ricette of this.recipeSteps.controls) {
+      if (ricette instanceof FormGroup) { 
+        const stepImgUrlControl = ricette.get('stepImgUrl'); 
+        if (stepImgUrlControl && stepImgUrlControl.value) { // Controlla se esiste e ha un valore
+          const extractedFileName = this.extractFileName(stepImgUrlControl.value);
+          stepImgUrlControl.setValue(extractedFileName); 
+        }
+      }
+    }
    
     this.recipeService.createRecipe(ricettaCompilata).subscribe({
       next: () => {
