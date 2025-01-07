@@ -32,6 +32,7 @@
 
 .card:hover {
     background-color: darksalmon;
+    cursor: pointer;
 }
 
 span{
