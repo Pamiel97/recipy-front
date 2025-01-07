@@ -1,4 +1,14 @@
-body {
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+    width: 100%;             
+    text-align: center;      
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+.card-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
