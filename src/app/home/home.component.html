@@ -1,1 +1,8 @@
-<p>Pam troppo forte</p>
+@if (recipes) {
+    @for (recipe of recipes; track $index) {
+        <div>
+            <h3>{{recipe.title}}</h3>
+            <img [src]="recipe.imgUrl" alt="">
+        </div>
+    }
+}
