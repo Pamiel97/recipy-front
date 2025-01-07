@@ -23,7 +23,4 @@ export const routes: Routes = [
     {path: 'edit-recipe/:id', component: EditRecipeComponent},
     {path: 'recipe-detail/:id', component: RecipeDetailComponent},
     {path: 'recipe-search/:title', component: RecipeSearchComponent},
-
-    
-    
 ];
