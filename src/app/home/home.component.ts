@@ -11,14 +11,28 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit{
   recipes! : RecipeDto[];
+  recipes1! : RecipeDto[];
+  recipes2! :RecipeDto[];
 
   constructor(private recipeService: RecipeService, private router: Router) {
 
   }
+
   ngOnInit(): void {
     this.recipeService.getRecipeByPantries().subscribe(r => {
       console.log(r);
       this.recipes = r;
+    })
+    this.recipeService.getRecipesByUser().subscribe(r => {
+      console.log(r);
+      this.recipes1 = r;
+    })
+  }
+  // TEST
+  onClickDiet(): void { 
+    this.recipeService.getRecipesByDiet().subscribe(r => {
+      console.log(r);
+      this.recipes2 = r;
     })
   }
   
