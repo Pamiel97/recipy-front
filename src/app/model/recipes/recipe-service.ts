@@ -57,4 +57,8 @@ export class RecipeService{
         return this.http.get<RecipeDto[]>(`http://localhost:8080/api/home/recipes-by-pantries`);
     }
 
+    getRecipesByTitle(title: string): Observable<RecipeDto[]> {
+        return this.http.get<RecipeDto[]>(`http://localhost:8080/api/recipes/search/${title}`);
+    }
+
 }
