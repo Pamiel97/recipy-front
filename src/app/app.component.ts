@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from "./home/home.component";
 import { AuthService } from './model/login/auth-service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RecipeService } from './model/recipes/recipe-service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterModule, HttpClientModule, CommonModule],
+  imports: [RouterOutlet, RouterModule, HttpClientModule, CommonModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -16,8 +18,9 @@ export class AppComponent implements OnInit {
 
   isAuthenticated: boolean = false;
   currentUser: string | null = null;
+  searchRecipe: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private recipeService: RecipeService) {}
 
   ngOnInit(): void {
     // Sottoscrivi agli osservabili per ottenere l'autenticazione e l'utente
@@ -35,4 +38,14 @@ export class AppComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/home']);
   }
+
+
+
+  searchRecipes(): void {
+    if (this.searchRecipe) {
+      this.router.navigate(['/recipe-search', this.searchRecipe]);
+    }
+  }
+
+
 }
