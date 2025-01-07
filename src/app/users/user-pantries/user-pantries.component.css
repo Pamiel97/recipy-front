@@ -1,0 +1,64 @@
+
+.available-pantries {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 3%;
+    width: 30em;
+    margin: 3em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.available-pantries:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+span {
+    font-weight: bold;
+}
+
+.edit {
+    margin: 5px;
+    cursor: pointer;
+    height: 2em;
+    width: 5em;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+.edit:hover {
+    background-color: rgb(41, 40, 40)
+}
+.delete {
+    margin: 5px;
+    cursor: pointer;
+    height: 2em;
+    width: 5em;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}
+.delete:hover {
+    background-color: rgb(196, 4, 4);
+}
+
+.detail {
+    margin: 5px;
+    cursor: pointer;
+    height: 2em;
+    width: 5em;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(0, 89, 255);
+    color: white;
+}
+.detail:hover {
+    background-color: blue;
+
+}

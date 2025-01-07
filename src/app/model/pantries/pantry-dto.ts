@@ -8,4 +8,5 @@ export interface PantryDto{
     expirationDate: string;
     user: UserDto;
     ingredientId: number;
+    ingredientName: string;
 }
