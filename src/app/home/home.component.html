@@ -14,7 +14,6 @@
                     <p><span>Kcal: </span> {{recipe.kCalories}}</p>
                 </div>
                 <img [src]="recipe.imgUrl" alt="">
-
                 <p>{{recipe.tags}}</p>
             </div>
             }
@@ -27,25 +26,95 @@
             <h2>In base al tuo profilo:</h2>
         </div>
         <div class="card-container">
-            @if (recipes1) {
-                @for (recipe of recipes1; track $index) {
-                <div class="card" (click)="navigate(recipe.id)">
-                    <h2>{{recipe.title}}</h2>
-                    <div class="card-paragraphs">
-                        <p><span>Portata: </span> {{recipe.course}}</p>
-                        <p><span>Difficoltà: </span> {{recipe.difficulty}}</p>
-                        <p><span>Kcal: </span> {{recipe.kCalories}}</p>
-                    </div>
-                    <img [src]="recipe.imgUrl" alt="">
-    
-                    <p>{{recipe.tags}}</p>
+            @if (userRecipes) {
+            @for (recipe of userRecipes; track $index) {
+            <div class="card" (click)="navigate(recipe.id)">
+                <h2>{{recipe.title}}</h2>
+                <div class="card-paragraphs">
+                    <p><span>Portata: </span> {{recipe.course}}</p>
+                    <p><span>Difficoltà: </span> {{recipe.difficulty}}</p>
+                    <p><span>Kcal: </span> {{recipe.kCalories}}</p>
                 </div>
-                }
-                }
+                <img [src]="recipe.imgUrl" alt="">
+                <p>{{recipe.tags}}</p>
+            </div>
+            }
+            }
         </div>
     </div>
 
-    <!-- <div>
-        <button onclick="onClickDiet()"></button>
-    </div> -->
+    <div>
+        <button (click)="onClickDiet()">test dieta</button>
+        <button (click)="onClickDifficulty()">test difficoltà</button>
+        <button (click)="onClickIntAndAll()">test intol. e all.</button>
+    </div>
+    @if(diet){
+    <div class="recipes-by-diet">
+        <div class="section">
+            <h2>In base alle tue preferenze alimentari:</h2>
+        </div>
+        <div class="card-container">
+            @if (recipesDiet) {
+            @for (recipe of recipesDiet; track $index) {
+            <div class="card" (click)="navigate(recipe.id)">
+                <h2>{{recipe.title}}</h2>
+                <div class="card-paragraphs">
+                    <p><span>Portata: </span> {{recipe.course}}</p>
+                    <p><span>Difficoltà: </span> {{recipe.difficulty}}</p>
+                    <p><span>Kcal: </span> {{recipe.kCalories}}</p>
+                </div>
+                <img [src]="recipe.imgUrl" alt="">
+                <p>{{recipe.tags}}</p>
+            </div>
+            }
+            }
+        </div>
+    </div>
+    }
+    @if(difficulty){
+    <div class="recipes-by-diet">
+        <div class="section">
+            <h2>In base alla tua esperienza in cucina:</h2>
+        </div>
+        <div class="card-container">
+            @if (recipesDifficulty) {
+            @for (recipe of recipesDifficulty; track $index) {
+            <div class="card" (click)="navigate(recipe.id)">
+                <h2>{{recipe.title}}</h2>
+                <div class="card-paragraphs">
+                    <p><span>Portata: </span> {{recipe.course}}</p>
+                    <p><span>Difficoltà: </span> {{recipe.difficulty}}</p>
+                    <p><span>Kcal: </span> {{recipe.kCalories}}</p>
+                </div>
+                <img [src]="recipe.imgUrl" alt="">
+                <p>{{recipe.tags}}</p>
+            </div>
+            }
+            }
+        </div>
+    </div>
+    }
+    @if(intAndAll){
+    <div class="recipes-by-diet">
+        <div class="section">
+            <h2>In base alle tue intolleranze ed allergie:</h2>
+        </div>
+        <div class="card-container">
+            @if (recipesIntAndAll) {
+            @for (recipe of recipesIntAndAll; track $index) {
+            <div class="card" (click)="navigate(recipe.id)">
+                <h2>{{recipe.title}}</h2>
+                <div class="card-paragraphs">
+                    <p><span>Portata: </span> {{recipe.course}}</p>
+                    <p><span>Difficoltà: </span> {{recipe.difficulty}}</p>
+                    <p><span>Kcal: </span> {{recipe.kCalories}}</p>
+                </div>
+                <img [src]="recipe.imgUrl" alt="">
+                <p>{{recipe.tags}}</p>
+            </div>
+            }
+            }
+        </div>
+    </div>
+    }
 </body>
