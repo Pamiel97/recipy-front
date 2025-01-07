@@ -2,6 +2,11 @@
 <div>
     <form (ngSubmit) = "onSubmit()" [formGroup]="profileForm">
         <div class="form-group">
+        
+        <label for="imgUrl">Immagine del profilo</label>
+        <input type="text" formControlName="imgUrl" id="imgUrl">
+
+        <img [src]="imgUrl" alt="Immagine del profilo">    
 
         <label for="pal">Livello di attività fisica</label>
         <select formControlName="pal" id="pal">
@@ -34,14 +39,14 @@
 
         <label for="eatingRegimeId">Regime alimentare</label>
         <select formControlName="eatingRegimeId" id="eatingRegimeId">
-            <option value="altro"></option>
-            <option value="vegano">Vegano</option>
-            <option value="vegetariano">Vegetariano</option>
-            <option value="pescatariano">Pescatariano</option>
-            <option value="carnivoro">Carnivoro</option>
-            <option value="onnivoro">Onnivoro</option>
-            <option value="fruttariano">Fruttariano</option>
-            <option value="altro">Altro</option>
+            <option value="7"></option>
+            <option value="1">Vegano</option>
+            <option value="2">Vegetariano</option>
+            <option value="3">Pescatariano</option>
+            <option value="4">Carnivoro</option>
+            <option value="5">Onnivoro</option>
+            <option value="6">Fruttariano</option>
+            <option value="7">Altro</option>
         </select>
         </div>
        <button>Salva</button>
