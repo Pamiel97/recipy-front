@@ -1,8 +1,18 @@
+<body>
+    
 @if (recipes) {
     @for (recipe of recipes; track $index) {
-        <div>
-            <h3>{{recipe.title}}</h3>
+        <div class="card" (click)="navigate(recipe.id)">
+            <h2>{{recipe.title}}</h2>
+            <div class="card-paragraphs">
+                <p><span>Portata: </span> {{recipe.course}}</p>
+                <p><span>Difficoltà: </span> {{recipe.difficulty}}</p>
+                <p><span>Kcal: </span> {{recipe.kCalories}}</p>
+            </div>
             <img [src]="recipe.imgUrl" alt="">
+            
+            <p>{{recipe.tags}}</p>
         </div>
     }
 }
+</body>

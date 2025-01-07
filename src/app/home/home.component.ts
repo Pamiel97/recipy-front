@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeDto } from '../model/recipes/recipe-dto';
 import { RecipeService } from '../model/recipes/recipe-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { RecipeService } from '../model/recipes/recipe-service';
 export class HomeComponent implements OnInit{
   recipes! : RecipeDto[];
 
-  constructor(private recipeService: RecipeService) {
+  constructor(private recipeService: RecipeService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -20,4 +21,12 @@ export class HomeComponent implements OnInit{
       this.recipes = r;
     })
   }
+  
+  //metodo per andare al detail di una ricetta cliccando la div
+  navigate(id:number) {
+    this.recipeService.getRecipeById(id).subscribe(r => {
+      this.router.navigate(['recipe-detail', id])
+    })
+  }
+
 }
