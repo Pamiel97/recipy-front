@@ -50,10 +50,6 @@ export class RecipeService{
     }
 
     getRecipeByPantries(): Observable<RecipeDto[]> {
-        // const email = localStorage.getItem('userEmail');
-        // if(!email) {
-        //     throw new Error('nessuna ricetta trovata');
-        // }
         return this.http.get<RecipeDto[]>(`http://localhost:8080/api/home/recipes-by-pantries`);
     }
 
@@ -61,4 +57,9 @@ export class RecipeService{
         return this.http.get<RecipeDto[]>(`http://localhost:8080/api/recipes/search/${title}`);
     }
 
+
+
+    getRecipeByUser(): Observable<RecipeDto[]> {
+        return this.http.get<RecipeDto[]>(`http://localhost:8080/api/home/user`);
+    }
 }
