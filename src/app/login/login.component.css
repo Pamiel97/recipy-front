@@ -1,0 +1,70 @@
+/* Stile generale del modulo */
+form {
+    max-width: 400px; /* Larghezza massima del modulo */
+    margin: 50px auto; /* Centrato verticalmente e orizzontalmente */
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Stile per i contenitori dei campi */
+  form div {
+    margin-bottom: 20px; /* Spaziatura tra i campi */
+  }
+  
+  /* Etichette */
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px; /* Spaziatura sotto l'etichetta */
+    color: #333;
+    font-size: 14px;
+  }
+  
+  /* Input */
+  form input[type="email"],
+  form input[type="password"] {
+    width: 100%; /* Occupano tutta la larghezza disponibile */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+    box-sizing: border-box; /* Per evitare problemi di dimensionamento */
+  }
+  
+  /* Focus sugli input */
+  form input:focus {
+    border-color: #007bff; /* Colore del bordo al focus */
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+    outline: none; /* Rimuove il bordo predefinito */
+  }
+  
+  /* Pulsante */
+  form button {
+    width: 100%; /* Occupa tutta la larghezza del modulo */
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover sul pulsante */
+  form button:hover {
+    background: #0056b3;
+  }
+  
+  /* Margine aggiuntivo per pulsanti */
+  form button:last-child {
+    margin-top: 10px;
+  }
+  
