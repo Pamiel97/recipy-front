@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit{
   recipes! : RecipeDto[];
-  
+
   userRecipes! : RecipeDto[];
   recipesDiet! : RecipeDto[];
   recipesDifficulty!: RecipeDto[];
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit{
     })
     this.intAndAll = true;
   }
-  
+
   //metodo per andare al detail di una ricetta cliccando la div
   navigate(id:number) {
     this.recipeService.getRecipeById(id).subscribe(r => {
