@@ -53,13 +53,23 @@ export class RecipeService{
         return this.http.get<RecipeDto[]>(`http://localhost:8080/api/home/recipes-by-pantries`);
     }
 
-    getRecipesByTitle(title: string): Observable<RecipeDto[]> {
-        return this.http.get<RecipeDto[]>(`http://localhost:8080/api/recipes/search/${title}`);
+    getRecipesByDiet(): Observable<RecipeDto[]> {
+        return this.http.get<RecipeDto[]>(`http://localhost:8080/api/home/diet-compatible`);
     }
 
+    getRecipesByDifficulty(): Observable<RecipeDto[]> {
+        return this.http.get<RecipeDto[]>(`http://localhost:8080/api/home/difficulty`);
+    }
 
+    getRecipesByIntAndAll(): Observable<RecipeDto[]> {
+        return this.http.get<RecipeDto[]>(`http://localhost:8080/api/home/allergies-intolerances`);
+    }
 
-    getRecipeByUser(): Observable<RecipeDto[]> {
+    getRecipesByUser(): Observable<RecipeDto[]> {
         return this.http.get<RecipeDto[]>(`http://localhost:8080/api/home/user`);
+    }
+
+    getRecipesByTitle(title: string): Observable<RecipeDto[]> {
+        return this.http.get<RecipeDto[]>(`http://localhost:8080/api/recipes/search/${title}`);
     }
 }
