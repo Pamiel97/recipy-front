@@ -159,12 +159,12 @@
             color: #666;
         }
 
-        footer {
+        /* footer {
             text-align: center;
             padding: 20px;
             background-color: #7ac142;
             color: #fff;
-        }
+        } */
 
         .card-container {
             display: flex;

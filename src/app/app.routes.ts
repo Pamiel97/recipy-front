@@ -31,4 +31,5 @@ export const routes: Routes = [
     {path: 'edit-pantry/:id', component: EditPantryComponent},
     {path: 'ingredient-details/:id', component: IngredientDetailsComponent},
     
+    
 ];

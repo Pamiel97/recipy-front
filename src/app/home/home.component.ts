@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeDto } from '../model/recipes/recipe-dto';
 import { RecipeService } from '../model/recipes/recipe-service';
 import { Router } from '@angular/router';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit{
       console.log(r);
       this.recipes = r;
       },
-      error: () => alert('Dati mancanti o richiesta troppo lenta')
+      //error: () => alert('Dati mancanti o richiesta troppo lenta')
     });
   
     this.recipeService.getRecipesByUser().subscribe({
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit{
       console.log(r);
       this.userRecipes = r;
       },
-      error: () => alert('Dati mancanti o richiesta troppo lenta')
+      //error: () => alert('Dati mancanti o richiesta troppo lenta')
     });
   }
   // TEST
@@ -48,7 +49,7 @@ export class HomeComponent implements OnInit{
       console.log(r);
       this.recipesDiet = r;
       },
-      error: () => alert('Dati mancanti o richiesta troppo lenta')
+      //error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
     this.difficulty = false;
     this.intAndAll = false;
@@ -65,7 +66,7 @@ export class HomeComponent implements OnInit{
       console.log(r);
       this.recipesDifficulty = r;
       },
-      error: () => alert('Dati mancanti o richiesta troppo lenta')
+     // error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
     this.diet = false;
     this.intAndAll = false;
@@ -81,7 +82,7 @@ export class HomeComponent implements OnInit{
       console.log(r);
       this.recipesIntAndAll = r;
       },
-      error: () => alert('Dati mancanti o richiesta troppo lenta')
+      //error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
     this.diet = false;
     this.difficulty = false;
@@ -98,7 +99,7 @@ export class HomeComponent implements OnInit{
       next: () => {
       this.router.navigate(['recipe-detail', id])
       },
-      error: () => alert('Dati mancanti o richiesta troppo lenta')
+      //error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
   }
 

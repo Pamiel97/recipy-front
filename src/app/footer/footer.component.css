@@ -1,0 +1,129 @@
+footer {
+    background-color: #7ac142;
+    color: #fff;
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 16px;
+    gap: 10px;
+  }
+  
+  .footer-section {
+    flex: 1 1 150px;
+    min-width: 180px;
+    padding: 10px;
+  }
+  
+  footer h3 {
+    font-size: 28px;  /* Aumentato il font per "Recipy" */
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase; /* Aggiunta la trasformazione in maiuscolo per un look più forte */
+    letter-spacing: 2px; /* Aggiunto uno spazio tra le lettere */
+  }
+  
+  footer h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  footer ul li {
+    margin-bottom: 8px;
+  }
+  
+  footer ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+  
+  footer ul li a:hover {
+    color: #333;
+  }
+  
+  footer form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  footer form input[type="email"] {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  footer form button {
+    padding: 12px;
+    background-color: #fff;
+    color: #7ac142;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  footer form button:hover {
+    background-color: #7ac142;
+    color: #fff;
+  }
+  
+  footer .copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: #333;
+    padding: 15px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  footer .copyright p {
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    footer {
+      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    footer .footer-section {
+      flex: 1 1 100%;
+      min-width: auto;
+      text-align: center;
+      padding: 20px 0;
+    }
+  
+    footer form {
+      width: 80%;
+    }
+  
+    footer h3, footer h4 {
+      text-align: center;
+    }
+  
+    footer .copyright {
+      margin-top: 30px;
+    }
+  }
+  
