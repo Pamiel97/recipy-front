@@ -12,7 +12,7 @@ import { RecipeSearchComponent } from './recipes/recipe-search/recipe-search.com
 import { UserPantriesComponent } from './users/user-pantries/user-pantries.component';
 import { PantryAddFormComponent } from './pantries/pantry-add-form/pantry-add-form.component';
 import { EditPantryComponent } from './pantries/edit-pantry/edit-pantry.component';
-import { PantriesListComponent } from './pantries/pantries-list/pantries-list.component';
+import { IngredientDetailsComponent } from './pantries/ingredient-details/ingredient-details.component';
 
 export const routes: Routes = [
     {path: 'create-recipe', component: RecipeAddFormComponent },
@@ -29,6 +29,6 @@ export const routes: Routes = [
     {path: 'user-pantries', component: UserPantriesComponent},
     {path: 'create-pantry', component: PantryAddFormComponent},
     {path: 'edit-pantry/:id', component: EditPantryComponent},
-    {path: 'pantries-list', component: PantriesListComponent},
+    {path: 'ingredient-details/:id', component: IngredientDetailsComponent},
     
 ];

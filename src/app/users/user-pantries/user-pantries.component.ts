@@ -32,8 +32,8 @@ export class UserPantriesComponent implements OnInit{
     this.router.navigate(['edit-pantry', id]);
   }
 
-  goToPantriesList() {
-    this.router.navigate(['pantries-list']);
+  goToIngredientDetails(id: number) {
+    this.router.navigate(['ingredient-details', id]);
   }
 
   deletePantry(id: number) {

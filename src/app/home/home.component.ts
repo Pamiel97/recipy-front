@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit{
       this.recipes = r;
       },
       error: () => alert('Dati mancanti o richiesta troppo lenta')
-  })
+    });
   
     this.recipeService.getRecipesByUser().subscribe({
       next: r => {
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit{
       this.userRecipes = r;
       },
       error: () => alert('Dati mancanti o richiesta troppo lenta')
-    })
+    });
   }
   // TEST
   onClickDiet(): void { 

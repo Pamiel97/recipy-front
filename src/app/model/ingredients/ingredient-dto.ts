@@ -9,7 +9,6 @@ export interface IngredientDto{
     weight: number;
     price: number;
     imgUrl: string;
-    diet: string;
     allergy: string;
     intolerance: string;
 }
