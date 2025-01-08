@@ -1,1 +1,12 @@
-<p>user-pantries works!</p>
+<div class="available-pantries">
+    @for (pantry of pantries; track $index) {
+        <h2>{{pantry.ingredientName}}</h2>
+        <p>{{pantry.quantity}} {{pantry.unitType}}</p>
+        <p><span>Scadenza: </span> {{pantry.expirationDate}}</p>
+        <div class="buttons">
+        <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
+        <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
+        <button (click)="goToPantriesList()" class="detail">Dettaglio</button>
+        </div>
+    }
+</div>
