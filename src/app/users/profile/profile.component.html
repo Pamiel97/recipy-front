@@ -1,12 +1,17 @@
-<a routerLink="/user-recipes">Gestisci le tue ricette</a>
+<a routerLink="/user-recipes">Gestisci le tue ricette</a> <br>
+<a routerLink="/user-pantries">Gestisci i tuoi ingredienti</a>
+<router-outlet />
+
 <div>
     <form (ngSubmit) = "onSubmit()" [formGroup]="profileForm">
         <div class="form-group">
         
         <label for="imgUrl">Immagine del profilo</label>
-        <input type="text" formControlName="imgUrl" id="imgUrl">
+        <input type="text" formControlName="imgUrl" id="imgUrl" placeholder="Inserisci l'URL dell'immagine">
 
-        <img [src]="imgUrl" alt="Immagine del profilo">    
+        <img [src]="profileForm.value.imgUrl ? profileForm.value.imgUrl : 'https://i.pinimg.com/236x/60/13/a3/6013a33f806d8d74f43ee2eb565ff4dc.jpg'"
+        alt="Immagine del profilo" 
+        class="profile-image"> 
 
         <label for="pal">Livello di attività fisica</label>
         <select formControlName="pal" id="pal">
@@ -31,10 +36,9 @@
 
         <label for="sex">Sesso</label>
         <select formControlName="sex" id="sex">
-            <option value="A"></option>
-            <option value="F">Femmina</option>
-            <option value="M">Maschio</option>
             <option value="A">Altro</option>
+            <option value="F">Femmina</option>
+            <option value="M">Maschio</option>            
         </select>
 
         <label for="eatingRegimeId">Regime alimentare</label>
