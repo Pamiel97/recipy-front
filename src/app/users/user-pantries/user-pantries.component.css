@@ -60,5 +60,29 @@ span {
 }
 .detail:hover {
     background-color: blue;
+}
 
+.addBtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 93%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.add {
+    margin: 5px;
+    cursor: pointer;
+    height: 2em;
+    width: 11em;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+}
+.add:hover {
+    background-color: rgb(2, 82, 2);
 }
