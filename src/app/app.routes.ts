@@ -10,6 +10,9 @@ import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeSearchComponent } from './recipes/recipe-search/recipe-search.component';
 import { UserPantriesComponent } from './users/user-pantries/user-pantries.component';
+import { PantryAddFormComponent } from './pantries/pantry-add-form/pantry-add-form.component';
+import { EditPantryComponent } from './pantries/edit-pantry/edit-pantry.component';
+import { IngredientDetailsComponent } from './pantries/ingredient-details/ingredient-details.component';
 
 export const routes: Routes = [
     {path: 'create-recipe', component: RecipeAddFormComponent },
@@ -19,8 +22,13 @@ export const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'user-recipes', component: UserRecipesComponent},
-    {path: 'user-pantries', component: UserPantriesComponent},
     {path: 'edit-recipe/:id', component: EditRecipeComponent},
     {path: 'recipe-detail/:id', component: RecipeDetailComponent},
     {path: 'recipe-search/:title', component: RecipeSearchComponent},
+
+    {path: 'user-pantries', component: UserPantriesComponent},
+    {path: 'create-pantry', component: PantryAddFormComponent},
+    {path: 'edit-pantry/:id', component: EditPantryComponent},
+    {path: 'ingredient-details/:id', component: IngredientDetailsComponent},
+    
 ];

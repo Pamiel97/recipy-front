@@ -24,9 +24,18 @@ export class ProfileComponent implements OnInit {
     this.profileForm = this.fb.group({
       imgUrl: [''], 
       pal: [''], 
-      weight: ['', [Validators.maxLength(3)]], 
-      height: ['', [Validators.maxLength(3)]], 
-      bfp: [''], 
+      weight: ['', [
+        Validators.maxLength(5), 
+        Validators.pattern('^[+]?[0-9]{1,3}(\\.[0-9]{1,2})?$'),  // Consente numeri positivi con fino a 2 decimali
+        Validators.max(200), // Limita a 200 kg
+        Validators.min(0) // Impedisce numeri negativi, 
+        ]],
+      height: ['', [
+        Validators.maxLength(3), 
+        Validators.pattern('^[+]?[0-9]{1,3}$'),  // Consente solo numeri positivi fino a 3 cifre
+        Validators.max(300), // Limita a 300 cm
+        Validators.min(0) // Impedisce numeri negativi
+        ]],
       lbmp: [''], 
       sex: [''], 
       eatingRegimeId: [''], 
@@ -47,6 +56,7 @@ export class ProfileComponent implements OnInit {
 
 
   onSubmit(): void {
+
     if (this.profileForm.valid) {
       this.ps.saveProfile(this.profileForm.value).subscribe({
         next: (response) => {
@@ -55,6 +65,7 @@ export class ProfileComponent implements OnInit {
           window.location.reload();
         },
         error: (err) => {
+          alert('Impossibile salvare, controllare i dati')
           console.error('Errore durante la chiamata:', err);
         }
       });
