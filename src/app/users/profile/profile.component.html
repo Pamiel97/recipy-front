@@ -8,10 +8,12 @@
         
         <label for="imgUrl">Immagine del profilo</label>
         <input type="text" formControlName="imgUrl" id="imgUrl" placeholder="Inserisci l'URL dell'immagine">
-
+        
+        <div class="image">
         <img [src]="profileForm.value.imgUrl ? profileForm.value.imgUrl : 'https://i.pinimg.com/236x/60/13/a3/6013a33f806d8d74f43ee2eb565ff4dc.jpg'"
         alt="Immagine del profilo" 
-        class="profile-image"> 
+        class="profile-image">
+        </div> 
 
         <label for="pal">Livello di attività fisica</label>
         <select formControlName="pal" id="pal">
