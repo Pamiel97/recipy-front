@@ -25,42 +25,61 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.recipeService.getRecipeByPantries().subscribe(r => {
+    this.recipeService.getRecipeByPantries().subscribe({
+      next: r => {
       console.log(r);
       this.recipes = r;
-    })
-    this.recipeService.getRecipesByUser().subscribe(r => {
+      },
+      error: () => alert('Dati mancanti o richiesta troppo lenta')
+    });
+  
+    this.recipeService.getRecipesByUser().subscribe({
+      next: r => {
       console.log(r);
       this.userRecipes = r;
-    })
+      },
+      error: () => alert('Dati mancanti o richiesta troppo lenta')
+    });
   }
   // TEST
   onClickDiet(): void { 
-    this.recipeService.getRecipesByDiet().subscribe(r => {
+    this.recipeService.getRecipesByDiet().subscribe({
+      next: r => {
       console.log(r);
       this.recipesDiet = r;
+      },
+      error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
     this.diet = true;
   }
   onClickDifficulty():void {
-    this.recipeService.getRecipesByDifficulty().subscribe(r => {
+    this.recipeService.getRecipesByDifficulty().subscribe({
+      next: r => {
       console.log(r);
       this.recipesDifficulty = r;
+      },
+      error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
     this.difficulty = true;
   }
   onClickIntAndAll():void {
-    this.recipeService.getRecipesByIntAndAll().subscribe(r => {
+    this.recipeService.getRecipesByIntAndAll().subscribe({
+      next: r => {
       console.log(r);
       this.recipesIntAndAll = r;
+      },
+      error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
     this.intAndAll = true;
   }
   
   //metodo per andare al detail di una ricetta cliccando la div
   navigate(id:number) {
-    this.recipeService.getRecipeById(id).subscribe(r => {
+    this.recipeService.getRecipeById(id).subscribe({
+      next: () => {
       this.router.navigate(['recipe-detail', id])
+      },
+      error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
   }
 

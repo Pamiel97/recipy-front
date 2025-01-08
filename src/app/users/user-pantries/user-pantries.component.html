@@ -6,7 +6,10 @@
         <div class="buttons">
         <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
         <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
-        <button (click)="goToPantriesList()" class="detail">Dettaglio</button>
+        <button (click)="goToIngredientDetails(pantry.ingredientId)" class="detail">Dettaglio Ingrediente</button>
         </div>
     }
+</div>
+<div class="addBtn">
+    <button (click)="goToCreatePantry()" class="add">Inserisci Ingrediente</button>
 </div>

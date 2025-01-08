@@ -15,9 +15,12 @@ export class UserPantriesComponent implements OnInit{
   constructor(private pantryService: PantryService, private router: Router){}
 
   ngOnInit(): void {
-    this.pantryService.getPantries().subscribe(p => {
-      console.log(p);
-      this.pantries = p;
+    this.pantryService.getPantries().subscribe({
+      next: p => {
+              console.log(p);
+              this.pantries = p;
+      },
+      error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
   }
 
@@ -29,18 +32,18 @@ export class UserPantriesComponent implements OnInit{
     this.router.navigate(['edit-pantry', id]);
   }
 
-  goToPantriesList() {
-    this.router.navigate(['pantries-list']);
+  goToIngredientDetails(id: number) {
+    this.router.navigate(['ingredient-details', id]);
   }
 
   deletePantry(id: number) {
-    this.pantryService.deletePantry(id).subscribe(
-      () => {
+    this.pantryService.deletePantry(id).subscribe({
+      next: () => {
         alert('Ingrediente eliminato con successo dalla dispensa');
         window.location.reload();
       },
-      (error) => alert('Errore durante l\'eliminazione dell\'ingrediente')
-    )
+      error: () => alert('Errore durante l\'eliminazione dell\'ingrediente')
+    })
   }
 
 }
