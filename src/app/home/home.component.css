@@ -359,3 +359,9 @@ img {
             background-color: #5e9d34;
         }
         
+        .card img {
+            width: 100%; /* Adatta la larghezza dell'immagine alla card */
+            height: 200px; /* Imposta un'altezza fissa */
+            object-fit: cover; /* Taglia e centra l'immagine senza deformarla */
+            border-radius: 10px; /* Mantieni gli angoli arrotondati */
+        }
