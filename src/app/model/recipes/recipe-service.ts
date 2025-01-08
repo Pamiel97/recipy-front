@@ -2,6 +2,9 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { RecipeDto } from "./recipe-dto";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
+import { IngredientDto as Ingredient} from '../../model/ingredients/ingredient-dto';
+
+
 
 
 @Injectable({
@@ -49,4 +52,8 @@ export class RecipeService{
         return this.http.get<RecipeDto>(`${this.apiUrl}/${id}`);
     }
 
+    getMissingIngredients(recipeId: number): Observable<Ingredient[]> {
+        const url = `http://localhost:8080/api/shopping-list/${recipeId}/missing-ingredients`;
+        return this.http.get<Ingredient[]>(url);
+    }
 }
