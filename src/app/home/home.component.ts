@@ -50,7 +50,14 @@ export class HomeComponent implements OnInit{
       },
       error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
-    this.diet = true;
+    this.difficulty = false;
+    this.intAndAll = false;
+    if(this.diet) {
+      this.diet = false;
+    } else {
+      this.diet = true;
+    }
+    
   }
   onClickDifficulty():void {
     this.recipeService.getRecipesByDifficulty().subscribe({
@@ -60,7 +67,13 @@ export class HomeComponent implements OnInit{
       },
       error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
-    this.difficulty = true;
+    this.diet = false;
+    this.intAndAll = false;
+    if(this.difficulty) {
+      this.difficulty = false;
+    } else {
+      this.difficulty = true;
+    }
   }
   onClickIntAndAll():void {
     this.recipeService.getRecipesByIntAndAll().subscribe({
@@ -70,7 +83,13 @@ export class HomeComponent implements OnInit{
       },
       error: () => alert('Dati mancanti o richiesta troppo lenta')
     })
-    this.intAndAll = true;
+    this.diet = false;
+    this.difficulty = false;
+    if(this.intAndAll) {
+      this.intAndAll = false;
+    } else {
+      this.intAndAll = true;
+    }
   }
   
   //metodo per andare al detail di una ricetta cliccando la div
@@ -83,4 +102,7 @@ export class HomeComponent implements OnInit{
     })
   }
 
+  navigateToRecipeList() {
+    this.router.navigate(['search-recipe']);
+  }
 }
