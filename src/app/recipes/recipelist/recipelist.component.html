@@ -1,6 +1,4 @@
-
-
-<div class="logo"></div>
+<!-- <div class="logo"></div>
         
     
 
@@ -57,4 +55,43 @@
 
     <footer>
         <p>&copy; 2025 Cooking. All rights reserved.</p>
-    </footer>
+    </footer> -->
+
+<div class="recipe-list-container">
+    <!-- Titolo della sezione -->
+    <h1>Lista delle Ricette</h1>
+
+    <!-- Lista delle ricette -->
+    @if (recipes) {
+    <div class="recipe-card">
+        @for(recipe of recipes; track $index){
+            <div class="card" (click)="navigate(recipe.id)">
+                <h2>{{recipe.title}}</h2>
+                <div class="card-paragraphs">
+                    <p><span>Portata: </span> {{recipe.course}}</p>
+                    <p><span>Difficoltà: </span> {{recipe.difficulty}}</p>
+                    <p><span>Kcal: </span> {{recipe.kCalories}}</p>
+                </div>
+                <img [src]="recipe.imgUrl" alt="">
+                <p>{{recipe.tags}}</p>
+            </div>
+        }
+    </div>
+    } @else {
+    <!-- Messaggio se non ci sono ricette -->
+    <p>Non ci sono ricette disponibili.</p>
+    }
+
+    <!-- Paginazione -->
+    <div class="pagination">
+        <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+            Precedente
+        </button>
+
+        <span>Pagina {{ currentPage }} di {{ totalPages() }}</span>
+
+        <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages()">
+            Successiva
+        </button>
+    </div>
+</div>
