@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { RecipeService } from '../../model/recipes/recipe-service';
 import { IngredientDto } from '../../model/ingredients/ingredient-dto';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-recipelist',
+  imports: [HttpClientModule, CommonModule],
   templateUrl: './recipelist.component.html',
   styleUrls: ['./recipelist.component.css']
 })

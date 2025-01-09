@@ -66,9 +66,9 @@ export class RecipeDetailComponent implements OnInit{
 
   onAddToShoppingList(): void {
     if (this.recipe) {
-      this.ingredientShareService.setIngredients(this.ingredientNames);
-      console.log('Ingredient list passed to shopping list:', this.ingredientNames);
-      this.router.navigate(['/shopping-list']); // Naviga verso la Shopping List
+      this.ingredientShareService.addIngredients(this.ingredientNames); // Aggiunge gli ingredienti accumulativamente
+      console.log('Ingredients added to shopping list:', this.ingredientNames);
+      this.router.navigate(['/shopping-list']); // Naviga verso ShoppingList
     }
   }
 }

@@ -17,7 +17,7 @@ export class ShoppingListComponent implements OnInit{
   ngOnInit(): void {
     const ingredientsMap = this.ingredientShareService.getIngredients();
     this.ingredientList = Array.from(ingredientsMap, ([id, name]) => ({ id, name }));
-    console.log('Loaded ingredient list:', this.ingredientList);
+    console.log('Cumulative ingredient list:', this.ingredientList);
   }
 
 }

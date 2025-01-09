@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root', // Il servizio sarà disponibile in tutta l'app
+  providedIn: 'root',
 })
 export class IngredientShareService {
   private ingredients: Map<number, string> = new Map();
 
-  setIngredients(ingredients: Map<number, string>): void {
-    this.ingredients = ingredients;
+  addIngredients(newIngredients: Map<number, string>): void {
+    newIngredients.forEach((name, id) => {
+      this.ingredients.set(id, name); // Accumula gli ingredienti
+    });
   }
 
   getIngredients(): Map<number, string> {
