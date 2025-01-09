@@ -1,91 +1,121 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-  }
-  
-  div {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 600px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    gap: 15px;
-    flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
 
-  }
-  
-  a {
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  
-  label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input,
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #f9f9f9;
-  }
-  
-  input:focus,
-  select:focus {
-    outline: none;
-    border-color: #007bff;
-    background-color: #ffffff;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Stile per il gruppo di form */
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+.profile-container {
+  margin: 50px auto;
+  padding: 30px;
+  max-width: 600px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  .image{
-    box-shadow: none;
-  }  
+.image-preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
 
-  .profile-image {
-    width: 200px;       
-    height: 200px;      
-    object-fit: cover; 
-    border-radius: 50%; 
-    object-position: center; 
-    border: 2px solid #ccc; 
-  }
-  
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+  margin-bottom: 15px; 
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px; 
+}
+
+input, select {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  color: #333; 
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #ffffff;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #7ac142;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #6aa137;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+form[formGroup] {
+  display: flex;
+  flex-direction: column;
+}
+
+input[readonly], select[readonly] {
+  background-color: #e0e0e0; 
+  cursor: not-allowed; 
+  color: #666; 
+}
+
+input[readonly]:hover, select[readonly]:hover {
+  cursor: not-allowed;
+}
+
+.user-id-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.user-id-text {
+  color: gray;
+  font-size: 14px;
+}
+
+input, select {
+  width: 100%; 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 14px; 
+  background-color: #f5f5f5; 
+  box-sizing: border-box; 
+}
+
+input[readonly], select[disabled], select[readonly] {
+  background-color: #e0e0e0; 
+  color: #666; 
+  border: 1px solid #ccc; 
+  cursor: not-allowed; 
+}
+
