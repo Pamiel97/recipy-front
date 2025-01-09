@@ -7,10 +7,10 @@
 </div>
 
   
-  <div class="search-bar">
-    <input type="text" placeholder="Cerca ricette" />
-    <button type="submit">></button>
-  </div>
+<div class="search-bar">
+  <input [(ngModel)]="searchRecipe" placeholder="Cerca ricette" (keyup.enter)="searchRecipes()" />
+  <button (click)="searchRecipes()">Cerca</button>
+</div>
 
   
   <div class="auth-buttons">

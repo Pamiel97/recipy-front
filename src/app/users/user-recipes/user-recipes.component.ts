@@ -35,7 +35,7 @@ export class UserRecipesComponent implements OnInit{
 
 
   loadRecipes(): void {
-    this.recipeService.getRecipesByEmail().subscribe({
+    this.recipeService.getAllRecipeByUtent().subscribe({
       next: (recipes) => {
         this.recipes = recipes; 
       },

@@ -1,0 +1,74 @@
+/* Contenitore principale del modulo */
+form {
+    max-width: 500px; /* Larghezza massima del modulo */
+    margin: 60px auto; /* Centrato verticalmente e orizzontalmente */
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Stile per ogni campo */
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333333;
+  }
+  
+  /* Campi di input */
+  form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Spazio tra i campi */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Focus sugli input */
+  form input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+    outline: none;
+  }
+  
+  /* Pulsante di submit */
+  form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover sul pulsante */
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Pulsante disabilitato */
+  form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    form {
+      padding: 20px;
+    }
+  
+    form button {
+      font-size: 15px;
+    }
+  }
