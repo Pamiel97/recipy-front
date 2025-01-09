@@ -53,8 +53,6 @@ export class PantryAddFormComponent implements OnInit{
   }
 
   private initializeForm(): void {
-    const todayDate = new Date().toISOString().split('T')[0];
-
     this.pantryForm = this.fb.group({
       quantity: ['', [Validators.required, Validators.min(0)]],
       unitType: ['', [Validators.required]],

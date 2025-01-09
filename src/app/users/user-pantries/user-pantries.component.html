@@ -9,9 +9,15 @@
                 <p>{{pantry.quantity}} {{pantry.unitType}}</p>
                 <p><span>Scadenza: </span> {{pantry.expirationDate}}</p>
                 <div class="buttons">
-                <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
-                <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
-                <button (click)="goToIngredientDetails(pantry.ingredientId)" class="detail">Dettaglio Ingrediente</button>
+                    <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
+                    <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
+                    <button (click)="goToIngredientDetails(pantry.ingredientId)" class="detail">Dettaglio Ingrediente</button>
+                    <div class="editQuantityButton">
+                        @if(pantry.unitType === 'pz') {
+                        <button (click)="increaseQuantity(pantry)">˄</button>
+                        <button (click)="decreaseQuantity(pantry)">˅</button>
+                    }
+                    </div>
                 </div>
             </div>
         }

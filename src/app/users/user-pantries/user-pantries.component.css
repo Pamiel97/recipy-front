@@ -116,3 +116,15 @@
   .addBtn button:hover {
     background-color: #5e9d34;
   }
+
+.editQuantityButton button{
+    display: block;
+    margin: 3px;
+    background-color: #7ac142;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 5px;
+    transition: background-color 0.3s ease;
+}
