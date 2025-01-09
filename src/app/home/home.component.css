@@ -339,3 +339,10 @@
         .buttons button:hover {
             background-color: green;
         }
+
+        .recipe-card img {
+            width: 100%; /* Adatta la larghezza all'interno della card */
+            height: 200px; /* Imposta un'altezza uniforme per tutte le immagini */
+            object-fit: cover; /* Taglia e centra l'immagine senza deformarla */
+            border-radius: 10px; /* Mantieni gli angoli arrotondati */
+        }
