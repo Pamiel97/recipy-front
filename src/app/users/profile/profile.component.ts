@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
         Validators.max(300), // Limita a 300 cm
         Validators.min(0) // Impedisce numeri negativi
         ]],
+      bfp: [''],
       lbmp: [''], 
       sex: [''], 
       eatingRegimeId: [''], 
