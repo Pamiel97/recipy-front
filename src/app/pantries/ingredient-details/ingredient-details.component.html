@@ -1,0 +1,17 @@
+<div class="ingredient-container">
+    <div class="ingredient-image">
+        <img [src]="ingredient.imgUrl" alt="Immagine non disponibile.">
+    </div>
+
+    <div class="ingredient-details">
+        <p><span>Id ingrediente: </span> {{ingredient.id}}</p>
+        <h1>{{ingredient.name}}</h1>
+        <p><span>Categoria: </span>{{ingredient.ingredientCategory}}</p>
+        <p><span>Valori nutrizionali: </span><br> Carboidrati: {{ingredient.carbs}}, Proteine: {{ingredient.prots}}, Grassi: {{ingredient.fats}}</p>
+        <p><span>Kcal: </span>{{ingredient.kcal}}</p>
+        @if (ingredient.allergy) {<p><span>Allergeni: </span>{{ingredient.allergy}}</p>}
+        @if (ingredient.intolerance) {<p><span>Intolleranze: </span> {{ingredient.intolerance}}</p>}
+        <p>Peso medio: {{ingredient.weight}}</p>
+        <p>Prezzo medio: €{{ingredient.price}}</p>
+    </div>
+</div>

@@ -1,2 +1,60 @@
-<a routerLink="/user-recipes">Gestisci le tue ricette</a>
+<a routerLink="/user-recipes">Gestisci le tue ricette</a> <br>
+<a routerLink="/user-pantries">Gestisci i tuoi ingredienti</a>
 <router-outlet />
+
+<div>
+    <form (ngSubmit) = "onSubmit()" [formGroup]="profileForm">
+        <div class="form-group">
+        
+        <label for="imgUrl">Immagine del profilo</label>
+        <input type="text" formControlName="imgUrl" id="imgUrl" placeholder="Inserisci l'URL dell'immagine">
+        
+        <div class="image">
+        <img [src]="profileForm.value.imgUrl ? profileForm.value.imgUrl : 'https://i.pinimg.com/236x/60/13/a3/6013a33f806d8d74f43ee2eb565ff4dc.jpg'"
+        alt="Immagine del profilo" 
+        class="profile-image">
+        </div> 
+
+        <label for="pal">Livello di attività fisica</label>
+        <select formControlName="pal" id="pal">
+            <option value="default"></option>
+            <option value="sedentario">Sedentario</option>
+            <option value="leggero">Leggero</option>
+            <option value="moderato">Moderato</option>
+            <option value="intenso">Intenso</option>
+        </select>
+
+        <label for="weight">Peso</label>
+        <input type="number" formControlName="weight" id="weight">
+
+        <label for="height">Altezza</label>
+        <input type="number" formControlName="height" id="height">
+
+        <label for="bfp">Percentuale grasso corporeo</label>
+        <input type="number" formControlName="bfp" id="bfp">
+
+        <label for="lbmp">Metabolismo basale</label>
+        <input type="number" formControlName="lbmp" id="lbmp">
+
+        <label for="sex">Sesso</label>
+        <select formControlName="sex" id="sex">
+            <option value="A">Altro</option>
+            <option value="F">Femmina</option>
+            <option value="M">Maschio</option>            
+        </select>
+
+        <label for="eatingRegimeId">Regime alimentare</label>
+        <select formControlName="eatingRegimeId" id="eatingRegimeId">
+            <option value="7"></option>
+            <option value="1">Vegano</option>
+            <option value="2">Vegetariano</option>
+            <option value="3">Pescatariano</option>
+            <option value="4">Carnivoro</option>
+            <option value="5">Onnivoro</option>
+            <option value="6">Fruttariano</option>
+            <option value="7">Altro</option>
+        </select>
+        </div>
+       <button>Salva</button>
+    </form>
+</div>

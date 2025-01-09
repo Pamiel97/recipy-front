@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { RecipeService } from '../../model/recipes/recipe-service';
-import { IngredientDto as Ingredient } from '../../model/ingredients/ingredient-dto';
 
 @Component({
   selector: 'app-recipelist',
@@ -8,39 +8,52 @@ import { IngredientDto as Ingredient } from '../../model/ingredients/ingredient-
   styleUrls: ['./recipelist.component.css']
 })
 export class RecipelistComponent implements OnInit {
-  missingIngredients: Ingredient[] = [];
-  shoppingList: Ingredient[] = [];
-  loading: boolean = false;
 
-  constructor(private recipeService: RecipeService) {}
+  recipes: any[] = [];
+  currentPage: number = 1; // numero pagina attuale
+  pageSize: number = 10;  // numero ricette per pagina
+  totalRecipes: number = 0; // totale ricette disponibili
+
+  constructor(
+    private router: Router, 
+    private recipeService: RecipeService
+  ) { }
+
 
   ngOnInit(): void {
-    // Aggiungo la logica iniziale se necessario
+    this.loadRecipes();
   }
 
-  fetchMissingIngredients(recipeId: number): void {
-    this.loading = true; // Inizio il loading
-    this.recipeService.getMissingIngredients(recipeId).subscribe(
-      (ingredients) => {
-        this.missingIngredients = ingredients;
-        this.loading = false; // Stoppo il loading dopo il fetch
-        console.log('Missing Ingredients:', this.missingIngredients);
+  navigate(id:number) {
+    this.recipeService.getRecipeById(id).subscribe(r => {
+      this.router.navigate(['recipe-detail', id])
+    })
+  }
+
+  loadRecipes(): void {
+    this.recipeService.getPaginatedRecipes().subscribe({
+      next: (data) => {
+        if (data) {
+          this.recipes = data.content || [];
+          this.totalRecipes = data.totalElements || 0;
+        }
       },
-      (error) => {
-        console.error('Error fetching missing ingredients:', error);
-        this.loading = false; // Stoppo il loading anche con errori
+      error: (err) => {
+        console.error('Errore durante il caricamento delle ricette:', err);
       }
-    );
+    });
   }
 
-  addToShoppingList(recipeId: number): void {
-    this.shoppingList = [...this.shoppingList, ...this.missingIngredients];
-    console.log('Added to shopping list:', this.shoppingList);
+  onPageChange(newPage: number): void {
+    this.currentPage = newPage;
+    this.loadRecipes();
   }
 
-  markShoppingListAsCompleted(): void {
-    console.log('Marking shopping list as completed:', this.shoppingList);
-    // Resetto la shoppinglist
-    this.shoppingList = [];
+  totalPages(): number {
+    return Math.ceil(this.totalRecipes / this.pageSize);
   }
+
+  // goToCreateRecipe(): void {
+  //   this.router.navigate(['/create-recipe']);
+  // }
 }
