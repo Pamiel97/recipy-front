@@ -1,14 +1,24 @@
 <div class="navbar">
-  <div class="logo">RECIPY |
+  <div class="logo"><a routerLink="/home">RECIPY</a>  |
     <ul class="nav-links">
-      <li><a routerLink="/home">Home</a></li>
       <li><a routerLink="/search-recipe">Lista Ricette</a></li>
+      <li><a routerLink="/ingredient-list">Lista degli ingredienti</a></li>
     </ul>
   </div>
 
   <div class="search-bar">
     <input [(ngModel)]="searchRecipe" placeholder="Cerca ricette" (keyup.enter)="searchRecipes()" />
     <button (click)="searchRecipes()">Cerca</button>
+  </div>
+
+  <div>
+    <ul class="nav-links">
+      @if(isAuthenticated){
+        <li><a routerLink="/user-recipes">Tue Ricette</a></li>
+        <li><a routerLink="/user-pantries">Tuoi Ingredienti</a></li>
+        <li><a routerLink="/shopping-list">Lista della Spesa</a></li>
+      }
+    </ul>
   </div>
 
   <div class="auth-buttons">
