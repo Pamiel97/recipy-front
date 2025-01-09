@@ -55,5 +55,7 @@ export class AuthService {
     return this.http.post<RegisterDto>(`${HttpConfig.apiUrl}${this.urlExtension}/register`, r, {headers});
     }
 
-
+    getUser(): Observable<any> {
+      return this.currentUserSubject.asObservable();
+    }
 }

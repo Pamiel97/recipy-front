@@ -30,6 +30,4 @@ export const routes: Routes = [
     {path: 'create-pantry', component: PantryAddFormComponent},
     {path: 'edit-pantry/:id', component: EditPantryComponent},
     {path: 'ingredient-details/:id', component: IngredientDetailsComponent},
-    
-    
 ];
