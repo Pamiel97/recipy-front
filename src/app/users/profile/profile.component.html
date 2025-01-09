@@ -2,59 +2,128 @@
 <a routerLink="/user-pantries">Gestisci i tuoi ingredienti</a>
 <a routerLink="/shoppinglist">Lista della spesa</a>
 <router-outlet />
+<div class="profile-container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <!-- ID Utente -->
+    <div class="form-group">
+      <label for="user-id">ID Utente</label>
+      <span class="user-id">{{ userId }}</span>
+    </div>
 
-<div>
-    <form (ngSubmit) = "onSubmit()" [formGroup]="profileForm">
-        <div class="form-group">
-        <label for="imgUrl">Immagine del profilo</label>
-        <input type="text" formControlName="imgUrl" id="imgUrl" placeholder="Inserisci l'URL dell'immagine">
-        
-        <div class="image">
-        <img [src]="profileForm.value.imgUrl ? profileForm.value.imgUrl : 'https://i.pinimg.com/236x/60/13/a3/6013a33f806d8d74f43ee2eb565ff4dc.jpg'"
-        alt="Immagine del profilo" 
-        class="profile-image">
-        </div> 
+    <!-- Immagine di Profilo -->
+    <div class="image-preview">
+      <img [src]="imgUrl || 'https://i.pinimg.com/236x/60/13/a3/6013a33f806d8d74f43ee2eb565ff4dc.jpg'" alt="Immagine del profilo" class="profile-image"/>
+    </div>
 
-        <label for="pal">Livello di attività fisica</label>
-        <select formControlName="pal" id="pal">
-            <option value="default"></option>
-            <option value="sedentario">Sedentario</option>
-            <option value="leggero">Leggero</option>
-            <option value="moderato">Moderato</option>
-            <option value="intenso">Intenso</option>
-        </select>
+    <!-- Nome -->
+    <div class="form-group">
+      <label for="firstname">Nome</label>
+      <input type="text" formControlName="firstname" id="firstname" [readonly]="!isEditing"/>
+    </div>
 
-        <label for="weight">Peso</label>
-        <input type="number" formControlName="weight" id="weight">
+    <!-- Cognome -->
+    <div class="form-group">
+      <label for="lastname">Cognome</label>
+      <input type="text" formControlName="lastname" id="lastname" [readonly]="!isEditing"/>
+    </div>
 
-        <label for="height">Altezza</label>
-        <input type="number" formControlName="height" id="height">
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Indirizzo email</label>
+      <input type="text" formControlName="email" id="email" [readonly]="!isEditing"/>
+    </div>
 
-        <label for="bfp">Percentuale grasso corporeo</label>
-        <input type="number" formControlName="bfp" id="bfp">
+    <!-- password -->
 
-        <label for="lbmp">Metabolismo basale</label>
-        <input type="number" formControlName="lbmp" id="lbmp">
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" id="password" placeholder="********" [readonly]="!isEditing"/>
+    </div>
 
-        <label for="sex">Sesso</label>
-        <select formControlName="sex" id="sex">
-            <option value="A">Altro</option>
-            <option value="F">Femmina</option>
-            <option value="M">Maschio</option>            
-        </select>
+    <!-- Tipo di Profilo -->
+    <div class="form-group">
+      <label for="profile">Tipo di profilo</label>
+      <select formControlName="profile" id="profile" [disabled]="!isEditing">
+        <option value="default"></option>
+        <option value="utente_base">Utente base</option>
+        <option value="chef">Chef</option>
+        <option value="dietologo">Dietologo</option>
+        <option value="altro">Altro</option>
+      </select>
+    </div>
 
-        <label for="eatingRegimeId">Regime alimentare</label>
-        <select formControlName="eatingRegimeId" id="eatingRegimeId">
-            <option value="7"></option>
-            <option value="1">Vegano</option>
-            <option value="2">Vegetariano</option>
-            <option value="3">Pescatariano</option>
-            <option value="4">Carnivoro</option>
-            <option value="5">Onnivoro</option>
-            <option value="6">Fruttariano</option>
-            <option value="7">Altro</option>
-        </select>
-        </div>
-       <button>Salva</button>
-    </form>
+    <!-- URL Immagine -->
+    <div class="form-group">
+      <label for="imgUrl">Immagine del profilo</label>
+      <input type="text" formControlName="imgUrl" id="imgUrl" placeholder="Inserisci l'URL dell'immagine" [readonly]="!isEditing"/>
+    </div>
+
+    <!-- Livello di Attività Fisica -->
+    <div class="form-group">
+      <label for="pal">Livello di attività fisica</label>
+      <select formControlName="pal" id="pal" [disabled]="!isEditing">
+        <option value="default"></option>
+        <option value="sedentario">Sedentario</option>
+        <option value="leggero">Leggero</option>
+        <option value="moderato">Moderato</option>
+        <option value="intenso">Intenso</option>
+      </select>
+    </div>
+
+    <!-- Peso -->
+    <div class="form-group">
+      <label for="weight">Peso</label>
+      <input type="number" formControlName="weight" id="weight" [readonly]="!isEditing"/>
+    </div>
+
+    <!-- Altezza -->
+    <div class="form-group">
+      <label for="height">Altezza</label>
+      <input type="number" formControlName="height" id="height" [readonly]="!isEditing"/>
+    </div>
+
+    <!-- Percentuale Grasso Corporeo -->
+    <div class="form-group">
+      <label for="bfp">Percentuale grasso corporeo</label>
+      <input type="number" formControlName="bfp" id="bfp" [readonly]="!isEditing"/>
+    </div>
+
+    <!-- Metabolismo Basale -->
+    <div class="form-group">
+      <label for="lbmp">Metabolismo basale</label>
+      <input type="number" formControlName="lbmp" id="lbmp" [readonly]="!isEditing"/>
+    </div>
+
+    <!-- Sesso -->
+    <div class="form-group">
+      <label for="sex">Sesso</label>
+      <select formControlName="sex" id="sex" [disabled]="!isEditing">
+        <option value="A">Altro</option>
+        <option value="F">Femmina</option>
+        <option value="M">Maschio</option>
+      </select>
+    </div>
+
+    <!-- Regime Alimentare -->
+    <div class="form-group">
+      <label for="eatingRegimeId">Regime alimentare</label>
+      <select formControlName="eatingRegimeId" id="eatingRegimeId" [disabled]="!isEditing">
+        <option value="7"></option>
+        <option value="1">Vegano</option>
+        <option value="2">Vegetariano</option>
+        <option value="3">Pescatariano</option>
+        <option value="4">Carnivoro</option>
+        <option value="5">Onnivoro</option>
+        <option value="6">Fruttariano</option>
+        <option value="7">Altro</option>
+      </select>
+    </div>
+
+    <!-- Pulsanti -->
+    <div class="buttons">
+      <button type="button" (click)="enableEditing()" [disabled]="isEditing">Modifica</button>
+      <button *ngIf="isEditing" type="submit" [disabled]="!hasChanges">Salva</button>
+      <button *ngIf="isEditing" type="button" (click)="disableEditing()">Annulla</button>
+    </div>
+  </form>
 </div>

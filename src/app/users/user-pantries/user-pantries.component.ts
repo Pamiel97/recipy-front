@@ -43,7 +43,28 @@ export class UserPantriesComponent implements OnInit{
         window.location.reload();
       },
       error: () => alert('Errore durante l\'eliminazione dell\'ingrediente')
-    })
+    });
   }
 
+  increaseQuantity(pantry: PantryDto): void {
+    pantry.quantity += 1;
+    this.pantryService.updatePantry(pantry).subscribe({
+      next: () => console.log("Quantità aggiornata con successo"),
+      error: () => console.log("boh")
+    });
+  }
+
+  decreaseQuantity(pantry: PantryDto) {
+    if(pantry.quantity > 1){
+    pantry.quantity -= 1;
+
+    this.pantryService.updatePantry(pantry).subscribe({
+      next: () => console.log("Quantità aggiornata con successo"),
+      error: () => console.log("boh")
+    });
+   } else {
+      alert('Quantità non valida! La quantità di un ingrediente non può essere inferiore a 1');
+   }
+    
+  }
 }
