@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfileService } from './profile.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -20,7 +21,7 @@ export class ProfileComponent implements OnInit {
   isEditing: boolean = false;
   hasChanges: boolean = false;
 
-  constructor(private fb: FormBuilder, private ps: ProfileService) {
+  constructor(private fb: FormBuilder, private ps: ProfileService, private router: Router) {
     this.profileForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
@@ -110,5 +111,12 @@ export class ProfileComponent implements OnInit {
     } else {
       alert('Per favore, compila tutti i campi correttamente');
     }
+  }
+
+  goToPantriesList() : void {
+    this.router.navigate(['user-pantries']);
+  }
+  goToRecipesList() : void {
+    this.router.navigate(['user-recipes']);
   }
 }
