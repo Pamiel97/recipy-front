@@ -12,8 +12,6 @@ import { delay } from 'rxjs';
 })
 
 export class ProfileComponent implements OnInit {
-
-
   profileForm: FormGroup = new FormGroup({});
   imgUrl: string = ''; 
 
@@ -42,7 +40,6 @@ export class ProfileComponent implements OnInit {
       eatingRegimeId: [''], 
     });
 
-
     this.ps.getProfile().subscribe({
       next: (profileData) => {
         console.log('Dati ricevuti dal backend:', profileData);
@@ -55,9 +52,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-
   onSubmit(): void {
-
     if (this.profileForm.valid) {
       this.ps.saveProfile(this.profileForm.value).subscribe({
         next: (response) => {
@@ -75,7 +70,4 @@ export class ProfileComponent implements OnInit {
       alert('Controlla i dati inseriti')
     }
   }
-
-  
-
 }
