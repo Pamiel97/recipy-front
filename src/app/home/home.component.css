@@ -159,12 +159,12 @@
             color: #666;
         }
 
-        footer {
+        /* footer {
             text-align: center;
             padding: 20px;
             background-color: #7ac142;
             color: #fff;
-        }
+        } */
 
         .card-container {
             display: flex;
@@ -338,4 +338,11 @@
         }
         .buttons button:hover {
             background-color: green;
+        }
+
+        .recipe-card img {
+            width: 100%; /* Adatta la larghezza all'interno della card */
+            height: 200px; /* Imposta un'altezza uniforme per tutte le immagini */
+            object-fit: cover; /* Taglia e centra l'immagine senza deformarla */
+            border-radius: 10px; /* Mantieni gli angoli arrotondati */
         }
