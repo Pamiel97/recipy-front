@@ -10,31 +10,31 @@
     </section>
 
     <section class="recipes">
-        <h2>Our Recipes</h2>
+        <h2>Le nostre ricette</h2>
         <div class="recipe-cards">
             <div class="recipe-card">
-                <img src="https://via.placeholder.com/300" alt="Recipe 1">
-                <h3>nome</h3>
-                <p>20 mins | Easy | 2 persons</p>
+                <img src="quinoa.jpg" alt="Recipe 1">
+                <h3>Quinoa e Verdure</h3>
+                <p>20 min | Facile | Vegano</p>
             </div>
             <div class="recipe-card">
-                <img src="https://via.placeholder.com/300" alt="Recipe 2">
-                <h3>Chicken Curry</h3>
-                <p>30 mins | Medium | 2 persons</p>
+                <img src="chilli.jpg" alt="Recipe 2">
+                <h3>Chili con Carne </h3>
+                <p>30 min | Medio | Piccante</p>
             </div>
             <div class="recipe-card">
-                <img src="https://via.placeholder.com/300" alt="Recipe 3">
-                <h3>Vegetable Salad</h3>
-                <p>15 mins | Easy | 2 persons</p>
+                <img src="parmigiana.jpeg" alt="Recipe 3">
+                <h3>Parmigiana di Melanzane</h3>
+                <p>15 min | Medio | Vegetariano</p>
             </div>
         </div>
     </section>
 
-
+    <ng-container *ngIf="isAuthenticated; else vuoto">
 
     <div class="recipes-by-pantries">
         <div class="section">
-            <h2>In base ai tuoi ingredienti:</h2>
+            <h2>Ricette in base ai tuoi ingredienti:</h2>
         </div>
         <div class="card-container">
             @if (recipes) {
@@ -56,7 +56,7 @@
 
     <div class="perfect-recipes">
         <div class="section">
-            <h2>In base al tuo profilo:</h2>
+            <h2>Ricette in base al tuo profilo:</h2>
         </div>
         <div class="card-container">
             @if (userRecipes) {
@@ -84,7 +84,7 @@
     @if(diet){
     <div class="recipes-by-diet">
         <div class="section">
-            <h2>In base alle tue preferenze alimentari:</h2>
+            <h2>Ricette in base alle tue preferenze alimentari:</h2>
         </div>
         <div class="card-container">
             @if (recipesDiet) {
@@ -107,7 +107,7 @@
     @if(difficulty){
     <div class="recipes-by-diet">
         <div class="section">
-            <h2>In base alla tua esperienza in cucina:</h2>
+            <h2>Ricette in base alla tua esperienza in cucina:</h2>
         </div>
         <div class="card-container">
             @if (recipesDifficulty) {
@@ -130,7 +130,7 @@
     @if(intAndAll){
     <div class="recipes-by-diet">
         <div class="section">
-            <h2>In base alle tue intolleranze ed allergie:</h2>
+            <h2>Ricette in base alle tue intolleranze ed allergie:</h2>
         </div>
         <div class="card-container">
             @if (recipesIntAndAll) {
@@ -151,6 +151,13 @@
     </div>
     }
 
+  </ng-container>
+  <ng-template #vuoto></ng-template>
+
+
+
+
+
     <section class="services">
         <h2>I nostri fantastici servizi</h2>
         <div class="service-items">
@@ -166,7 +173,7 @@
             </div>
             <div class="service-item">
                 <img src="ricetta.png" alt="Easy Recipes">
-                <h3>Rciette semplici</h3>
+                <h3>Ricette semplici</h3>
                 <p>Semplici passaggi per una cucina deliziosa.</p>
             </div>
         </div>

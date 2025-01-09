@@ -1,88 +1,118 @@
+/* Stili per la lista delle pantry */
+.container{
+    background-color: #f9f9f9;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
 
 .available-pantries {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 3%;
-    width: 30em;
-    margin: 3em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.available-pantries:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.available-pantries .addBtn {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.available-pantries .add {
+    padding: 10px 20px;
+    background-color: #7ac142;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.available-pantries .add:hover {
+    background-color: #5e9d34;
+}
+
+.pantry-card-container {
+    margin: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.pantry-card-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pantry-card-container h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #7ac142;
+}
+
+.pantry-card-container p {
+    font-size: 14px;
+    color: #666;
+}
+
+.pantry-card-container .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.pantry-card-container .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.pantry-card-container .buttons .delete {
+    background-color: #e74c3c;
+}
+
+.pantry-card-container .buttons .delete:hover {
+    background-color: #c0392b;
+}
+
+.pantry-card-container .buttons .edit {
+    background-color: #f39c12;
+}
+
+.pantry-card-container .buttons .edit:hover {
+    background-color: #d68910;
+}
+
+.pantry-card-container .buttons .detail {
+    background-color: #7ac142;
+}
+
+.pantry-card-container .buttons .detail:hover {
+    background-color: #5e9d34;
+}
+
+.addBtn button{
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    background-color: #7ac142;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
   }
-
-span {
-    font-weight: bold;
-}
-
-.edit {
-    margin: 5px;
-    cursor: pointer;
-    height: 2em;
-    width: 5em;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: black;
-    color: white;
-}
-.edit:hover {
-    background-color: rgb(41, 40, 40)
-}
-.delete {
-    margin: 5px;
-    cursor: pointer;
-    height: 2em;
-    width: 5em;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: red;
-    color: white;
-}
-.delete:hover {
-    background-color: rgb(196, 4, 4);
-}
-
-.detail {
-    margin: 5px;
-    cursor: pointer;
-    height: 2em;
-    width: 11em;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: rgb(0, 89, 255);
-    color: white;
-}
-.detail:hover {
-    background-color: blue;
-}
-
-.addBtn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 93%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.add {
-    margin: 5px;
-    cursor: pointer;
-    height: 2em;
-    width: 11em;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: green;
-    color: white;
-}
-.add:hover {
-    background-color: rgb(2, 82, 2);
-}
+  
+  .addBtn button:hover {
+    background-color: #5e9d34;
+  }

@@ -1,1 +1,37 @@
-<p>edit-pantry works!</p>
+<form [formGroup]="pantryForm" (submit)="updatePantry()">
+    <div>
+        <div>
+        <label for="ingredientName">Ingrediente:</label>
+        <select formControlName="ingredientName" id="ingredientName" (change)="onIngredientSelected($event)"> 
+            @for (ingredient of ingredients; track $index) {
+                <option [value]="ingredient.name">{{ingredient.name}}</option>
+            }
+        </select>
+        </div>
+
+        <div>
+        <label for="quantity">Quantità: </label>
+        <input formControlName="quantity" id="quantity" type="number">
+
+        <label for="unitType"></label>
+        <select formControlName="unitType" id="unitType"> 
+            <option value="gr">gr</option>
+            <option value="l">l</option>
+            <option value="pz">pz</option>
+        </select>
+        </div>
+
+        <div>
+            <label for="purchaseDate">Data di acquisto:</label>
+            <input formControlName="purchaseDate" id="purchaseDate" type="date">
+        </div>
+
+        <div>
+        <label for="expirationDate">Data di scadenza:</label>
+        <input formControlName="expirationDate" id="expirationDate" type="date">
+        </div>
+        
+        <button type="submit" [disabled]="pantryForm.invalid">Salva Ingrediente</button>
+    </div>
+
+</form>

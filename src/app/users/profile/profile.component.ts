@@ -12,8 +12,6 @@ import { delay } from 'rxjs';
 })
 
 export class ProfileComponent implements OnInit {
-
-
   profileForm: FormGroup = new FormGroup({});
   imgUrl: string = ''; 
 
@@ -36,11 +34,11 @@ export class ProfileComponent implements OnInit {
         Validators.max(300), // Limita a 300 cm
         Validators.min(0) // Impedisce numeri negativi
         ]],
+      bfp: [''],
       lbmp: [''], 
       sex: [''], 
       eatingRegimeId: [''], 
     });
-
 
     this.ps.getProfile().subscribe({
       next: (profileData) => {
@@ -54,9 +52,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-
   onSubmit(): void {
-
     if (this.profileForm.valid) {
       this.ps.saveProfile(this.profileForm.value).subscribe({
         next: (response) => {
@@ -74,7 +70,4 @@ export class ProfileComponent implements OnInit {
       alert('Controlla i dati inseriti')
     }
   }
-
-  
-
 }

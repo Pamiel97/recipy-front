@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit{
     });
   }
 
-
   onSubmit(): void {
     this.authService.register(this.registerForm.value).subscribe({
       next: (r) => {
