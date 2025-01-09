@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { RecipeService } from '../../model/recipes/recipe-service';
+import { IngredientDto } from '../../model/ingredients/ingredient-dto';
 
 @Component({
   selector: 'app-recipelist',

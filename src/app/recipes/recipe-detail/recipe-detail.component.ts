@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeDto } from '../../model/recipes/recipe-dto';
 import { CommonModule } from '@angular/common';
 import { IngredientService } from '../../model/ingredients/ingredient-service';
+import { IngredientShareService } from '../../model/ingredients/ingredient-share-service';
+
 
 @Component({
   selector: 'app-recipe-detail',
@@ -17,7 +19,7 @@ export class RecipeDetailComponent implements OnInit{
   recipe : RecipeDto | null = null;
   ingredientNames: Map<number, string> = new Map(); //inserisce nella map gli ingredienti trovati, cosi non se i caric ogni volta se li trova
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private ingredientService: IngredientService 
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private ingredientService: IngredientService, private ingredientShareService: IngredientShareService
   ) {}
 
   ngOnInit(): void {
@@ -62,6 +64,11 @@ export class RecipeDetailComponent implements OnInit{
     return this.ingredientNames.get(id) || 'Nessun ingrediente o ingrediente sconosciuto';
   }
 
-
-
+  onAddToShoppingList(): void {
+    if (this.recipe) {
+      this.ingredientShareService.setIngredients(this.ingredientNames);
+      console.log('Ingredient list passed to shopping list:', this.ingredientNames);
+      this.router.navigate(['/shopping-list']); // Naviga verso la Shopping List
+    }
+  }
 }
