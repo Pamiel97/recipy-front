@@ -5,43 +5,37 @@
     <button (click)="goToShoppingList()" class="shoppingList">Vai alla tua Lista della Spesa</button>
   </div>
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <!-- ID Utente -->
-    <div class="form-group">
-      <label for="user-id">ID Utente</label>
-      <span class="user-id">{{ userId }}</span>
-    </div>
 
-    <!-- Immagine di Profilo -->
+    <!-- immagine di profilo -->
     <div class="image-preview">
       <img [src]="imgUrl || 'https://i.pinimg.com/236x/60/13/a3/6013a33f806d8d74f43ee2eb565ff4dc.jpg'" alt="Immagine del profilo" class="profile-image"/>
     </div>
 
-    <!-- Nome -->
+    <!-- nome -->
     <div class="form-group">
       <label for="firstname">Nome</label>
       <input type="text" formControlName="firstname" id="firstname" [readonly]="!isEditing"/>
     </div>
 
-    <!-- Cognome -->
+    <!-- cognome -->
     <div class="form-group">
       <label for="lastname">Cognome</label>
       <input type="text" formControlName="lastname" id="lastname" [readonly]="!isEditing"/>
     </div>
 
-    <!-- Email -->
+    <!-- email -->
     <div class="form-group">
       <label for="email">Indirizzo email</label>
       <input type="text" formControlName="email" id="email" [readonly]="!isEditing"/>
     </div>
 
     <!-- password -->
-
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" formControlName="password" id="password" placeholder="********" [readonly]="!isEditing"/>
     </div>
 
-    <!-- Tipo di Profilo -->
+    <!-- tipo di profilo -->
     <div class="form-group">
       <label for="profile">Tipo di profilo</label>
       <select formControlName="profile" id="profile" [disabled]="!isEditing">
@@ -53,13 +47,13 @@
       </select>
     </div>
 
-    <!-- URL Immagine -->
+    <!-- url Immagine -->
     <div class="form-group">
       <label for="imgUrl">Immagine del profilo</label>
       <input type="text" formControlName="imgUrl" id="imgUrl" placeholder="Inserisci l'URL dell'immagine" [readonly]="!isEditing"/>
     </div>
 
-    <!-- Livello di Attività Fisica -->
+    <!-- pal -->
     <div class="form-group">
       <label for="pal">Livello di attività fisica</label>
       <select formControlName="pal" id="pal" [disabled]="!isEditing">
@@ -83,19 +77,19 @@
       <input type="number" formControlName="height" id="height" [readonly]="!isEditing"/>
     </div>
 
-    <!-- Percentuale Grasso Corporeo -->
+    <!-- bfp -->
     <div class="form-group">
       <label for="bfp">Percentuale grasso corporeo</label>
       <input type="number" formControlName="bfp" id="bfp" [readonly]="!isEditing"/>
     </div>
 
-    <!-- Metabolismo Basale -->
+    <!-- lbmp -->
     <div class="form-group">
       <label for="lbmp">Metabolismo basale</label>
       <input type="number" formControlName="lbmp" id="lbmp" [readonly]="!isEditing"/>
     </div>
 
-    <!-- Sesso -->
+    <!-- sesso -->
     <div class="form-group">
       <label for="sex">Sesso</label>
       <select formControlName="sex" id="sex" [disabled]="!isEditing">
@@ -105,7 +99,7 @@
       </select>
     </div>
 
-    <!-- Regime Alimentare -->
+    <!-- regime alimentare -->
     <div class="form-group">
       <label for="eatingRegimeId">Regime alimentare</label>
       <select formControlName="eatingRegimeId" id="eatingRegimeId" [disabled]="!isEditing">
@@ -120,11 +114,15 @@
       </select>
     </div>
 
-    <!-- Pulsanti -->
     <div class="buttons">
       <button type="button" (click)="enableEditing()" [disabled]="isEditing">Modifica</button>
       <button *ngIf="isEditing" type="submit" [disabled]="!hasChanges">Salva</button>
       <button *ngIf="isEditing" type="button" (click)="disableEditing()">Annulla</button>
     </div>
   </form>
+
+  <!-- user id -->
+  <div class="user-id-container">
+    <p class="user-id-text">ID Utente: {{ userId }}</p>
+  </div>
 </div>
