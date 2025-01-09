@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit{
       error: () => alert('Dati mancanti o richiesta troppo lenta')
     });
   }
-  // TEST
   onClickDiet(): void { 
     this.recipeService.getRecipesByDiet().subscribe({
       next: r => {
