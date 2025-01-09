@@ -15,7 +15,7 @@ export class RecipelistComponent implements OnInit {
 
   recipes: any[] = [];
   currentPage: number = 1; // numero pagina attuale
-  pageSize: number = 10;  // numero ricette per pagina
+  pageSize: number = 8;  // numero ricette per pagina
   totalRecipes: number = 0; // totale ricette disponibili
   missingIngredients: any[] = [];
   shoppingList: any[] = [];
@@ -38,15 +38,19 @@ export class RecipelistComponent implements OnInit {
   }
 
   loadRecipes(): void {
-    this.recipeService.getPaginatedRecipes().subscribe({
+    this.loading = true; // Mostra un indicatore di caricamento
+    this.recipeService.getPaginatedRecipes(this.currentPage - 1, this.pageSize).subscribe({
       next: (data) => {
         if (data) {
           this.recipes = data.content || [];
           this.totalRecipes = data.totalElements || 0;
+          console.log('Ricette caricate:', this.recipes);
         }
+        this.loading = false; // Nasconde l'indicatore di caricamento
       },
       error: (err) => {
         console.error('Errore durante il caricamento delle ricette:', err);
+        this.loading = false; // Nasconde l'indicatore anche in caso di errore
       }
     });
   }

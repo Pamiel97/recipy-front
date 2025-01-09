@@ -47,9 +47,9 @@ export class RecipeService{
         return this.http.put<RecipeDto>(`${this.apiUrl}/${recipe.id}`, recipe);
     }
 
-    getPaginatedRecipes(): Observable<any> {
-        return this.http.get(`${this.apiUrl}/banana`);
-    }
+    // getPaginatedRecipes(): Observable<any> {
+    //     return this.http.get(`${this.apiUrl}/banana`);
+    // }
     getRecipeById(id: number): Observable<RecipeDto> {
         return this.http.get<RecipeDto>(`${this.apiUrl}/${id}`);
     }
@@ -80,5 +80,11 @@ export class RecipeService{
     getMissingIngredients(recipeId: number): Observable<Ingredient[]> {
         const url = `${this.apiUrl}/${recipeId}/missing-ingredients`;
         return this.http.get<Ingredient[]>(url);
-      }
+    }
+
+
+    getPaginatedRecipes(page: number, size: number) {
+        const params = { page: page.toString(), size: size.toString() }; // Prepara i parametri
+        return this.http.get<any>(`${this.apiUrl}/banana`, { params }); // Effettua la chiamata GET con i parametri
+    }
 }
