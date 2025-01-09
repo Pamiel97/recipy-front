@@ -11,14 +11,14 @@ import { IngredientService } from '../../model/ingredients/ingredient-service';
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.css'
 })
-export class RecipeDetailComponent implements OnInit{
-  
+export class RecipeDetailComponent implements OnInit {
 
-  recipe : RecipeDto | null = null;
+
+  recipe: RecipeDto | null = null;
   ingredientNames: Map<number, string> = new Map(); //inserisce nella map gli ingredienti trovati, cosi non se i caric ogni volta se li trova
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private ingredientService: IngredientService 
-  ) {}
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private ingredientService: IngredientService
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -48,7 +48,7 @@ export class RecipeDetailComponent implements OnInit{
   }
 
   loadIngredientName(ingredientId: number): void {
-    if (!this.ingredientNames.has(ingredientId)) { //RIFERITO AL MAP DI PRIMA, controlla se è  già stato caricato quel determinato ingreiente
+    if (!this.ingredientNames.has(ingredientId)) { //RIFERITO AL MAP DI PRIMA, controlla se è  già stato caricato quel determinato ingrediente
       this.ingredientService.getIngredientById(ingredientId).subscribe({
         next: (ingredient) => {
           this.ingredientNames.set(ingredientId, ingredient.name);
@@ -61,7 +61,4 @@ export class RecipeDetailComponent implements OnInit{
   getIngredientName(id: number): string {
     return this.ingredientNames.get(id) || 'Nessun ingrediente o ingrediente sconosciuto';
   }
-
-
-
 }

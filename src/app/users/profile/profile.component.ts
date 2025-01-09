@@ -13,15 +13,15 @@ import { delay } from 'rxjs';
 
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup = new FormGroup({});
-  imgUrl: string = ''; 
+  imgUrl: string = '';
 
   constructor(private fb: FormBuilder, private ps: ProfileService) {}
 
   ngOnInit(): void {
     
     this.profileForm = this.fb.group({
-      imgUrl: [''], 
-      pal: [''], 
+      imgUrl: [''],
+      pal: [''],
       weight: ['', [
         Validators.maxLength(5), 
         Validators.pattern('^[+]?[0-9]{1,3}(\\.[0-9]{1,2})?$'),  // Consente numeri positivi con fino a 2 decimali
