@@ -6,13 +6,13 @@ import { ProfileService } from './profile.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RouterOutlet } from '@angular/router';
+//import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
-  imports: [CommonModule, ReactiveFormsModule, RouterOutlet],
+  imports: [CommonModule, ReactiveFormsModule],
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
@@ -118,5 +118,8 @@ export class ProfileComponent implements OnInit {
   }
   goToRecipesList() : void {
     this.router.navigate(['user-recipes']);
+  }
+  goToShoppingList() : void {
+    this.router.navigate(['shopping-list']);
   }
 }
