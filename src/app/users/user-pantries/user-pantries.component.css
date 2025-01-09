@@ -1,5 +1,5 @@
 /* Stili per la lista delle pantry */
-.container{
+.container {
     background-color: #f9f9f9;
     padding: 30px 20px;
     border-radius: 10px;
@@ -66,7 +66,9 @@
     margin-top: 10px;
 }
 
-.pantry-card-container .buttons button {
+.pantry-card-container .buttons .edit,
+.delete,
+.detail {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -100,7 +102,7 @@
     background-color: #5e9d34;
 }
 
-.addBtn button{
+.addBtn button {
     display: block;
     margin: 0 auto 20px auto;
     padding: 10px 20px;
@@ -111,20 +113,33 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-  }
-  
-  .addBtn button:hover {
-    background-color: #5e9d34;
-  }
+}
 
-.editQuantityButton button{
-    display: block;
-    margin: 3px;
+.addBtn button:hover {
+    background-color: #5e9d34;
+}
+
+/* Modifiche per le freccette */
+.editQuantityButton {
+    display: flex;
+    justify-content: center;  /* Centra i bottoni */
+    gap: 10px; /* Aggiunge spazio tra i bottoni */
+    margin-top: 10px;  /* Aggiunge uno spazio sopra i bottoni */
+}
+
+.editQuantityButton button {
+    height: 2.5em; /* Altezza dei bottoni */
+    width: 2.5em;  /* Larghezza dei bottoni per farli uguali */
+    font-size: 16px; /* Font delle freccette */
+    padding: 0;  /* Rimuove il padding per evitare che diventino più grandi */
+    border-radius: 50%; /* Rende i bottoni rotondi */
     background-color: #7ac142;
     color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 5px;
     transition: background-color 0.3s ease;
+}
+
+.editQuantityButton button:hover {
+    background-color: #5e9d34;
 }

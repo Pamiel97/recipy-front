@@ -12,12 +12,12 @@
                     <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
                     <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
                     <button (click)="goToIngredientDetails(pantry.ingredientId)" class="detail">Dettaglio Ingrediente</button>
-                    <div class="editQuantityButton">
-                        @if(pantry.unitType === 'pz') {
-                        <button (click)="increaseQuantity(pantry)">˄</button>
-                        <button (click)="decreaseQuantity(pantry)">˅</button>
-                    }
-                    </div>
+                </div>
+                <div class="editQuantityButton">
+                    @if(pantry.unitType === 'pz') {
+                    <button (click)="increaseQuantity(pantry)">Λ</button>
+                    <button (click)="decreaseQuantity(pantry)">V</button>
+                }
                 </div>
             </div>
         }

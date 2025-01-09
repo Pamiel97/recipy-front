@@ -88,4 +88,11 @@ body {
     object-position: center; 
     border: 2px solid #ccc; 
   }
+
+  .navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: none;
+    box-shadow: none;
+  }
   

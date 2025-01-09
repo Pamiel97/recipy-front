@@ -1,4 +1,8 @@
 <div class="profile-container">
+  <div class="navigation">
+    <button (click)="goToPantriesList()" class="pantriesList">Vai ai tuoi ingredienti</button>
+    <button (click)="goToRecipesList()" class="recipesList">Vai alle tue ricette</button>
+  </div>
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <!-- ID Utente -->
     <div class="form-group">
