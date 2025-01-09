@@ -33,7 +33,6 @@ export class UserRecipesComponent implements OnInit{
     this.router.navigate([`/recipe-detail/${recipeId}`]); 
   }
 
-
   loadRecipes(): void {
     this.recipeService.getAllRecipeByUtent().subscribe({
       next: (recipes) => {
@@ -45,7 +44,6 @@ export class UserRecipesComponent implements OnInit{
     });
   }
 
-  
   deleteRecipe(id: number) {
      
     this.recipeService.deleteRecipe(id).subscribe(
