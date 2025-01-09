@@ -74,6 +74,11 @@ export class RecipeService{
 
     getAllRecipeByUtent(): Observable<RecipeDto[]>{
         return this.http.get<RecipeDto[]>(`http://localhost:8080/api/recipes/user/recipes`);
-    
     }
+
+    //sam -> prendo gli ingredienti mancanti per la shoppinglist
+    getMissingIngredients(recipeId: number): Observable<Ingredient[]> {
+        const url = `${this.apiUrl}/${recipeId}/missing-ingredients`;
+        return this.http.get<Ingredient[]>(url);
+      }
 }

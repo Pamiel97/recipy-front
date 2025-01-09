@@ -13,6 +13,9 @@ export class RecipelistComponent implements OnInit {
   currentPage: number = 1; // numero pagina attuale
   pageSize: number = 10;  // numero ricette per pagina
   totalRecipes: number = 0; // totale ricette disponibili
+  missingIngredients: any[] = [];
+  shoppingList: any[] = [];
+  loading: boolean = false;
 
   constructor(
     private router: Router, 
@@ -53,7 +56,34 @@ export class RecipelistComponent implements OnInit {
     return Math.ceil(this.totalRecipes / this.pageSize);
   }
 
-  // goToCreateRecipe(): void {
-  //   this.router.navigate(['/create-recipe']);
-  // }
+  //sam -> ingredienti mancanti
+  fetchMissingIngredients(recipeId: number): void {
+    this.loading = true; // inizio il loading
+    this.recipeService.getMissingIngredients(recipeId).subscribe(
+      (ingredients) => {
+        this.missingIngredients = ingredients;
+        this.loading = false; // stoppo il loading dopo il fetch
+        console.log('Ingredienti mancanti:', this.missingIngredients);
+      },
+      (error) => {
+        console.error('Errore nel fetch degli ingredienti mancanti', error);
+        this.loading = false; // stoppo il loading anche in caso di errori
+      }
+    );
+  }
+
+  //sam -> aggiungo alla shopping list
+  addToShoppingList(recipeId: number): void {
+    this.shoppingList = [...this.shoppingList, ...this.missingIngredients];
+    console.log('Aggiunto alla lista della spesa:', this.shoppingList);
+  }
+
+  //sam -> dico che la shopping list è completata
+  markShoppingListAsCompleted(): void {
+    console.log('Lista della spesa completata:', this.shoppingList);
+    // logica per mandare la shopping list al backend
+    //TODO
+    this.shoppingList = [];
+  }
+
 }

@@ -57,15 +57,13 @@
         <p>&copy; 2025 Cooking. All rights reserved.</p>
     </footer> -->
 
-<div class="recipe-list-container">
-    <!-- Titolo della sezione -->
-    <h1>Lista delle Ricette</h1>
-
-    <!-- Lista delle ricette -->
-    @if (recipes) {
-    <div class="recipe-card">
-        @for(recipe of recipes; track $index){
-            <div class="card" (click)="navigate(recipe.id)">
+    <div class="recipe-list-container">
+        <!-- Titolo della sezione -->
+        <h1>Lista delle Ricette</h1>
+    
+        <!-- Lista delle ricette -->
+        <div *ngIf="recipes && recipes.length > 0" class="recipe-card">
+            <div *ngFor="let recipe of recipes; let i = index" class="card" (click)="navigate(recipe.id)">
                 <h2>{{recipe.title}}</h2>
                 <div class="card-paragraphs">
                     <p><span>Portata: </span> {{recipe.course}}</p>
@@ -74,24 +72,48 @@
                 </div>
                 <img [src]="recipe.imgUrl" alt="">
                 <p>{{recipe.tags}}</p>
+                <button (click)="fetchMissingIngredients(recipe.id)">Get Missing Ingredients</button>
             </div>
-        }
+        </div>
+    
+        <div *ngIf="!recipes || recipes.length === 0">
+            <!-- Messaggio se non ci sono ricette -->
+            <p>Non ci sono ricette disponibili.</p>
+        </div>
+    
+        <!-- Lista degli ingredienti mancanti -->
+        <div *ngIf="missingIngredients.length > 0" class="missing-ingredients">
+            <h3>Ingredienti Mancanti</h3>
+            <ul>
+                <li *ngFor="let ingredient of missingIngredients">
+                    {{ ingredient.name }} ({{ ingredient.avgWeight }} g)
+                </li>
+            </ul>
+            <button (click)="addToShoppingList()">Aggiungi alla Lista della Spesa</button>
+        </div>
+    
+        <!-- Lista della spesa -->
+        <div *ngIf="shoppingList.length > 0" class="shopping-list">
+            <h3>Lista della Spesa</h3>
+            <ul>
+                <li *ngFor="let item of shoppingList">
+                    {{ item.name }} ({{ item.avgWeight }} g)
+                </li>
+            </ul>
+            <button (click)="markShoppingListAsCompleted()">Lista Completata</button>
+        </div>
+    
+        <!-- Paginazione -->
+        <div class="pagination">
+            <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+                Precedente
+            </button>
+    
+            <span>Pagina {{ currentPage }} di {{ totalPages() }}</span>
+    
+            <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages()">
+                Successiva
+            </button>
+        </div>
     </div>
-    } @else {
-    <!-- Messaggio se non ci sono ricette -->
-    <p>Non ci sono ricette disponibili.</p>
-    }
-
-    <!-- Paginazione -->
-    <div class="pagination">
-        <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
-            Precedente
-        </button>
-
-        <span>Pagina {{ currentPage }} di {{ totalPages() }}</span>
-
-        <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages()">
-            Successiva
-        </button>
-    </div>
-</div>
+    
