@@ -39,13 +39,9 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-
-
   searchRecipes(): void {
     if (this.searchRecipe) {
       this.router.navigate(['/recipe-search', this.searchRecipe]);
     }
   }
-
-
 }

@@ -1,18 +1,16 @@
 <div class="navbar">
   <div class="logo">RECIPY |
-  <ul class="nav-links">
-    <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/search-recipe">Lista Ricette</a></li>
-  </ul>
-</div>
+    <ul class="nav-links">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/search-recipe">Lista Ricette</a></li>
+    </ul>
+  </div>
 
-  
-<div class="search-bar">
-  <input [(ngModel)]="searchRecipe" placeholder="Cerca ricette" (keyup.enter)="searchRecipes()" />
-  <button (click)="searchRecipes()">Cerca</button>
-</div>
+  <div class="search-bar">
+    <input [(ngModel)]="searchRecipe" placeholder="Cerca ricette" (keyup.enter)="searchRecipes()" />
+    <button (click)="searchRecipes()">Cerca</button>
+  </div>
 
-  
   <div class="auth-buttons">
     <ng-container *ngIf="!isAuthenticated; else userPage">
       <a routerLink="/login" class="signin">Login</a>
@@ -26,7 +24,5 @@
     </ng-template>
   </div>
 </div>
-
-
 
 <router-outlet />

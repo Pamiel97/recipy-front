@@ -1,70 +1,127 @@
-/* Stile generale del modulo */
-form {
-    max-width: 400px; /* Larghezza massima del modulo */
-    margin: 50px auto; /* Centrato verticalmente e orizzontalmente */
-    padding: 20px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Stile per i contenitori dei campi */
-  form div {
-    margin-bottom: 20px; /* Spaziatura tra i campi */
-  }
-  
-  /* Etichette */
-  form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px; /* Spaziatura sotto l'etichetta */
-    color: #333;
-    font-size: 14px;
-  }
-  
-  /* Input */
-  form input[type="email"],
-  form input[type="password"] {
-    width: 100%; /* Occupano tutta la larghezza disponibile */
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background: #fff;
-    box-sizing: border-box; /* Per evitare problemi di dimensionamento */
-  }
-  
-  /* Focus sugli input */
-  form input:focus {
-    border-color: #007bff; /* Colore del bordo al focus */
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
-    outline: none; /* Rimuove il bordo predefinito */
-  }
-  
-  /* Pulsante */
-  form button {
-    width: 100%; /* Occupa tutta la larghezza del modulo */
-    padding: 10px 15px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #fff;
-    background: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Hover sul pulsante */
-  form button:hover {
-    background: #0056b3;
-  }
-  
-  /* Margine aggiuntivo per pulsanti */
-  form button:last-child {
-    margin-top: 10px;
-  }
-  
+/* Reset di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* Previene lo scorrimento */
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Contenitore principale */
+.login-container {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Usa tutta l'altezza della finestra */
+}
+
+/* Sezione immagine */
+.login-image {
+  flex: 1; /* 50% della larghezza */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dde0db; /* Colore sfondo */
+  padding: 10px;
+}
+
+.login-image img {
+  max-width: 90%; /* Immagine responsiva */
+  max-height: 90%; /* Evita che l'immagine esca fuori */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sezione form */
+.login-form {
+  flex: 1; /* 50% della larghezza */
+  background-color: #ffffff;
+  padding: 30px 40px; /* Più compatto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente il form */
+  align-items: center; /* Centra orizzontalmente gli elementi */
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+  font-size: 24px; /* Font size più piccolo */
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form layout */
+.login-form form {
+  width: 100%;
+  max-width: 400px; /* Limita la larghezza del form */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Spazio uniforme tra gli elementi */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px; /* Meno spazio */
+}
+
+.form-group input {
+  padding: 10px; /* Più compatto */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #7ac142;
+  outline: none;
+}
+
+button[type="submit"] {
+  padding: 10px; /* Altezza ridotta */
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #7ac142;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #7ac142;
+}
+
+/* Link di registrazione */
+.register-link {
+  margin-top: 10px; /* Meno spazio */
+  text-align: center;
+  font-size: 13px;
+}
+
+.register-link p {
+  color: #666;
+}
+
+.register-link a {
+  color: #7ac142;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
