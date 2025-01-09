@@ -346,3 +346,79 @@ header nav ul li a {
     object-fit: cover; /* Taglia e centra l'immagine senza deformarla */
     border-radius: 10px; /* Mantieni gli angoli arrotondati */
 }
+
+
+
+
+
+
+.card {
+    background-color: #f7f7f7; /* Grigio caldo */
+    border: 1px solid #e0e0e0; /* Bordo leggermente più scuro */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.recipes-by-pantries,
+.perfect-recipes,
+.recipes-by-diet {
+    background-color: #f7f7f7; /* Grigio caldo chiaro */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.recipes-by-pantries:hover,
+.perfect-recipes:hover,
+.recipes-by-diet:hover {
+    background-color: #eaf4ea; /* Grigio-verde tenue al passaggio del mouse */
+}
+
+.recipes-by-pantries h2,
+.perfect-recipes h2,
+.recipes-by-diet h2 {
+    color: #7ac142; /* Verde per i titoli */
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.recipes h2 {
+    font-size: 36px;
+    color: #7ac142; /* Verde principale */
+    margin-bottom: 20px;
+}
+
+
+
+
+
+.caso {
+    position: absolute; /* Posizione fissa rispetto alla finestra */
+    top:0px;
+    bottom: 0; /* Fissa l'immagine al fondo */
+    left: 0; /* Posiziona l'immagine a sinistra */
+    width: 100%; /* La larghezza dell'immagine copre tutta la larghezza della pagina */
+    z-index: -1; /* Porta l'immagine dietro al contenuto, in modo che non copra nulla */
+}
+
+.hero{
+    z-index: -2;
+    position: relative;
+}
+
+
+
+
