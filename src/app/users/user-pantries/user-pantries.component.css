@@ -1,12 +1,15 @@
 /* Stili per la lista delle pantry */
-.available-pantries {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 30px 20px;
+.container{
     background-color: #f9f9f9;
+    padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 20px;
+}
+
+.available-pantries {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .available-pantries .addBtn {
@@ -97,31 +100,19 @@
     background-color: #5e9d34;
 }
 
-.addBtn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 93%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.add {
+.addBtn button{
+    display: block;
+    margin: 0 auto 20px auto;
     padding: 10px 20px;
+    background-color: #7ac142;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    background-color: green;
-    color: white;
+    font-size: 16px;
     transition: background-color 0.3s ease;
-}
-.add:hover {
-    background-color: rgb(2, 82, 2);
-}
-
-.pantry-card-container{
-    border: 1px solid black;
-}
+  }
+  
+  .addBtn button:hover {
+    background-color: #5e9d34;
+  }

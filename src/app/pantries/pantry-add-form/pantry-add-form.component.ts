@@ -7,6 +7,7 @@ import { AuthService } from '../../model/login/auth-service';
 import { PantryService } from '../../model/pantries/pantry-service';
 import { PantryDto } from '../../model/pantries/pantry-dto';
 import { Router } from '@angular/router';
+import { UserDto } from '../../model/users/user-dto';
 
 @Component({
   selector: 'app-pantry-add-form',
@@ -17,7 +18,7 @@ import { Router } from '@angular/router';
 export class PantryAddFormComponent implements OnInit{
   pantryForm!: FormGroup;
   ingredients!: IngredientDto[];
-  user!: any;
+  user!: UserDto;
 
   constructor(private pantryService:PantryService, 
               private ingredientService:IngredientService, 

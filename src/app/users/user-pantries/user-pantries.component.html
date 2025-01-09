@@ -1,17 +1,19 @@
-<div class="available-pantries">
-    @for (pantry of pantries; track $index) {
-        <div class="pantry-card-container">
-            <h2>{{pantry.ingredientName}}</h2>
-            <p>{{pantry.quantity}} {{pantry.unitType}}</p>
-            <p><span>Scadenza: </span> {{pantry.expirationDate}}</p>
-            <div class="buttons">
-            <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
-            <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
-            <button (click)="goToIngredientDetails(pantry.ingredientId)" class="detail">Dettaglio Ingrediente</button>
+<div class="container">
+    <div class="addBtn">
+        <button (click)="goToCreatePantry()" class="add">Inserisci Ingrediente</button>
+    </div>
+    <div class="available-pantries">
+        @for (pantry of pantries; track $index) {
+            <div class="pantry-card-container">
+                <h2>{{pantry.ingredientName}}</h2>
+                <p>{{pantry.quantity}} {{pantry.unitType}}</p>
+                <p><span>Scadenza: </span> {{pantry.expirationDate}}</p>
+                <div class="buttons">
+                <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
+                <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
+                <button (click)="goToIngredientDetails(pantry.ingredientId)" class="detail">Dettaglio Ingrediente</button>
+                </div>
             </div>
-        </div>
-    }
-</div>
-<div class="addBtn">
-    <button (click)="goToCreatePantry()" class="add">Inserisci Ingrediente</button>
+        }
+    </div>
 </div>

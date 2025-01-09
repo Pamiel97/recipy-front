@@ -16,8 +16,8 @@ export class PantryService{
         return this.http.get<PantryDto[]>(this.apiUrl);
     }
 
-    getPantriesByIngredientId(ingredientId: number): Observable<PantryDto> {
-        return this.http.get<PantryDto>(`${this.apiUrl}?ingredientId=${ingredientId}`)
+    getPantriesById(pantryId: number): Observable<PantryDto> {
+        return this.http.get<PantryDto>(`${this.apiUrl}/${pantryId}`)
     }
 
     createPantry(pantry:PantryDto): Observable<PantryDto> {
