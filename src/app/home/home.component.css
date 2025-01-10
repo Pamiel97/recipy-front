@@ -405,19 +405,9 @@ header nav ul li a {
 
 
 
-.caso {
-    position: absolute; /* Posizione fissa rispetto alla finestra */
-    top:0px;
-    bottom: 0; /* Fissa l'immagine al fondo */
-    left: 0; /* Posiziona l'immagine a sinistra */
-    width: 100%; /* La larghezza dell'immagine copre tutta la larghezza della pagina */
-    z-index: -1; /* Porta l'immagine dietro al contenuto, in modo che non copra nulla */
-}
 
-.hero{
-    z-index: -2;
-    position: relative;
-}
+
+
 
 
 
