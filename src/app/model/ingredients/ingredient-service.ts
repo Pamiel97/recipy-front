@@ -23,4 +23,8 @@ import { Injectable } from "@angular/core";
       return this.http.get<IngredientDto>(`${this.apiUrl}/${id}`);
     }
 
+    getAllImpaginatedIngredents(page: number, size: number): Observable<IngredientDto[]> {
+      
+    }
+
   }
