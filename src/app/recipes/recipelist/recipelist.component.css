@@ -104,3 +104,8 @@
     font-size: 16px;
     color: #666;
 }
+
+/* loading */
+.loading {
+    text-align: center;
+  }

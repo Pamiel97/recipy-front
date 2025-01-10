@@ -1,69 +1,12 @@
-<!-- <div class="logo"></div>
-        
-    
-
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Ricette Semplici e Gustose</h1>
-            <p>Scopri deliziose ricette con passaggi facili da seguire, perfette per ogni occasione.</p>
-            <button>SCOPRI LE RICETTE</button>
-        </div>
-        <img src="random2.jpg" alt="Fruit Bowl">
-    </section>
-
-    <section class="recipes">
-        <h2>Our Recipes</h2>
-        <div class="recipe-cards">
-            <div class="recipe-card">
-                <img src="https://via.placeholder.com/300" alt="Recipe 1">
-                <h3>nome</h3>
-                <p>20 mins | Easy | 2 persons</p>
-            </div>
-            <div class="recipe-card">
-                <img src="https://via.placeholder.com/300" alt="Recipe 2">
-                <h3>Chicken Curry</h3>
-                <p>30 mins | Medium | 2 persons</p>
-            </div>
-            <div class="recipe-card">
-                <img src="https://via.placeholder.com/300" alt="Recipe 3">
-                <h3>Vegetable Salad</h3>
-                <p>15 mins | Easy | 2 persons</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="services">
-        <h2>I nostri fantastici servizi</h2>
-        <div class="service-items">
-            <div class="service-item">
-                <img src="ingredienti.png" alt="Quality Food">
-                <h3>Cibo di qualità</h3>
-                <p>Sperimenta ingredienti di alta qualità in ogni ricetta.</p>
-            </div>
-            <div class="service-item">
-                <img src="chef.png" alt="Cook Like a Chef">
-                <h3>Cucina come uno chef</h3>
-                <p>Segui i consigli professionali per pasti eccezionali.</p>
-            </div>
-            <div class="service-item">
-                <img src="ricetta.png" alt="Easy Recipes">
-                <h3>Rciette semplici</h3>
-                <p>Semplici passaggi per una cucina deliziosa.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Cooking. All rights reserved.</p>
-    </footer> -->
-
-    <div *ngIf="loading"> <p>Caricamento dati</p></div>
-    <div *ngIf="!loading">
+<div *ngIf="loading" class="loading">
+    <img src="/loading.gif" alt="">
+</div>
+<div *ngIf="!loading">
 
     <div class="recipe-list-container">
         <!-- Titolo della sezione -->
         <h1>Lista delle Ricette</h1>
-    
+
         <!-- Lista delle ricette -->
         <div *ngIf="recipes && recipes.length > 0" class="recipe-card">
             <div *ngFor="let recipe of recipes; let i = index" class="card" (click)="navigate(recipe.id)">
@@ -77,26 +20,12 @@
                 <p>{{recipe.tags}}</p>
             </div>
         </div>
-    
-
-        
 
         <div *ngIf="showNoRecipesMessage">
             <!-- Messaggio se non ci sono ricette -->
             <p>Non ci sono ricette disponibili.</p>
         </div>
-    
-        <!-- Lista degli ingredienti mancanti 
-        <div *ngIf="missingIngredients.length > 0" class="missing-ingredients">
-            <h3>Ingredienti Mancanti</h3>
-            <ul>
-                <li *ngFor="let ingredient of missingIngredients">
-                    {{ ingredient.name }} ({{ ingredient.avgWeight }} g)
-                </li>
-            </ul>
-            <button (click)="addToShoppingList()">Aggiungi alla Lista della Spesa</button>
-        </div>-->
-    
+
         <!-- Lista della spesa -->
         <div *ngIf="shoppingList.length > 0" class="shopping-list">
             <h3>Lista della Spesa</h3>
@@ -107,19 +36,19 @@
             </ul>
             <button (click)="markShoppingListAsCompleted()">Lista Completata</button>
         </div>
-    
+
         <!-- Paginazione -->
         <div class="pagination">
             <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
                 Precedente
             </button>
-    
+
             <span>Pagina {{ currentPage }} di {{ totalPages() }}</span>
-    
+
             <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages()">
                 Successiva
             </button>
         </div>
     </div>
-    
+
 </div>
