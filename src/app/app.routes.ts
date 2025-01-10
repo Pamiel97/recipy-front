@@ -35,5 +35,6 @@ export const routes: Routes = [
     {path: 'edit-pantry/:id', component: EditPantryComponent},
     {path: 'ingredient-details/:id', component: IngredientDetailsComponent},
     {path: 'ingredient-list', component: IngredientListComponent},
-    {path: 'shopping-list', component: ShoppingListComponent}
+    {path: 'shopping-list', component: ShoppingListComponent},
+    {path: '', redirectTo:'home', pathMatch:'full'}
 ];

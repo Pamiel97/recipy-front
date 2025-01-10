@@ -57,6 +57,9 @@
         <p>&copy; 2025 Cooking. All rights reserved.</p>
     </footer> -->
 
+    <div *ngIf="loading"> <p>Caricamento dati</p></div>
+    <div *ngIf="!loading">
+
     <div class="recipe-list-container">
         <!-- Titolo della sezione -->
         <h1>Lista delle Ricette</h1>
@@ -75,6 +78,9 @@
             </div>
         </div>
     
+
+        
+
         <div *ngIf="showNoRecipesMessage">
             <!-- Messaggio se non ci sono ricette -->
             <p>Non ci sono ricette disponibili.</p>
@@ -116,3 +122,4 @@
         </div>
     </div>
     
+</div>
