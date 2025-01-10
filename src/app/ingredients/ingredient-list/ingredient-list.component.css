@@ -108,3 +108,7 @@
     font-size: 18px;
     color: #999;
 }
+
+.category::first-letter{
+    text-transform: uppercase;
+}
