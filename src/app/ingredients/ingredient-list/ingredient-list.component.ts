@@ -45,4 +45,9 @@ export class IngredientListComponent implements OnInit{
   navigateToIngredient(id: number) {
     return this.router.navigate(['ingredient-details', id]);
   }
+
+  //metodo per rimuovere i trattini bassi delle categories
+  normalizeString(input: string): string {
+    return input.replace(/_/g, ' '); // Sostituisce tutti i trattini bassi con spazi
+  }
 }

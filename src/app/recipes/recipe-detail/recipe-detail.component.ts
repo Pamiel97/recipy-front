@@ -37,6 +37,9 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeService.getRecipeById(id).subscribe({
       next: (recipe) => {
         this.recipe = recipe;
+        if (this.recipe.recipeSteps) {
+          this.recipe.recipeSteps.sort((a, b) => a.ordinal - b.ordinal);
+        }
         console.log('Recipe loaded:', this.recipe);
 
         this.recipe.recipeSteps.forEach((step) => {

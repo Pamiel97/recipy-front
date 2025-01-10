@@ -75,7 +75,7 @@
             </div>
         </div>
     
-        <div *ngIf="!recipes || recipes.length === 0">
+        <div *ngIf="showNoRecipesMessage">
             <!-- Messaggio se non ci sono ricette -->
             <p>Non ci sono ricette disponibili.</p>
         </div>

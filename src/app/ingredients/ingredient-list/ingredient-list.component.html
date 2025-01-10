@@ -9,7 +9,7 @@
                 <div class="card" (click)="navigateToIngredient(ingredient.id)">
                     <h2>{{ingredient.name}}</h2>
                     <div class="card-paragraphs">
-                        <p>{{ingredient.ingredientCategory}}</p>
+                        <p class="category">{{normalizeString(ingredient.ingredientCategory)}}</p>
                      
                     </div>
                     
