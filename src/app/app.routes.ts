@@ -15,6 +15,7 @@ import { EditPantryComponent } from './pantries/edit-pantry/edit-pantry.componen
 import { IngredientDetailsComponent } from './pantries/ingredient-details/ingredient-details.component';
 import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
 
 export const routes: Routes = [
     {path: 'create-recipe', component: RecipeAddFormComponent },
@@ -33,5 +34,6 @@ export const routes: Routes = [
     {path: 'create-pantry', component: PantryAddFormComponent},
     {path: 'edit-pantry/:id', component: EditPantryComponent},
     {path: 'ingredient-details/:id', component: IngredientDetailsComponent},
+    {path: 'ingredient-list', component: IngredientListComponent},
     {path: 'shopping-list', component: ShoppingListComponent}
 ];
