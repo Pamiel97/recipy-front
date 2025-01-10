@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class IngredientListComponent implements OnInit{
   ingredients! : IngredientDto[];
   currentPage: number = 1;
-  pageSize: number = 8;
+  pageSize: number = 16;
   totalIngredients: number = 0;
 
   constructor(private ingredientService:IngredientService, private router:Router) {}
