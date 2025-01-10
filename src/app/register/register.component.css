@@ -1,6 +1,30 @@
-/* Contenitore principale del modulo */
+.register-form {
+  margin: 60px auto;
+  padding: 10px;
+  background-color: #f7f7f7;
+  height: 100%;
+  max-height: 540px;
+  width: 100%;
+  max-width: 540px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.register-form:hover{
+  background-color: #eaf4ea;
+}
+
+.register-form h2 {
+  font-size: 40px;
+}
+
 form {
-    max-width: 500px; /* Larghezza massima del modulo */
+    max-width: 530px; /* Larghezza massima del modulo */
     margin: 60px auto; /* Centrato verticalmente e orizzontalmente */
     padding: 30px;
     background: #ffffff;
@@ -21,7 +45,7 @@ form {
   
   /* Campi di input */
   form input {
-    width: 100%;
+    width: 92%;
     padding: 12px;
     font-size: 15px;
     border: 1px solid #cccccc;

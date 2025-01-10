@@ -39,12 +39,28 @@ header nav ul li a {
     font-weight: bold;
 }
 
+.main{
+    background-color: #f7f7f7; /* Grigio caldo chiaro */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.main:hover {
+    background-color: #eaf4ea; /* Grigio-verde tenue al passaggio del mouse */
+}
+
+.main h2{
+    color: #7ac142; /* Verde per i titoli */
+    font-size: 32px;
+    margin-bottom: 20px;
+}
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 50px;
-    background-color: #fff;
 }
 
 .hero-text {
@@ -339,11 +355,6 @@ header nav ul li a {
     object-fit: cover; /* Taglia e centra l'immagine senza deformarla */
     border-radius: 10px; /* Mantieni gli angoli arrotondati */
 }
-
-
-
-
-
 
 .card {
     background-color: #f7f7f7; /* Grigio caldo */
