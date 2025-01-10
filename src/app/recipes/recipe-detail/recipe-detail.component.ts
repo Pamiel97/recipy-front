@@ -64,7 +64,7 @@ export class RecipeDetailComponent implements OnInit {
     return this.ingredientNames.get(id) || 'Nessun ingrediente o ingrediente sconosciuto';
   }
 
-  onAddToShoppingList(): void {
+  addToShoppingList(): void {
     if (this.recipe) {
       this.ingredientShareService.addIngredients(this.ingredientNames); // Aggiunge gli ingredienti accumulativamente
       console.log('Ingredients added to shopping list:', this.ingredientNames);

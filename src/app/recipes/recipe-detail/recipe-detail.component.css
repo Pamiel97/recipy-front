@@ -50,3 +50,31 @@
   .recipe-steps li {
     margin-bottom: 10px;
   }
+
+  /* Bottone per resettare la lista */
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #7ac142;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Effetto hover sul bottone */
+  button:hover {
+    background-color: #5e9d34;
+  }
+  
+  /* Responsività */
+  @media (max-width: 768px) {
+    button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  }
