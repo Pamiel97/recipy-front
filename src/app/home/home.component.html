@@ -2,37 +2,39 @@
 
 
 <div class="logo"></div>
+    <div class="main"> 
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Ricette Semplici e Gustose</h1>
+                <p>Scopri deliziose ricette con passaggi facili da seguire, perfette per ogni occasione.</p>
+                <button (click)="navigateToRecipeList()">SCOPRI LE RICETTE</button>
+            </div>
+            <img src="random2.jpg" alt="Fruit Bowl">
+        </section>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Ricette Semplici e Gustose</h1>
-            <p>Scopri deliziose ricette con passaggi facili da seguire, perfette per ogni occasione.</p>
-            <button (click)="navigateToRecipeList()">SCOPRI LE RICETTE</button>
-        </div>
-        <img src="random2.jpg" alt="Fruit Bowl">
-    </section>
-
-    <section class="recipes">
-        
-        <h2>Le nostre ricette</h2>
-        <div class="recipe-cards">
-            <div class="recipe-card">
-                <img src="quinoa.jpg" alt="Recipe 1">
-                <h3>Quinoa e Verdure</h3>
-                <p>20 min | Facile | Vegano</p>
+        <section class="recipes">
+            
+            <h2>Le nostre ricette</h2>
+            <div class="recipe-cards">
+                <div class="recipe-card">
+                    <img src="quinoa.jpg" alt="Recipe 1">
+                    <h3>Quinoa e Verdure</h3>
+                    <p>20 min | Facile | Vegano</p>
+                </div>
+                <div class="recipe-card">
+                    <img src="chilli.jpg" alt="Recipe 2">
+                    <h3>Chili con Carne </h3>
+                    <p>30 min | Medio | Piccante</p>
+                </div>
+                <div class="recipe-card">
+                    <img src="parmigiana.jpeg" alt="Recipe 3">
+                    <h3>Parmigiana di Melanzane</h3>
+                    <p>15 min | Medio | Vegetariano</p>
+                </div>
             </div>
-            <div class="recipe-card">
-                <img src="chilli.jpg" alt="Recipe 2">
-                <h3>Chili con Carne </h3>
-                <p>30 min | Medio | Piccante</p>
-            </div>
-            <div class="recipe-card">
-                <img src="parmigiana.jpeg" alt="Recipe 3">
-                <h3>Parmigiana di Melanzane</h3>
-                <p>15 min | Medio | Vegetariano</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
+    
 
     <ng-container *ngIf="isAuthenticated; else vuoto">
 
