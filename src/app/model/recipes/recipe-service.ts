@@ -16,8 +16,6 @@ export class RecipeService{
     constructor(private http: HttpClient){}
     private token = localStorage.getItem('jwtToken');
     
-
-    
     createRecipe(recipe: RecipeDto): Observable<RecipeDto> {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -81,7 +79,6 @@ export class RecipeService{
         const url = `${this.apiUrl}/${recipeId}/missing-ingredients`;
         return this.http.get<Ingredient[]>(url);
     }
-
 
     getPaginatedRecipes(page: number, size: number) {
         const params = { page: page.toString(), size: size.toString() }; // Prepara i parametri

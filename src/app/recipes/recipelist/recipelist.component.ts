@@ -20,6 +20,7 @@ export class RecipelistComponent implements OnInit {
   missingIngredients: any[] = [];
   shoppingList: any[] = [];
   loading: boolean = false;
+  showNoRecipesMessage: boolean = false;
 
   constructor(
     private router: Router, 
@@ -29,6 +30,11 @@ export class RecipelistComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadRecipes();
+    setTimeout(() => {
+      if (!this.recipes || this.recipes.length === 0) {
+        this.showNoRecipesMessage = true;
+      }
+    }, 2000);
   }
 
   navigate(id:number) {
