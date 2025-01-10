@@ -9,6 +9,7 @@ body {
 }
 
 .cards-container {
+    margin-top: 1em;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
