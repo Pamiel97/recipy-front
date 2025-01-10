@@ -35,7 +35,7 @@ export class IngredientListComponent implements OnInit{
 
   onPageChange(newPage: number): void {
     this.currentPage = newPage;
-    this.loadIngredients;
+    this.loadIngredients();
   }
 
   totalPages(): number {
