@@ -34,6 +34,7 @@
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    border: black solid 1px
 }
 
 /* Hover effect sulle card degli ingredienti */
@@ -112,3 +113,8 @@
 .category::first-letter{
     text-transform: uppercase;
 }
+
+/* loading */
+.loading {
+    text-align: center;
+  }

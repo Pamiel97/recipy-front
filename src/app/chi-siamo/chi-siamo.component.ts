@@ -32,7 +32,7 @@ export class ChiSiamoComponent {
     this.mirkoAudio.load();
     
     this.pamelaAudio = new Audio();
-    this.pamelaAudio.src = '/audio/gattoCheDiceCoglione.mp3';
+    this.pamelaAudio.src = '/audio/SUN.mp3';
     this.pamelaAudio.load();
     
     this.pietroAudio = new Audio();
