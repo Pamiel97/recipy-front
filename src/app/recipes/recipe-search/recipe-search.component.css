@@ -72,7 +72,7 @@
 
 .recipe-actions button {
   padding: 8px 12px;
-  background-color: #007bff;
+  background-color: #7ac142;
   color: white;
   border: none;
   border-radius: 5px;
@@ -80,7 +80,7 @@
 }
 
 .recipe-actions button:hover {
-  background-color: #0056b3;
+  background-color: #106f43;
 }
 
 /* loading */
