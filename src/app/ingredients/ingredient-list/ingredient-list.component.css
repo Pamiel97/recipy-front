@@ -116,5 +116,8 @@
 
 /* loading */
 .loading {
-    text-align: center;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+}

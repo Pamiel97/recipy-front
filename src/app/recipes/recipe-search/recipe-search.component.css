@@ -100,3 +100,9 @@ h2 {
   color: #333;
   margin-bottom: 20px;
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+}
