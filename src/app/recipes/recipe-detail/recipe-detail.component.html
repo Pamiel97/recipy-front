@@ -1,4 +1,4 @@
-<div class="recipe-container">
+<!-- <div class="recipe-container">
     
     <div class="recipe-image">
       <img [src]="recipe?.imgUrl" alt="{{ recipe?.title }}" *ngIf="recipe?.imgUrl; else noImage" />
@@ -22,7 +22,7 @@
     
     <div class="recipe-user">
       <h2>Creata da:</h2>
-      <!-- <strong>Nome:</strong> -->
+      
       <p>{{ recipe?.user?.firstname }}</p>
     </div>
   
@@ -47,4 +47,67 @@
     </div>
   </div>
 
-  <button (click)="addToShoppingList()">Aggiungi alla Lista della Spesa</button>
+  <button (click)="addToShoppingList()">Aggiungi alla Lista della Spesa</button> -->
+
+
+
+
+
+
+
+
+
+
+
+  <div class="recipe-container">
+
+    <!-- Sezione immagine e dettagli in griglia -->
+    <div class="recipe-header">
+      <div class="recipe-image">
+        <img [src]="recipe?.imgUrl" alt="{{ recipe?.title }}" *ngIf="recipe?.imgUrl; else noImage" />
+        <ng-template #noImage>
+          <p>Image not available</p>
+        </ng-template>
+      </div>
+  
+      <div class="recipe-details">
+        <h1>{{ recipe?.title }}</h1>
+        <p><strong>Descrizione:</strong> {{ recipe?.description }}</p>
+        <p><strong>Portata:</strong> {{ recipe?.course }}</p>
+        <p><strong>Tempo di Preparazione:</strong> {{ recipe?.prepTime }} minutes</p>
+        <p><strong>Tempo di cottura:</strong> {{ recipe?.cookingTime }} minutes</p>
+        <p><strong>Difficoltà:</strong> {{ recipe?.difficulty }}</p>
+        <p><strong>Calorie:</strong> {{ recipe?.kCalories }} kcal</p>
+        <p><strong>Data di creazione:</strong> {{ recipe?.creationDate }}</p>
+      </div>
+    </div>
+  
+    <!-- Sezione utente -->
+    <div class="recipe-user">
+      <h2>Creata da:</h2>
+      <p>{{ recipe?.user?.firstname }}</p>
+    </div>
+  
+    <!-- Sezione tags -->
+    <div class="recipe-tags" *ngIf="recipe?.tags?.length">
+      <h3>Tags:</h3>
+      <ul>
+        <li *ngFor="let tag of recipe!.tags">{{ tag }}</li>
+      </ul>
+    </div>
+  
+    <!-- Sezione passi -->
+    <div class="recipe-steps" *ngIf="recipe?.recipeSteps?.length">
+      <h3>Steps:</h3>
+      <ol>
+        <li *ngFor="let step of recipe!.recipeSteps">
+          <p><strong>Ingrediente da utilizzare: {{ getIngredientName(step.ingredientId) }}</strong></p>
+          <p><strong>Step {{ step.ordinal }}:</strong> {{ step.description }}</p>
+        </li>
+      </ol>
+    </div>
+  
+    <!-- Bottone azione -->
+    <button (click)="addToShoppingList()">Aggiungi alla Lista della Spesa</button>
+  </div>
+  
