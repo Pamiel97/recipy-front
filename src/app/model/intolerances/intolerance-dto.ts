@@ -1,3 +1,4 @@
 export interface IntoleranceDto{
-    intolerance: string;
+    id: number;
+    name: string;
 }

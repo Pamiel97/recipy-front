@@ -3,10 +3,12 @@
   <button (click)="goToRecipesList()" class="button">Vai alle tue ricette</button>
   <button (click)="goToShoppingList()" class="button">Vai alla tua Lista della Spesa</button>
 </div>
+
 <div class="profile-container">
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div class="image-preview">
-      <img [src]="imgUrl || 'https://i.pinimg.com/236x/60/13/a3/6013a33f806d8d74f43ee2eb565ff4dc.jpg'" alt="Immagine del profilo" class="profile-image" />
+      <img [src]="imgUrl || 'https://i.pinimg.com/236x/60/13/a3/6013a33f806d8d74f43ee2eb565ff4dc.jpg'"
+        alt="Immagine del profilo" class="profile-image" />
     </div>
 
     <!-- Nome e Cognome -->
@@ -27,23 +29,18 @@
       <input type="text" formControlName="email" id="email" [readonly]="!isEditing" />
     </div>
 
-    <!-- Password -->
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" formControlName="password" id="password" placeholder="********" [readonly]="!isEditing" />
-    </div>
-
     <!-- Campo per l'URL dell'immagine -->
     <div class="form-group">
       <label for="imgUrl">URL Immagine del profilo</label>
-      <input type="text" formControlName="imgUrl" id="imgUrl" [readonly]="!isEditing" placeholder="Inserisci URL immagine" />
+      <input type="text" formControlName="imgUrl" id="imgUrl" [readonly]="!isEditing"
+        placeholder="Inserisci URL immagine" />
     </div>
 
     <!-- Tipo di profilo, Sesso e Regime alimentare -->
     <div class="form-group-section">
       <div class="form-group">
         <label for="profile">Tipo di profilo</label>
-        <select formControlName="profile" id="profile" [disabled]="!isEditing">
+        <select formControlName="profile" id="profile" [class.readonly]="!isEditing">
           <option value="default"></option>
           <option value="utente_base">Utente base</option>
           <option value="chef">Chef</option>
@@ -53,7 +50,7 @@
       </div>
       <div class="form-group">
         <label for="sex">Sesso</label>
-        <select formControlName="sex" id="sex" [disabled]="!isEditing">
+        <select formControlName="sex" id="sex" [class.readonly]="!isEditing">
           <option value="A">Altro</option>
           <option value="F">Femmina</option>
           <option value="M">Maschio</option>
@@ -61,7 +58,7 @@
       </div>
       <div class="form-group">
         <label for="eatingRegimeId">Regime alimentare</label>
-        <select formControlName="eatingRegimeId" id="eatingRegimeId" [disabled]="!isEditing">
+        <select formControlName="eatingRegimeId" id="eatingRegimeId" [class.readonly]="!isEditing">
           <option value="7"></option>
           <option value="1">Vegano</option>
           <option value="2">Vegetariano</option>
@@ -74,7 +71,7 @@
       </div>
     </div>
 
-    <!-- Peso e Altezza -->
+    <!-- peso e altezza -->
     <div class="form-group-section">
       <div class="form-group">
         <label for="weight">Peso</label>
@@ -89,7 +86,7 @@
     <!-- BFP e LBM -->
     <div class="form-group-section">
       <div class="form-group">
-        <label for="bfp">Percentuale grasso corporeo (bfp)</label>
+        <label for="bfp">Percentuale grasso corporeo(BFP)</label>
         <input type="number" formControlName="bfp" id="bfp" [readonly]="!isEditing" />
       </div>
       <div class="form-group">
@@ -98,19 +95,83 @@
       </div>
     </div>
 
+    <!-- Intolleranze -->
+     <div class="checkbox-group ">
+    <div class="form-group">
+      <label for="hasIntolerances">Hai intolleranze?</label>
+      <select formControlName="hasIntolerances" id="hasIntolerances" (change)="onIntolerancesChange($event)"
+        [class.readonly]="!isEditing">
+        <option value="no">No</option>
+        <option value="yes">Sì</option>
+      </select>
+    </div>
+
+    <div class="form-group-intolerances" *ngIf="hasIntolerances === 'yes'">
+      <label for="intolerances">Intolleranze</label>
+      <fieldset id="intolerances" formArrayName="intolerances">
+        <div *ngFor="let option of intoleranceOptions; let i = index">
+          <label>
+            <input type="checkbox" [formControlName]="i" [disabled]="!isEditing" />
+            {{ option.name }}
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <!-- Allergie -->
+    <div class="form-group">
+      <label for="hasAllergies">Hai allergie?</label>
+      <select formControlName="hasAllergies" id="hasAllergies" (change)="onAllergiesChange($event)"
+        [class.readonly]="!isEditing">
+        <option value="no">No</option>
+        <option value="yes">Sì</option>
+      </select>
+    </div>
+
+    <div class="form-group-allergies" *ngIf="hasAllergies === 'yes'">
+      <label for="allergies">Allergie</label>
+      <fieldset id="allergies" formArrayName="allergies">
+        <div *ngFor="let option of allergyOptions; let i = index">
+          <label>
+            <input type="checkbox" [formControlName]="i" [disabled]="!isEditing" />
+            {{ option.name }}
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+  </div>
     <!-- Azioni -->
     <div class="form-actions">
-      <button *ngIf="!isEditing" type="button" (click)="enableEditing()">Modifica</button>
+      <button *ngIf="!isEditing" type="button" (click)="enableEditing()">Modifica Profilo</button>
       <div class="action-buttons" *ngIf="isEditing">
         <button type="submit" [disabled]="!hasChanges" class="save-button">Salva</button>
         <button type="button" (click)="disableEditing()" class="cancel-button">Annulla</button>
       </div>
-
-      <!-- Codice utente -->
-  <div class="user-id-container">
-    <p class="user-id-text">ID user: #{{ userId }}</p>
-  </div>
-
     </div>
+
+    <!-- cambia psw -->
+
+    <div class="password-group">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" id="password" placeholder="********"
+          [readonly]="!isEditingPassword" />
+      </div>
+
+      <div class="form-actions">
+        <button *ngIf="!isEditingPassword" type="button" (click)="enableEditingPassword()">Modifica Password</button>
+        <div class="action-buttons" *ngIf="isEditingPassword">
+          <button type="submit" class="save-button">Salva</button>
+          <button type="button" (click)="disableEditingPassword()" class="cancel-button">Annulla</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Codice utente -->
+    <div class="user-id-container">
+      <p class="user-id-text">ID user: #{{ userId }}</p>
+    </div>
+
   </form>
 </div>
