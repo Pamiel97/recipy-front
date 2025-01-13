@@ -14,7 +14,7 @@
         <div class="ingredient-card">
             @for (ingredient of ingredients; track $index) {
                 <div class="card" (click)="navigateToIngredient(ingredient.id)">
-                    <img [src]="ingredient.imgUrl" alt="..."> 
+                    <img [src]="ingredient.imgUrl" alt="."> 
                     <h2>{{ingredient.name}}</h2>
                     <div class="card-paragraphs">
                         <p class="category">{{normalizeString(ingredient.ingredientCategory)}}</p>
