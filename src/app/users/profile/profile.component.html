@@ -1,9 +1,9 @@
+<div class="navigation">
+  <button (click)="goToPantriesList()" class="button">Vai ai tuoi ingredienti</button>
+  <button (click)="goToRecipesList()" class="button">Vai alle tue ricette</button>
+  <button (click)="goToShoppingList()" class="button">Vai alla tua Lista della Spesa</button>
+</div>
 <div class="profile-container">
-  <div class="navigation">
-    <button (click)="goToPantriesList()" class="pantriesList">Vai ai tuoi ingredienti</button>
-    <button (click)="goToRecipesList()" class="recipesList">Vai alle tue ricette</button>
-    <button (click)="goToShoppingList()" class="shoppingList">Vai alla tua Lista della Spesa</button>
-  </div>
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
     <!-- immagine di profilo -->

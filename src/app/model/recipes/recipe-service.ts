@@ -5,8 +5,6 @@ import { Injectable } from "@angular/core";
 import { IngredientDto as Ingredient} from '../../model/ingredients/ingredient-dto';
 
 
-
-
 @Injectable({
     providedIn: 'root'
 })
@@ -45,9 +43,6 @@ export class RecipeService{
         return this.http.put<RecipeDto>(`${this.apiUrl}/${recipe.id}`, recipe);
     }
 
-    // getPaginatedRecipes(): Observable<any> {
-    //     return this.http.get(`${this.apiUrl}/banana`);
-    // }
     getRecipeById(id: number): Observable<RecipeDto> {
         return this.http.get<RecipeDto>(`${this.apiUrl}/${id}`);
     }
