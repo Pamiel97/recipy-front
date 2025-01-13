@@ -33,7 +33,4 @@ export class IngredientDetailsComponent implements OnInit{
       error: () => alert('Dati mancanti o richiesta scaduta')
     })
   }
-
-
-
 }

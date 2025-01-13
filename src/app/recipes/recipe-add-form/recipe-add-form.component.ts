@@ -21,7 +21,6 @@ export class RecipeAddFormComponent implements OnInit {
   ingredients: IngredientDto[] = [];  
 
   
-
   constructor(
     private recipeService: RecipeService,
     private ingredientService: IngredientService, 
@@ -55,7 +54,7 @@ export class RecipeAddFormComponent implements OnInit {
       description: ['', [Validators.required]],
       course: ['', [Validators.required]],
       prepTime: ['',[Validators.min(0)]],
-      cookingTime: ['', [Validators.required, Validators.min(0)]],
+      cookingTime: ['', [Validators.min(0)]],
       difficulty: ['', [Validators.required]],
       kCalories: ['', [Validators.min(1)]],
       imgUrl: [''],
@@ -76,11 +75,11 @@ export class RecipeAddFormComponent implements OnInit {
       description: [''],
       ordinal:[],
       stepImgUrl: [''],
-      ingredientId: [null] 
+      ingredientId: [null]
     });
     this.recipeSteps.push(ricetteStep);  //aggiunge questo nel array
   }
-
+  
   
   removeRecipeStep(index: number): void {
     this.recipeSteps.removeAt(index);  
