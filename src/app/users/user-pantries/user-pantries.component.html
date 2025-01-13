@@ -1,25 +1,43 @@
-<div class="container">
-    <div class="addBtn">
-        <button (click)="goToCreatePantry()" class="add">Inserisci Ingrediente</button>
+@if (loading) {
+    <div class="loading">
+        <img src="libro.gif" alt="">
     </div>
-    <div class="available-pantries">
-        @for (pantry of pantries; track $index) {
-            <div class="pantry-card-container">
-                <h2>{{pantry.ingredientName}}</h2>
-                <p>{{pantry.quantity}} {{pantry.unitType}}</p>
-                <p><span>Scadenza: </span> {{pantry.expirationDate}}</p>
-                <div class="buttons">
-                    <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
-                    <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
-                    <button (click)="goToIngredientDetails(pantry.ingredientId)" class="detail">Dettaglio Ingrediente</button>
+}@else {
+    <div class="container">
+        <div class="addBtn">
+            <button (click)="goToCreatePantry()" class="add">Inserisci Ingrediente</button>
+        </div>
+        <div class="available-pantries">
+            @for (pantry of pantries; track $index) {
+                <div class="pantry-card-container">
+                    <h2>{{pantry.ingredientName}}</h2>
+                    <p>{{pantry.quantity}} {{pantry.unitType}}</p>
+                    <p><span>Scadenza: </span> {{pantry.expirationDate}}</p>
+                    <div class="buttons">
+                        <button (click)="goToEditPantry(pantry.id)" class="edit">Modifica</button>
+                        <button (click)="deletePantry(pantry.id)" class="delete">Elimina</button>
+                        <button (click)="goToIngredientDetails(pantry.ingredientId)" class="detail">Dettaglio Ingrediente</button>
+                    </div>
+                    <div class="editQuantityButton">
+                        @if(pantry.unitType === 'pz') {
+                        <button (click)="increaseQuantity(pantry)">Λ</button>
+                        <button (click)="decreaseQuantity(pantry)">V</button>
+                    }
+                    </div>
                 </div>
-                <div class="editQuantityButton">
-                    @if(pantry.unitType === 'pz') {
-                    <button (click)="increaseQuantity(pantry)">Λ</button>
-                    <button (click)="decreaseQuantity(pantry)">V</button>
-                }
-                </div>
-            </div>
-        }
+            }
+        </div>
+        <!-- Paginazione -->
+    <div class="pagination">
+        <button (click)="onPageChange(page - 1)" [disabled]="page === 1">
+          Precedente
+        </button>
+  
+        <span>Pagina {{ page }} di {{ totalPages() }}</span>
+  
+        <button (click)="onPageChange(page + 1)" [disabled]="page === totalPages()">
+          Successiva
+        </button>
+      </div>
     </div>
-</div>
+}

@@ -14,7 +14,7 @@ export class UserRecipesComponent implements OnInit{
 
   recipes: RecipeDto[] = [];
   page: number = 1;
-  size: number = 4;
+  size: number = 8;
   totalRecipes: number = 0;
   loading: boolean = false;
 

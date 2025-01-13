@@ -24,7 +24,7 @@ export class IngredientListComponent implements OnInit{
   }
 
   loadIngredients(): void {
-    
+    this.loading = true;
     this.ingredientService.getAllImpaginatedIngredents(this.currentPage -1, this.pageSize).subscribe({
       next: (data) => {
         console.log(data)
