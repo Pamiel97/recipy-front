@@ -79,4 +79,9 @@ export class RecipeService{
         const params = { page: page.toString(), size: size.toString() }; // Prepara i parametri
         return this.http.get<any>(`${this.apiUrl}/banana`, { params }); // Effettua la chiamata GET con i parametri
     }
+
+    getUserPaginatedRecipes(page:number, size:number) {
+        const params = {page: page.toString(), size: size.toString() };
+        return this.http.get<any>(`${this.apiUrl}/user.s`, { params })
+    }
 }
