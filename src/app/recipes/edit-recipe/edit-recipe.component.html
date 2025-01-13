@@ -47,8 +47,7 @@
     </div>
   
     <div>
-      <label for="imgUrl">Immagine del Piatto</label>
-      <input formControlName="imgUrl" id="imgUrl" type="file" />
+      <input type="file" formControlName="imgUrl" (change)="onFileSelected($event, 'imgUrl')" />
     </div>
   
     <div formArrayName="recipeSteps">
@@ -61,11 +60,6 @@
         <div>
           <label for="ordinal-{{ i }}">Passaggio numero:</label>
           <input formControlName="ordinal" id="ordinal-{{ i }}" type="number" />
-        </div>
-  
-        <div>
-          <label for="stepImgUrl-{{ i }}">Immagine Passaggio</label>
-          <input formControlName="stepImgUrl" id="stepImgUrl-{{ i }}" type="file" />
         </div>
   
         <div>
