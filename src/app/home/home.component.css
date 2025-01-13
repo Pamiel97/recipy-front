@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
@@ -22,7 +21,6 @@ header {
 
 header .logo {
     font-size: 24px;
-    font-weight: bold;
     color: #7ac142;
 }
 
@@ -36,7 +34,6 @@ header nav ul li a {
     text-decoration: none;
     color: #333;
     font-size: 16px;
-    font-weight: bold;
 }
 
 .main{
@@ -207,10 +204,6 @@ header nav ul li a {
     color: #666;
 }
 
-.card-paragraphs span {
-    font-weight: bold;
-}
-
 .button-container {
     text-align: center;
     margin: 20px 0;
@@ -290,10 +283,6 @@ header nav ul li a {
     color: #666;
 }
 
-.card-paragraphs span {
-    font-weight: bold;
-}
-
 .card img {
     width: 100%;
     border-radius: 10px;
@@ -334,6 +323,7 @@ header nav ul li a {
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
 }
+
 .buttons button{
     margin: 5px;
     cursor: pointer;
@@ -345,6 +335,7 @@ header nav ul li a {
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .buttons button:hover {
     background-color: green;
 }
@@ -403,15 +394,3 @@ header nav ul li a {
     color: #7ac142; /* Verde principale */
     margin-bottom: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-

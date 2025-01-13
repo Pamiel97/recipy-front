@@ -30,7 +30,7 @@ export class IngredientListComponent implements OnInit{
         console.log(data)
         this.ingredients = data.content;
         this.totalIngredients = data.totalElements;
-        this.loading=false;
+        this.loading = false;
       },
       error: () => console.log("C'è qualquadra che non cosa")
     });
