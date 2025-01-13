@@ -21,7 +21,6 @@ export class RecipeAddFormComponent implements OnInit {
   ingredients: IngredientDto[] = [];  
 
   
-
   constructor(
     private recipeService: RecipeService,
     private ingredientService: IngredientService, 
@@ -76,11 +75,11 @@ export class RecipeAddFormComponent implements OnInit {
       description: [''],
       ordinal:[],
       stepImgUrl: [''],
-      ingredientId: [null] 
+      ingredientId: [null]
     });
     this.recipeSteps.push(ricetteStep);  //aggiunge questo nel array
   }
-
+  
   
   removeRecipeStep(index: number): void {
     this.recipeSteps.removeAt(index);  

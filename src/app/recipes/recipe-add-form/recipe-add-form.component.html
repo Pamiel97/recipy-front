@@ -9,7 +9,6 @@
     <input formControlName="description" id="description" type="text" />
   </div>
 
- 
 
   <div>
     <label for="course">Portata</label>
@@ -24,7 +23,6 @@
 
     </select>
   </div>
-
 
 
   <div>
@@ -68,16 +66,10 @@
         <input formControlName="ordinal" id="ordinal-{{ i }}" type="number" />
       </div>
 
-
       <div>
         <label for="stepImgUrl-{{ i }}">Immagine Passaggio</label>
         <input formControlName="stepImgUrl" id="stepImgUrl-{{ i }}" type="file" />
       </div>
-
-
-
-      
-
 
       <div>
         <label for="ingredientId-{{ i }}">Ingrediente</label>
@@ -87,11 +79,6 @@
           </option>
         </select>
       </div>
-
-
-
-
-
 
       <button type="button" (click)="removeRecipeStep(i)">Rimuovi Passaggio</button>
     </div>
