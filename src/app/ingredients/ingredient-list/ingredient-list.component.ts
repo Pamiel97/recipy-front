@@ -15,7 +15,7 @@ export class IngredientListComponent implements OnInit{
   currentPage: number = 1;
   pageSize: number = 16;
   totalIngredients: number = 0;
-  loading=true;
+  loading: boolean = true;
 
   constructor(private ingredientService:IngredientService, private router:Router) {}
 
