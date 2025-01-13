@@ -300,11 +300,6 @@ input[readonly]:hover, select[readonly]:hover, select[disabled]:hover {
   display: none;
 }
 
-.form-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
 
 .save-button, .cancel-button {
   padding: 10px 20px;
