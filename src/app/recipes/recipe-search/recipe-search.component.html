@@ -1,13 +1,18 @@
-<div *ngIf="recipes.length === 0">
+<div *ngIf="loading" class="loading">
+  <img src="/libro.gif" alt="">
+</div>
+<div *ngIf="!loading">
+
+  <div *ngIf="recipes.length === 0">
     <p>Nessuna ricetta trovata per "{{ title }}".</p>
   </div>
-  
+
   <div *ngIf="recipes.length > 0">
     <h2>Ricette trovate per: "{{ title }}"</h2>
     <ul class="recipe-list">
       <li *ngFor="let recipe of recipes">
         <div class="recipe-card">
-          <img [src]="recipe.imgUrl" alt="{{ recipe.title }}" class="recipe-image"/>
+          <img [src]="recipe.imgUrl" alt="{{ recipe.title }}" class="recipe-image" />
           <div class="recipe-info">
             <h3>{{ recipe.title }}</h3>
             <p>{{ recipe.description }}</p>
@@ -19,3 +24,4 @@
       </li>
     </ul>
   </div>
+</div>

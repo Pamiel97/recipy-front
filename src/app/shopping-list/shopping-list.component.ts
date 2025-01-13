@@ -20,4 +20,11 @@ export class ShoppingListComponent implements OnInit{
     console.log('Cumulative ingredient list:', this.ingredientList);
   }
 
+  // Metodo per resettare la lista
+  resetShoppingList(): void {
+    this.ingredientShareService.resetIngredients(); //resetto la lista nel back
+    this.ingredientList = [];
+    console.log('Lista della spesa resettata!');
+  }
+
 }

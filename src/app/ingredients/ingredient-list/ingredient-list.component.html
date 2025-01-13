@@ -1,0 +1,48 @@
+<div *ngIf="loading" class="loading">
+    <img src="libro.gif" alt="">
+  </div>
+  <div *ngIf="!loading">
+
+
+<div class="ingredient-list-container">
+    <!-- Titolo della sezione -->
+    <h1>Lista degli Ingredienti</h1>
+
+    <!-- Lista degli ingredienti -->
+    @if(ingredients && ingredients.length > 0) {
+        <div class="ingredient-card">
+            @for (ingredient of ingredients; track $index) {
+                <div class="card" (click)="navigateToIngredient(ingredient.id)">
+                    <img [src]="ingredient.imgUrl" alt="."> 
+                    <h2>{{ingredient.name}}</h2>
+                    <div class="card-paragraphs">
+                        <p class="category">{{normalizeString(ingredient.ingredientCategory)}}</p>
+                     
+                    </div>
+                    
+                </div>
+            }
+        </div>
+    }
+    @if (!ingredients || ingredients.length === 0) {
+        <div>
+            <!-- Messaggio se non ci sono ricette -->
+            <p>Non ci sono ingredienti disponibili.</p>
+        </div>
+    }
+
+      <!-- Paginazione -->
+      <div class="pagination">
+        <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+            Precedente
+        </button>
+
+        <span>Pagina {{ currentPage }} di {{ totalPages() }}</span>
+
+        <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages()">
+            Successiva
+        </button>
+    </div>
+</div>
+
+</div>

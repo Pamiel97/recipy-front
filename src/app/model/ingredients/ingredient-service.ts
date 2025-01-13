@@ -23,4 +23,9 @@ import { Injectable } from "@angular/core";
       return this.http.get<IngredientDto>(`${this.apiUrl}/${id}`);
     }
 
+    getAllImpaginatedIngredents(page: number, size: number){
+      const params = { page: page.toString(), size: size.toString()};
+      return this.http.get<any>(`${this.apiUrl}/all`, { params });
+    }
+
   }

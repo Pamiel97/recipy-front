@@ -41,6 +41,9 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeService.getRecipeById(id).subscribe({
       next: (recipe) => {
         this.recipe = recipe;
+        if (this.recipe.recipeSteps) {
+          this.recipe.recipeSteps.sort((a, b) => a.ordinal - b.ordinal);
+        }
         console.log('Recipe loaded:', this.recipe);
 
         this.recipe.recipeSteps.forEach((step) => {
@@ -70,7 +73,7 @@ export class RecipeDetailComponent implements OnInit {
     return this.ingredientNames.get(id) || 'Nessun ingrediente o ingrediente sconosciuto';
   }
 
-  onAddToShoppingList(): void {
+  addToShoppingList(): void {
     if (this.recipe) {
       this.ingredientShareService.addIngredients(this.ingredientNames); // Aggiunge gli ingredienti accumulativamente
       console.log('Ingredients added to shopping list:', this.ingredientNames);

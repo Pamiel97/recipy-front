@@ -1,4 +1,4 @@
-<div class="recipe-container">
+<!-- <div class="recipe-container">
     
     <div class="recipe-image">
       <img [src]="recipe?.imgUrl" alt="{{ recipe?.title }}" *ngIf="recipe?.imgUrl; else noImage" />
@@ -22,7 +22,8 @@
     
     <div class="recipe-user">
       <h2>Creata da:</h2>
-      <p><strong>Nome:</strong> {{ recipe?.user?.firstname }}</p>
+      
+      <p>{{ recipe?.user?.firstname }}</p>
     </div>
   
     
@@ -47,4 +48,3 @@
   </div>
 
   <button (click)="onAddToShoppingList()">Aggiungi alla Lista della Spesa</button>
-  <app-recipe-reviews></app-recipe-reviews>

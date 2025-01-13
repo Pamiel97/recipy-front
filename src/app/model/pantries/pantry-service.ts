@@ -46,4 +46,9 @@ export class PantryService{
 
         return this.http.put<PantryDto>(`${this.apiUrl}/${pantry.id}`, pantry, {headers});
     }
+
+    getPaginatedPantries(page: number, size: number): Observable<any> {
+        const params = {page: page.toString(), size: size.toString() };
+        return this.http.get<any>(`${this.apiUrl}/user.s`, {params});
+    }
 }
