@@ -1,7 +1,7 @@
-<div class="review-container">
+  <div class="review-container">
     <h2>Scrivi una Recensione</h2>
   
-    <form (ngSubmit)="onSubmit()">
+    <form [formGroup]="reviewForm" (ngSubmit)="saveReview()">
       <!-- Sezione del voto con le stelle -->
       <div class="rating">
         <label for="rating">Voto:</label>
@@ -11,7 +11,7 @@
             (click)="setRating(i + 1)" 
             (mouseover)="hoverRating(i + 1)" 
             (mouseleave)="hoverRating(0)"
-            [class.filled]="(i + 1) <= (hoveredRating || review.rating)">
+            [class.filled]="(i + 1) <= (hoveredRating || reviewForm.get('rating')?.value)">
             <i class="fas fa-star"></i>
           </span>
         </div>
@@ -19,19 +19,16 @@
   
       <!-- Sezione del commento -->
       <div class="comment-section">
-        <label for="text">Commento:</label>
-        <textarea 
-          id="text" 
-          name="text" 
-          [(ngModel)]="review.text" 
-          rows="4" 
-          placeholder="Scrivi il tuo commento qui..." 
-          required>
-        </textarea>
+        <label for="text">Commento</label>
+        <textarea
+          formControlName="text"
+          id="text"
+          rows="4"
+          placeholder="Scrivi il tuo commento qui..."></textarea>
       </div>
   
       <!-- Bottone di invio -->
-      <button type="submit" [disabled]="!review.rating || !review.text">Invia Recensione</button>
+      <button type="submit" [disabled]="reviewForm.invalid">Invia Recensione</button>
     </form>
   </div>
   

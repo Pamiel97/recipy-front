@@ -37,6 +37,6 @@ export const routes: Routes = [
     {path: 'ingredient-details/:id', component: IngredientDetailsComponent},
     {path: 'ingredient-list', component: IngredientListComponent},
     {path: 'shopping-list', component: ShoppingListComponent}, 
-    { path: 'create-review', component: CreateReviewComponent },
+    { path: 'create-review/:id', component: CreateReviewComponent },
     {path: '', redirectTo:'home', pathMatch:'full'}
 ];
