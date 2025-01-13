@@ -14,6 +14,7 @@ export class IngredientListComponent implements OnInit{
   currentPage: number = 1;
   pageSize: number = 16;
   totalIngredients: number = 0;
+  loading: boolean = true;
 
   constructor(private ingredientService:IngredientService, private router:Router) {}
 
@@ -28,6 +29,7 @@ export class IngredientListComponent implements OnInit{
         console.log(data)
         this.ingredients = data.content;
         this.totalIngredients = data.totalElements;
+        this.loading = false;
       },
       error: () => console.log("C'è qualquadra che non cosa")
     });
