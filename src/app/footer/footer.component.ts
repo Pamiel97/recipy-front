@@ -3,7 +3,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterOutlet, RouterModule],
+  imports: [RouterModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })

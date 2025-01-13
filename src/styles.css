@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/* @font-face {
+  font-family: "Caroni";
+  src: url("assets/Caroni-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Caroni", serif;
+} */
+
+@font-face {
+  font-family: "Pangolin";
+  src: url("assets/Pangolin-Regular.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Pangolin", serif;
+}
+
+button {
+  font-family: "Pangolin", serif;
+}

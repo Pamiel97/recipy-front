@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
@@ -22,7 +21,6 @@ header {
 
 header .logo {
     font-size: 24px;
-    font-weight: bold;
     color: #7ac142;
 }
 
@@ -36,15 +34,30 @@ header nav ul li a {
     text-decoration: none;
     color: #333;
     font-size: 16px;
-    font-weight: bold;
 }
 
+.main{
+    background-color: #f7f7f7; /* Grigio caldo chiaro */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.main:hover {
+    background-color: #eaf4ea; /* Grigio-verde tenue al passaggio del mouse */
+}
+
+.main h2{
+    color: #7ac142; /* Verde per i titoli */
+    font-size: 32px;
+    margin-bottom: 20px;
+}
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 50px;
-    background-color: #fff;
 }
 
 .hero-text {
@@ -159,13 +172,6 @@ header nav ul li a {
     color: #666;
 }
 
-/* footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #7ac142;
-    color: #fff;
-} */
-
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -196,10 +202,6 @@ header nav ul li a {
 .card p {
     font-size: 14px;
     color: #666;
-}
-
-.card-paragraphs span {
-    font-weight: bold;
 }
 
 .button-container {
@@ -281,10 +283,6 @@ header nav ul li a {
     color: #666;
 }
 
-.card-paragraphs span {
-    font-weight: bold;
-}
-
 .card img {
     width: 100%;
     border-radius: 10px;
@@ -325,6 +323,7 @@ header nav ul li a {
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
 }
+
 .buttons button{
     margin: 5px;
     cursor: pointer;
@@ -336,6 +335,7 @@ header nav ul li a {
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .buttons button:hover {
     background-color: green;
 }
@@ -346,11 +346,6 @@ header nav ul li a {
     object-fit: cover; /* Taglia e centra l'immagine senza deformarla */
     border-radius: 10px; /* Mantieni gli angoli arrotondati */
 }
-
-
-
-
-
 
 .card {
     background-color: #f7f7f7; /* Grigio caldo */
@@ -365,7 +360,6 @@ header nav ul li a {
 }
 
 .card:hover {
-    
     transform: translateY(-10px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
@@ -400,25 +394,3 @@ header nav ul li a {
     color: #7ac142; /* Verde principale */
     margin-bottom: 20px;
 }
-
-
-
-
-
-.caso {
-    position: absolute; /* Posizione fissa rispetto alla finestra */
-    top:0px;
-    bottom: 0; /* Fissa l'immagine al fondo */
-    left: 0; /* Posiziona l'immagine a sinistra */
-    width: 100%; /* La larghezza dell'immagine copre tutta la larghezza della pagina */
-    z-index: -1; /* Porta l'immagine dietro al contenuto, in modo che non copra nulla */
-}
-
-.hero{
-    z-index: -2;
-    position: relative;
-}
-
-
-
-

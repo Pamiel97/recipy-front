@@ -19,7 +19,9 @@ export class RecipelistComponent implements OnInit {
   totalRecipes: number = 0; // totale ricette disponibili
   missingIngredients: any[] = [];
   shoppingList: any[] = [];
-  loading: boolean = false;
+  loading: boolean = true;
+  showNoRecipesMessage: boolean = false;
+
 
   constructor(
     private router: Router, 
@@ -29,6 +31,7 @@ export class RecipelistComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadRecipes();
+    
   }
 
   navigate(id:number) {
@@ -38,7 +41,7 @@ export class RecipelistComponent implements OnInit {
   }
 
   loadRecipes(): void {
-    this.loading = true; // Mostra un indicatore di caricamento
+    this.loading = true;
     this.recipeService.getPaginatedRecipes(this.currentPage - 1, this.pageSize).subscribe({
       next: (data) => {
         if (data) {

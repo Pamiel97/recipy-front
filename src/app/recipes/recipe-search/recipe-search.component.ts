@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class RecipeSearchComponent implements OnInit {
   title: string = '';  
-  recipes: any[] = [];  
+  recipes: any[] = [];
+  loading: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +26,8 @@ export class RecipeSearchComponent implements OnInit {
       this.title = params['title'];  
 
       this.recipeService.getRecipesByTitle(this.title).subscribe(recipes => {
-        this.recipes = recipes;  
+        this.recipes = recipes;
+        this.loading = false;
       });
     });
   }

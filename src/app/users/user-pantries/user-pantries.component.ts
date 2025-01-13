@@ -11,10 +11,18 @@ import { Router} from '@angular/router';
 })
 export class UserPantriesComponent implements OnInit{
   pantries! : PantryDto[];
+  loading: boolean = false;
+  page: number = 1;
+  size: number = 8;
+  totalPantries: number = 0;
 
   constructor(private pantryService: PantryService, private router: Router){}
 
   ngOnInit(): void {
+    this.loadPaginatedPantries();
+  }
+
+  loadPantries(): void {
     this.pantryService.getPantries().subscribe({
       next: p => {
               console.log(p);
@@ -66,5 +74,29 @@ export class UserPantriesComponent implements OnInit{
       alert('Quantità non valida! La quantità di un ingrediente non può essere inferiore a 1');
    }
     
+  }
+
+  loadPaginatedPantries(): void {
+    this.loading = true;
+    this.pantryService.getPaginatedPantries(this.page -1, this.size).subscribe({
+      next: (p) => {
+        this.pantries = p.content;
+        this.totalPantries = p.totalElements;
+        this.loading = false;
+      },
+      error: () => {
+        console.log("errore");
+        this.loading = false;
+      }
+    })
+  }
+
+  onPageChange(newPage: number): any {
+    this.page = newPage;
+    this.loadPaginatedPantries();
+  }
+
+  totalPages() :number {
+    return Math.ceil(this.totalPantries/this.size);
   }
 }

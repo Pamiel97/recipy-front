@@ -1,40 +1,37 @@
-<!-- <button (click)="goToCreateRecipe()">Crea una nuova Ricetta</button>
-<ul>
-  <li *ngFor="let recipe of recipes; let i = index">
-    <div class="recipe-card">
-     
-      <img [src]="recipe.imgUrl" alt="{{ recipe.title }}" />
-      <div class="recipe-info">
-        <h3>{{ recipe.title }}</h3>
-        <p>{{ recipe.description }}</p>
-      </div>
-      <div class="recipe-actions">
-        <button (click)="deleteRecipe(recipe.id)">Elimina</button>
-        <button (click)="goToEditRecipe(recipe.id)">Modifica</button>
-        <button (click)="goToDetailRecipe(recipe.id)">Mostra dettagli</button>
-      </div>
-      
+@if (loading) {
+  <div class="loading">
+    <img src="libro.gif" alt="">
+  </div>
+}@else {
+  <div class="recipes-container">
+    <button class="create-recipe-btn" (click)="goToCreateRecipe()">Crea una nuova Ricetta</button>
+    <ul class="recipes-list">
+      <li *ngFor="let recipe of recipes; let i = index">
+        <div class="recipe-card">
+          <img [src]="recipe.imgUrl" alt="{{ recipe.title }}" class="recipe-image" />
+          <div class="recipe-info">
+            <h3>{{ recipe.title }}</h3>
+            <p>{{ recipe.description }}</p>
+          </div>
+          <div class="recipe-actions">
+            <button class="delete-btn" (click)="deleteRecipe(recipe.id)">Elimina</button>
+            <button class="edit-btn" (click)="goToEditRecipe(recipe.id)">Modifica</button>
+            <button class="details-btn" (click)="goToDetailRecipe(recipe.id)">Mostra dettagli</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- Paginazione -->
+    <div class="pagination">
+      <button (click)="onPageChange(page - 1)" [disabled]="page === 1">
+        Precedente
+      </button>
+
+      <span>Pagina {{ page }} di {{ totalPages() }}</span>
+
+      <button (click)="onPageChange(page + 1)" [disabled]="page === totalPages()">
+        Successiva
+      </button>
     </div>
-  </li>
-</ul> -->
-
-
-<div class="recipes-container">
-  <button class="create-recipe-btn" (click)="goToCreateRecipe()">Crea una nuova Ricetta</button>
-  <ul class="recipes-list">
-    <li *ngFor="let recipe of recipes; let i = index">
-      <div class="recipe-card">
-        <img [src]="recipe.imgUrl" alt="{{ recipe.title }}" class="recipe-image" />
-        <div class="recipe-info">
-          <h3>{{ recipe.title }}</h3>
-          <p>{{ recipe.description }}</p>
-        </div>
-        <div class="recipe-actions">
-          <button class="delete-btn" (click)="deleteRecipe(recipe.id)">Elimina</button>
-          <button class="edit-btn" (click)="goToEditRecipe(recipe.id)">Modifica</button>
-          <button class="details-btn" (click)="goToDetailRecipe(recipe.id)">Mostra dettagli</button>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
+  </div>
+}

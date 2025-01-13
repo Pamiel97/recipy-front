@@ -1,7 +1,7 @@
 /* Stili per la lista delle ricette */
 .recipes-container {
   padding: 30px 20px;
-  background-color: #f9f9f9;
+  background-color: #eaf4ea;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 20px;
@@ -104,4 +104,44 @@
 
 .recipe-actions .details-btn:hover {
   background-color: #5e9d34;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.pagination button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #7ac142;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #5e9d34;
+}
+
+.pagination span {
+  font-size: 16px;
+  color: #666;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
 }

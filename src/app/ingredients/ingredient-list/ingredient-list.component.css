@@ -1,0 +1,123 @@
+/* Stili per il contenitore della lista degli ingredienti */
+.ingredient-list-container {
+    padding: 30px 20px;
+    background-color: #eaf4ea;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* Titolo principale della lista degli ingredienti */
+.ingredient-list-container h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Card degli ingredienti */
+.ingredient-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+    justify-items: center;
+}
+
+/* Stile per ogni singola card degli ingredienti */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: black solid 1px
+}
+
+/* Hover effect sulle card degli ingredienti */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Titolo di ciascun ingrediente */
+.card h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #7ac142;
+    text-align: center; /* Centra il testo orizzontalmente */
+    display: flex; /* Usa flexbox per il layout */
+    justify-content: center; /* Centra il testo orizzontalmente con flexbox */
+}
+
+
+/* Paragrafi all'interno della card */
+.card-paragraphs {
+    margin: 10px 0;
+}
+
+/* Paragrafi con informazioni sugli ingredienti */
+.card-paragraphs p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Stile per la paginazione */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Pulsanti di paginazione */
+.pagination button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #7ac142;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Disabilitazione dei pulsanti di paginazione */
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Hover effect sui pulsanti di paginazione */
+.pagination button:hover:not(:disabled) {
+    background-color: #5e9d34;
+}
+
+/* Testo della paginazione */
+.pagination span {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Messaggio quando non ci sono ingredienti */
+.ingredient-list-container p {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+}
+
+.category::first-letter{
+    text-transform: uppercase;
+}
+
+/* loading */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+}

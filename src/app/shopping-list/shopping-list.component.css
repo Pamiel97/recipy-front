@@ -1,0 +1,95 @@
+/* Container principale della lista */
+.shoppingList {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Titolo della lista */
+  .shoppingList h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  /* Lista degli ingredienti */
+  .shoppingList ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .shoppingList li {
+    font-size: 18px;
+    color: #555;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  /* Effetto hover sugli elementi della lista */
+  .shoppingList li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Bottone per resettare la lista */
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Effetto hover sul bottone */
+  button:hover {
+    background-color: #ff4c4c;
+  }
+  
+  /* Responsività */
+  @media (max-width: 768px) {
+    .shoppingList {
+      padding: 15px;
+    }
+  
+    .shoppingList h2 {
+      font-size: 20px;
+    }
+  
+    .shoppingList li {
+      font-size: 16px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  }
+  
+
+  :host {
+    display: block;
+    background-color: #eaf4ea; /* Colore di sfondo */
+    min-height: 100vh; /* Copre tutta l'altezza della finestra */
+    padding: 20px; /* Spaziatura interna */
+    box-sizing: border-box; /* Assicura che padding e bordi siano inclusi nella dimensione */
+  }

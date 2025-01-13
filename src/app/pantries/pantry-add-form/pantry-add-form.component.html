@@ -10,13 +10,15 @@
         </div>
         <div>
         <label for="quantity">Quantità: </label>
-        <input formControlName="quantity" id="quantity" type="number">
-        <label for="unitType"></label>
-        <select formControlName="unitType" id="unitType"> 
-            <option value="gr">gr</option>
-            <option value="l">l</option>
-            <option value="pz">pz</option>
-        </select>
+        <div class="quantity">
+            <input formControlName="quantity" id="quantity" type="number">
+            <label for="unitType"></label>
+            <select formControlName="unitType" id="unitType"> 
+                <option value="gr">gr</option>
+                <option value="l">l</option>
+                <option value="pz">pz</option>
+            </select>
+        </div>
         </div>
         <div>
             <label for="purchaseDate">Data di acquisto:</label>
