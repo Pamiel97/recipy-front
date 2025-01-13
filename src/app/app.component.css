@@ -162,3 +162,11 @@
   color: white;
   border-color: red;
 }
+
+.span {
+  color: black;
+}
+
+.span:hover {
+  color: black;
+}

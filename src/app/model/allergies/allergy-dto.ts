@@ -1,3 +1,4 @@
 export interface AllergyDto{
-    allergy: string;
+    id: number;
+    name: string;
 }

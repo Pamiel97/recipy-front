@@ -46,9 +46,9 @@
       <input formControlName="kCalories" id="kCalories" type="number" />
     </div>
   
-    <div>
+    <!-- <div>
       <input type="file" formControlName="imgUrl" (change)="onFileSelected($event, 'imgUrl')" />
-    </div>
+    </div> -->
   
     <div formArrayName="recipeSteps">
       <div *ngFor="let step of recipeSteps.controls; let i = index" [formGroupName]="i">
