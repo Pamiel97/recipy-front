@@ -41,6 +41,7 @@ export class RecipelistComponent implements OnInit {
   }
 
   loadRecipes(): void {
+    this.loading = true;
     this.recipeService.getPaginatedRecipes(this.currentPage - 1, this.pageSize).subscribe({
       next: (data) => {
         if (data) {
