@@ -252,6 +252,13 @@ input[readonly], select[readonly], select[disabled] {
   color: #666;
 }
 
+select.readonly {
+  pointer-events: none; /* Disabilita l'interazione */
+  background-color: #e0e0e0; /* Colore simile a un campo disabilitato */
+  color: #666; /* Colore del testo simile a un campo disabilitato */
+  cursor: not-allowed;
+}
+
 input[readonly]:hover, select[readonly]:hover, select[disabled]:hover {
   cursor: not-allowed;
 }
@@ -317,12 +324,35 @@ input[readonly]:hover, select[readonly]:hover, select[disabled]:hover {
   background-color: #6aa137;
 }
 
-
+.password-group{
+  margin-top: 15px;
+}
 
 :host {
   display: block;
-  background-color: #eaf4ea; /* Colore di sfondo */
-  min-height: 100vh; /* Copre tutta l'altezza della finestra */
-  padding: 20px; /* Spaziatura interna */
-  box-sizing: border-box; /* Assicura che padding e bordi siano inclusi nella dimensione */
+  background-color: #eaf4ea; 
+  min-height: 100vh; 
+  padding: 20px;
+  box-sizing: border-box; 
 }
+
+.checkbox-group {
+  margin-bottom: 15px;
+}
+
+.form-group-intolerances {
+  margin-bottom: 10px;
+}
+
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0;
+  vertical-align: middle;
+  transform: translateY(17px); /* Abbassa i quadratini di 3px */
+}
+
+
+.form-group-allergies {
+  margin-bottom: 10px;
+}
+

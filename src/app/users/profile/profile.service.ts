@@ -6,7 +6,13 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class ProfileService {
-  private apiUrl = 'http://localhost:8080/api/users';
+  savePassword(value: any) {
+    throw new Error('Method not implemented.');
+  }
+  private baseApiUrl = 'http://localhost:8080/api';
+  private userApiPath = '/users'
+  private intolerancePath = '/intolerance'
+  private allergyPath = '/allergies'
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +22,7 @@ export class ProfileService {
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}`);
 
-    return this.http.post(this.apiUrl, data, { headers });
+    return this.http.post(this.baseApiUrl + this.userApiPath, data, { headers });
   }
 
   getProfile(): Observable<any> {
@@ -26,6 +32,27 @@ export class ProfileService {
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}`);
 
-    return this.http.get(this.apiUrl, { headers });
+    return this.http.get(this.baseApiUrl + this.userApiPath, { headers });
   }
+
+  getAvailableIntolerances(): Observable<any> {
+    const token = localStorage.getItem('jwtToken');
+
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`);
+
+    return this.http.get(this.baseApiUrl + this.intolerancePath, { headers });
+  }
+
+  getAvailableAllergies(): Observable<any> {
+    const token = localStorage.getItem('jwtToken');
+
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`);
+
+    return this.http.get(this.baseApiUrl + this.allergyPath, { headers });
+  }
+
 }
