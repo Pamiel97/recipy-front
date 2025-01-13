@@ -5,26 +5,30 @@ import { RecipeDto } from '../../model/recipes/recipe-dto';
 import { CommonModule } from '@angular/common';
 import { IngredientService } from '../../model/ingredients/ingredient-service';
 import { IngredientShareService } from '../../model/ingredients/ingredient-share-service';
-
+import { RecipeReviewsComponent } from '../../recipe-reviews/recipe-reviews.component'; // Import del componente reviews
 
 @Component({
   selector: 'app-recipe-detail',
-  imports: [CommonModule],
+  standalone: true, // Conferma che è un componente Standalone
+  imports: [CommonModule, RecipeReviewsComponent], // Aggiungi RecipeReviewsComponent qui
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.css'
 })
 export class RecipeDetailComponent implements OnInit {
-
-
   recipe: RecipeDto | null = null;
-  ingredientNames: Map<number, string> = new Map(); //inserisce nella map gli ingredienti trovati, cosi non se i caric ogni volta se li trova
+  ingredientNames: Map<number, string> = new Map(); // Inserisce nella map gli ingredienti trovati, cosi non se li carica ogni volta se li trova
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private ingredientService: IngredientService, private ingredientShareService: IngredientShareService
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private ingredientService: IngredientService,
+    private ingredientShareService: IngredientShareService
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      const id = +params.get('id')!; // Ottiene il valore di :id come numero nel http
+      const id = +params.get('id')!; // Ottiene il valore di :id come numero
       if (!isNaN(id)) {
         this.loadRecipe(id);
       } else {
@@ -50,12 +54,14 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   loadIngredientName(ingredientId: number): void {
-    if (!this.ingredientNames.has(ingredientId)) { //RIFERITO AL MAP DI PRIMA, controlla se è  già stato caricato quel determinato ingrediente
+    if (!this.ingredientNames.has(ingredientId)) {
+      // Controlla se è già stato caricato quel determinato ingrediente
       this.ingredientService.getIngredientById(ingredientId).subscribe({
         next: (ingredient) => {
           this.ingredientNames.set(ingredientId, ingredient.name);
         },
-        error: (err) => console.error(`Error loading ingredient ${ingredientId}:`, err),
+        error: (err) =>
+          console.error(`Error loading ingredient ${ingredientId}:`, err),
       });
     }
   }
