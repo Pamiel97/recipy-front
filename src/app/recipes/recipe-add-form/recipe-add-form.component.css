@@ -7,7 +7,6 @@ form {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
   }
   
   /* Stile per ogni gruppo di input */
@@ -168,27 +167,6 @@ form textarea:focus {
   outline: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 form {
   background-color: #fff;
   border-radius: 10px;
@@ -196,7 +174,6 @@ form {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 20px auto;
-  font-family: Arial, sans-serif;
 }
 
 form div {
@@ -223,6 +200,7 @@ form textarea {
   font-size: 14px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Pangolin", serif;
 }
 
 form input:focus,
