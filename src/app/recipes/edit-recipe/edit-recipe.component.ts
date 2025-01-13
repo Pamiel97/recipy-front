@@ -15,21 +15,21 @@ import { CommonModule } from '@angular/common';
 })
 export class EditRecipeComponent implements OnInit {
   recipeForm!: FormGroup;
-  ingredients: IngredientDto[] = [];  
-  recipeId: number | null = null;  
-  recipe: RecipeDto | null = null;  
+  ingredients: IngredientDto[] = [];
+  recipeId: number | null = null;
+  recipe: RecipeDto | null = null;
 
   constructor(
     private recipeService: RecipeService,
-    private ingredientService: IngredientService, 
+    private ingredientService: IngredientService,
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute  
-  ) {}
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.initializeForm();
-    this.loadIngredients();  
+    this.loadIngredients();
     this.loadRecipeData();
   }
 
@@ -37,7 +37,7 @@ export class EditRecipeComponent implements OnInit {
   private loadIngredients(): void {
     this.ingredientService.getIngredientDto().subscribe({
       next: (data) => {
-        this.ingredients = data;  
+        this.ingredients = data;
       },
       error: (err) => {
         console.error('Errore nel caricamento degli ingredienti:', err);
@@ -45,15 +45,15 @@ export class EditRecipeComponent implements OnInit {
     });
   }
 
-  
+
   private loadRecipeData(): void {
     this.recipeId = +this.route.snapshot.paramMap.get('id')!;  //prende id in base al router 
 
     if (this.recipeId) {
       this.recipeService.getRecipeById(this.recipeId).subscribe({
         next: (recipe) => {
-          this.recipe = recipe;  
-          this.populateForm(recipe);  
+          this.recipe = recipe;
+          this.populateForm(recipe);
         },
         error: (err) => {
           console.error('Errore nel caricamento della ricetta:', err);
@@ -62,7 +62,7 @@ export class EditRecipeComponent implements OnInit {
     }
   }
 
-  
+
   private initializeForm(): void {
     this.recipeForm = this.fb.group({
       title: ['', [Validators.required]],
@@ -74,16 +74,16 @@ export class EditRecipeComponent implements OnInit {
       kCalories: ['',],
       imgUrl: ['',],
       tags: this.fb.array([]),
-      recipeSteps: this.fb.array([]),  
+      recipeSteps: this.fb.array([]),
     });
   }
 
-  
+
   get recipeSteps(): FormArray {
     return this.recipeForm.get('recipeSteps') as FormArray;
   }
 
-  
+
   // addRecipeStep(): void {
   //   const recipeStep = this.fb.group({ 
   //     description: [''],
@@ -94,12 +94,11 @@ export class EditRecipeComponent implements OnInit {
   //   this.recipeSteps.push(recipeStep);  
   // }
 
-  
+
   // removeRecipeStep(index: number): void {
   //   this.recipeSteps.removeAt(index);  
   // }
 
-  
   private populateForm(recipe: RecipeDto): void {
     this.recipeForm.patchValue({
       title: recipe.title,
@@ -108,14 +107,13 @@ export class EditRecipeComponent implements OnInit {
       prepTime: recipe.prepTime,
       cookingTime: recipe.cookingTime,
       difficulty: recipe.difficulty,
-      kCalories: recipe.kCalories,
-      imgUrl: recipe.imgUrl
+      kCalories: recipe.kCalories
     });
 
-    
     if (recipe.recipeSteps && recipe.recipeSteps.length > 0) {
+      recipe.recipeSteps.sort((a, b) => a.ordinal - b.ordinal);
       recipe.recipeSteps.forEach(step => {
-        const stepGroup = this.fb.group({ 
+        const stepGroup = this.fb.group({
           id: [step.id], // Aggiungi l'ID
           description: [''],
           ordinal: [],
@@ -130,16 +128,14 @@ export class EditRecipeComponent implements OnInit {
     }
   }
 
-  
   updateRecipe(): void {
     if (this.recipeForm.invalid) {
       console.error('Il modulo non è valido!');
       return;
     }
 
-    
     const updatedRecipeDto: RecipeDto = this.recipeForm.value;
-    updatedRecipeDto.id = this.recipeId!;  
+    updatedRecipeDto.id = this.recipeId!;
 
     //PER AGGIUNGERE EVENTALI STEP NUOVI
     // updatedRecipeDto.recipeSteps = updatedRecipeDto.recipeSteps.map((step: any) => {
@@ -149,22 +145,24 @@ export class EditRecipeComponent implements OnInit {
     //  // return step;
     // });
 
-    
-
-
-    
     console.log('Updated Recipe:', updatedRecipeDto);
 
-    
+
     this.recipeService.updateRecipe(updatedRecipeDto).subscribe({
       next: () => {
         console.log('Ricetta aggiornata');
-        this.router.navigate(['/user-recipes']);  
+        this.router.navigate(['/user-recipes']);
       },
       error: (err) => {
         console.error('Errore nell\'aggiornamento della ricetta:', err);
         console.log('Payload inviato:', JSON.stringify(updatedRecipeDto, null, 2));
       }
     });
+  }
+
+  onFileSelected(event: Event, controlName: string): void {
+    const input = event.target as HTMLInputElement; if (input.files && input.files[0]) {
+      const file = input.files[0]; console.log(`${controlName} selected file:`, file.name);
+    }
   }
 }
