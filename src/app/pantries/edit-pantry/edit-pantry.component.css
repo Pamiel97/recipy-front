@@ -97,3 +97,14 @@ form select {
         font-size: 14px;
     }
 }
+
+
+.quantity{
+  display: flex;
+}
+.quantity input[type="number"]{
+  width: 90%;
+}
+.quantity select{
+  width: 10%;
+}
