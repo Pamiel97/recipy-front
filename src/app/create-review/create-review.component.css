@@ -1,0 +1,95 @@
+/* Contenitore principale */
+.review-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Titolo */
+  .review-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Sezione del voto */
+  .rating {
+    margin-bottom: 20px;
+  }
+  
+  .rating label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .stars {
+    display: flex;
+    justify-content: center;
+    height: 40px;  /* Imposta un'altezza per il div */
+  }
+  
+  .stars span {
+    font-size: 40px; /* Aumenta la dimensione delle stelle */
+    color: #ebf3af; /* Colore iniziale delle stelle */
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .stars span.filled i {
+    color: #f1c40f; /* Colore giallo per le stelle riempite */
+  }
+  
+  .stars span:hover,
+  .stars span:hover ~ span {
+    color: #f39c12; /* Colore quando passi il mouse sopra */
+  }
+  
+  /* Sezione del commento */
+  .comment-section {
+    margin-bottom: 20px;
+  }
+  
+  .comment-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .comment-section textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+  }
+  
+  /* Bottone di invio */
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #2980b9;
+  }
+  
