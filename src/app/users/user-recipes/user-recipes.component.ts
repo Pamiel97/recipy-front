@@ -18,7 +18,7 @@ export class UserRecipesComponent implements OnInit{
   totalRecipes: number = 0;
   loading: boolean = false;
 
-  
+
   constructor(private recipeService: RecipeService, private router: Router) {}
 
   ngOnInit(): void {
@@ -30,39 +30,39 @@ export class UserRecipesComponent implements OnInit{
   }
 
   goToEditRecipe(recipeId: number): void {
-    this.router.navigate([`/edit-recipe/${recipeId}`]); 
+    this.router.navigate([`/edit-recipe/${recipeId}`]);
   }
 
   goToDetailRecipe(recipeId: number): void {
-    this.router.navigate([`/recipe-detail/${recipeId}`]); 
+    this.router.navigate([`/recipe-detail/${recipeId}`]);
   }
 
   loadRecipes(): void {
     this.recipeService.getAllRecipeByUtent().subscribe({
       next: (recipes) => {
-        this.recipes = recipes; 
+        this.recipes = recipes;
       },
       error: (err) => {
-        console.error(err); 
+        console.error(err);
       },
     });
   }
 
   deleteRecipe(id: number) {
-     
+
     this.recipeService.deleteRecipe(id).subscribe(
       () => {
-        alert('Ricetta eliminata con successo!'); 
+        alert('Ricetta eliminata con successo!');
         window.location.reload();
       },
       (error) => alert('Errore durante l\'eliminazione della ricetta.')
-    ); 
+    );
   }
 
   loadPaginatedRecipes(): void {
     this.loading = true;
     this.recipeService.getUserPaginatedRecipes(this.page -1, this.size).subscribe({
-      next: (r) => { 
+      next: (r) => {
         this.recipes = r.content;
         this.totalRecipes = r.totalElements;
         this.loading = false;

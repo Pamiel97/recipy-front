@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-reviews',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipe-reviews.component.css'],
 })
 export class RecipeReviewsComponent {
-  onAddReview() { console.log('Recensione aggiunta!'); // Aggiungi qui il codice per gestire l'azione della recensione 
-    }
+  constructor(private router: Router) {}
+
+  goToCreateReview() {
+    console.log('Recensione aggiunta!');
+    this.router.navigate(['/create-review']); // Naviga alla pagina di creazione recensione
+  }
 }
