@@ -6,7 +6,6 @@ import { ProfileService } from './profile.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-//import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +17,7 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   imgUrl: string = '';
   userId: string | null = null;
-  isEditing: boolean = false;
+  isEditing: boolean = false; // Stato per determinare se siamo in modalità modifica
   hasChanges: boolean = false;
 
   constructor(private fb: FormBuilder, private ps: ProfileService, private router: Router) {
@@ -95,12 +94,12 @@ export class ProfileComponent implements OnInit {
 
   onSubmit(): void {
     if (this.profileForm.valid) {
-      console.log(this.profileForm.value)
+      console.log(this.profileForm.value);
       this.ps.saveProfile(this.profileForm.value).subscribe({
         next: (response) => {
           console.log('Dati salvati con successo:', response);
           this.profileForm.patchValue(response); // Aggiorna il form con i nuovi dati
-          this.disableEditing()
+          this.disableEditing();
           alert('Dati salvati correttamente');
         },
         error: (err) => {
@@ -113,13 +112,16 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  goToPantriesList() : void {
+  // Funzioni per navigare tra le pagine
+  goToPantriesList(): void {
     this.router.navigate(['user-pantries']);
   }
-  goToRecipesList() : void {
+
+  goToRecipesList(): void {
     this.router.navigate(['user-recipes']);
   }
-  goToShoppingList() : void {
+
+  goToShoppingList(): void {
     this.router.navigate(['shopping-list']);
   }
 }
