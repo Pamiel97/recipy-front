@@ -35,13 +35,13 @@
   
   .stars span {
     font-size: 40px; /* Aumenta la dimensione delle stelle */
-    color: #ebf3af; /* Colore iniziale delle stelle */
+    color: #f2f2ac; /* Colore iniziale delle stelle */
     cursor: pointer;
     transition: color 0.3s ease;
   }
   
   .stars span.filled i {
-    color: #f1c40f; /* Colore giallo per le stelle riempite */
+    color: #f2da00; /* Colore giallo per le stelle riempite */
   }
   
   .stars span:hover,
