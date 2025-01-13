@@ -127,3 +127,12 @@ input[readonly], select[disabled], select[readonly] {
   border: 1px solid #ccc; 
   cursor: not-allowed; 
 }
+
+
+:host {
+  display: block;
+  background-color: #eaf4ea; /* Colore di sfondo */
+  min-height: 100vh; /* Copre tutta l'altezza della finestra */
+  padding: 20px; /* Spaziatura interna */
+  box-sizing: border-box; /* Assicura che padding e bordi siano inclusi nella dimensione */
+}
