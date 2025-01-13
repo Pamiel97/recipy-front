@@ -55,7 +55,7 @@ export class RecipeAddFormComponent implements OnInit {
       description: ['', [Validators.required]],
       course: ['', [Validators.required]],
       prepTime: ['',[Validators.min(0)]],
-      cookingTime: ['', [Validators.required, Validators.min(0)]],
+      cookingTime: ['', [Validators.min(0)]],
       difficulty: ['', [Validators.required]],
       kCalories: ['', [Validators.min(1)]],
       imgUrl: [''],
