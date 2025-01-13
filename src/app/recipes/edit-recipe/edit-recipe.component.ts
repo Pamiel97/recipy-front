@@ -100,6 +100,7 @@ export class EditRecipeComponent implements OnInit {
   // }
 
   private populateForm(recipe: RecipeDto): void {
+    const imgUrl = recipe.imgUrl ? recipe.imgUrl : '';
     this.recipeForm.patchValue({
       title: recipe.title,
       description: recipe.description,
@@ -107,8 +108,11 @@ export class EditRecipeComponent implements OnInit {
       prepTime: recipe.prepTime,
       cookingTime: recipe.cookingTime,
       difficulty: recipe.difficulty,
-      kCalories: recipe.kCalories
+      kCalories: recipe.kCalories,
+      imgUrl: imgUrl
     });
+
+    console.log(imgUrl);
 
     if (recipe.recipeSteps && recipe.recipeSteps.length > 0) {
       recipe.recipeSteps.sort((a, b) => a.ordinal - b.ordinal);
