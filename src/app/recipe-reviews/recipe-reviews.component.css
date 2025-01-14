@@ -1,5 +1,5 @@
 .creates-recipe-btn {
-    display: block;
+    display: none;
     margin: 0 auto 20px auto;
     padding: 10px 20px;
     background-color: #7ac142;
