@@ -4,10 +4,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-recipe-reviews',
   standalone: true,
-  templateUrl: './recipe-reviews.component.html',
-  styleUrls: ['./recipe-reviews.component.css'],
+  templateUrl: './reviews.component.html',
+  styleUrls: ['./reviews.component.css'],
 })
-export class RecipeReviewsComponent implements OnInit {
+export class ReviewsComponent implements OnInit {
   recipeId!: number;
 
   constructor(private router: Router, private route: ActivatedRoute) {}

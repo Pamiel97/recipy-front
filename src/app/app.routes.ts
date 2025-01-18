@@ -16,7 +16,7 @@ import { IngredientDetailsComponent } from './pantries/ingredient-details/ingred
 import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
-import { CreateReviewComponent } from './create-review/create-review.component';
+import { CreateReviewComponent } from './reviews/create-review/create-review.component';
 
 export const routes: Routes = [
     {path: 'create-recipe', component: RecipeAddFormComponent },
