@@ -1,1 +1,12 @@
 <button class="creates-recipe-btn" (click)="goToCreateReview()">Crea una nuova Recensione</button>
+
+<h2>Lista delle Recensioni</h2>
+<div class="reviews-list">
+  <div *ngFor="let review of reviews" class="review-item">
+    <p><strong>Data:</strong> {{ review.creationDate }}</p>
+    <p><strong>Valutazione:</strong> {{ review.rating }}</p>
+    <p><strong>Recensione:</strong> {{ review.text }}</p>
+    <p><strong>ID Ricetta:</strong> {{ review.recipeId }}</p>
+    <hr>
+  </div>
+</div>
