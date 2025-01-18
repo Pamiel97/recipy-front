@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ReviewService } from '../model/reviews/review-service';
-import { ReviewDto } from '../model/reviews/review-dto';
+import { ReviewService } from '../../model/reviews/review-service';
+import { ReviewDto } from '../../model/reviews/review-dto';
 import { CommonModule } from '@angular/common'; 
-import { RecipeService } from '../model/recipes/recipe-service'; 
-import { RecipeDto } from '../model/recipes/recipe-dto';
-import { UserDto } from '../model/users/user-dto';
+import { RecipeService } from '../../model/recipes/recipe-service'; 
+import { RecipeDto } from '../../model/recipes/recipe-dto';
+import { UserDto } from '../../model/users/user-dto';
 
 @Component({
   selector: 'app-create-review',

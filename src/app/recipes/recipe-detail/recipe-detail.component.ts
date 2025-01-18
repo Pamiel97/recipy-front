@@ -5,12 +5,12 @@ import { RecipeDto } from '../../model/recipes/recipe-dto';
 import { CommonModule } from '@angular/common';
 import { IngredientService } from '../../model/ingredients/ingredient-service';
 import { IngredientShareService } from '../../model/ingredients/ingredient-share-service';
-import { RecipeReviewsComponent } from '../../recipe-reviews/recipe-reviews.component'; // Import del componente reviews
+import { ReviewsComponent } from '../../reviews/reviews.component'; // Import del componente reviews
 
 @Component({
   selector: 'app-recipe-detail',
   standalone: true, // Conferma che è un componente Standalone
-  imports: [CommonModule, RecipeReviewsComponent], // Aggiungi RecipeReviewsComponent qui
+  imports: [CommonModule, ReviewsComponent], // Aggiungi RecipeReviewsComponent qui
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.css'
 })
