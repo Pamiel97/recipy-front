@@ -93,7 +93,7 @@ export class CreateReviewComponent implements OnInit {
     this.reviewService.createReview(review).subscribe({
       next: () => {
         alert('Recensione salvata con successo!');
-        this.router.navigate(['/recipe-details', this.recipeId]);
+        this.router.navigate(['/recipe-detail/', this.recipeId]);
       },
       error: (err) => {
         console.error('Errore durante il salvataggio della recensione:', err);
