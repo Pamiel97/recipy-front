@@ -6,7 +6,6 @@ export interface ReviewDto {
     text: string;
     rating: number;
     creationDate: string;
-    recipeDto: RecipeDto; 
+    recipeDto: RecipeDto;
     userDto: UserDto;
   }
-  

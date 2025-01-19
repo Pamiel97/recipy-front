@@ -32,8 +32,8 @@ export class ReviewsComponent implements OnInit {
     this.router.navigate([`/create-review/${this.recipeId}`]);
   }
 
-  loadReviews(): void { 
-    this.service.getReviewsByRecipe(this.recipeId).subscribe((data: ReviewDto[]) => { 
+  loadReviews(): void {
+    this.service.getReviewsByRecipe(this.recipeId).subscribe((data: ReviewDto[]) => {
       this.reviews = data;
     });
   }
@@ -49,6 +49,4 @@ export class ReviewsComponent implements OnInit {
     console.log('Modifica recensione:', review);
     // Qui puoi aprire un modal, navigare a un'altra pagina, o eseguire altra logica
   }
-  
-  
 }

@@ -6,8 +6,10 @@
     <p><strong>Data:</strong> {{ review.creationDate }}</p>
     <p><strong>Valutazione:</strong> {{ review.rating }}</p>
     <p><strong>Recensione:</strong> {{ review.text }}</p>
+    <p><strong>ID Ricetta:</strong> {{ review.recipeId }}</p>
+    <hr>
     <p><strong>Nome Utente:</strong> {{ review.userDto.firstname }} {{ review.userDto.lastname }}</p>
-    
+
     <!-- Pulsante Modifica visibile solo per l'utente loggato -->
     <button *ngIf="review.userDto.id === currentUserId" (click)="onEditReview(review)">
       Modifica
