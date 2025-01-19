@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FooterComponent } from "../footer/footer.component";
 import { AuthService } from '../model/login/auth-service';
 import { CommonModule } from '@angular/common';
+import { UserDto } from '../model/users/user-dto';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit{
   intAndAll: boolean = false;
 
   isAuthenticated: boolean = false;
-  currentUser: string | null = null;
+  currentUser: UserDto | null = null;
   searchRecipe: string = '';
 
   constructor(private recipeService: RecipeService, private router: Router, private authService: AuthService) {
@@ -53,8 +54,8 @@ export class HomeComponent implements OnInit{
       this.isAuthenticated = isAuthenticated;
     });
 
-    this.authService.currentUser$.subscribe(userName => {
-      this.currentUser = userName;
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
     });
 
 

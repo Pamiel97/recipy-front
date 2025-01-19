@@ -16,6 +16,7 @@
   }
   
   .review-item {
+    display: block;
     background-color: #f9f9f9;
     padding: 10px;
     margin-bottom: 10px;
@@ -32,5 +33,14 @@
     height: 1px;
     background: #ddd;
     margin: 10px 0;
+  }
+  
+  .json-display {
+    white-space: pre-wrap; /* Mantiene la formattazione del JSON */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
   }
   

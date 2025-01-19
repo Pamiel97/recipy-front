@@ -7,6 +7,7 @@ import { AuthService } from './model/login/auth-service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RecipeService } from './model/recipes/recipe-service';
+import { UserDto } from './model/users/user-dto';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ import { RecipeService } from './model/recipes/recipe-service';
 export class AppComponent implements OnInit {
 
   isAuthenticated: boolean = false;
-  currentUser: string | null = null;
+  currentUser: UserDto | null = null;
   searchRecipe: string = '';
 
   constructor(private authService: AuthService, private router: Router, private recipeService: RecipeService) {}
@@ -28,8 +29,8 @@ export class AppComponent implements OnInit {
       this.isAuthenticated = isAuthenticated;
     });
 
-    this.authService.currentUser$.subscribe(userName => {
-      this.currentUser = userName;
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
     });
   }
 
