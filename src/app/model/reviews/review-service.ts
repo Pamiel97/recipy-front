@@ -11,6 +11,16 @@ export class ReviewService {
     constructor(private http: HttpClient){}
     private token = localStorage.getItem('jwtToken');
 
+    checkReviewExists(recipeId: number): Observable<boolean> {
+      const url = `${this.apiUrl}/exists/${recipeId}` ; // Endpoint del backend
+      // const params = {
+      //   userId: currentUserId,
+      //   recipeId: recipeId,
+      // };
+    
+      return this.http.get<boolean>(url);
+    }
+
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('jwtToken');
     if (!token) {

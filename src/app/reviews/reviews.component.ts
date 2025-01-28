@@ -17,6 +17,7 @@ export class ReviewsComponent implements OnInit {
   recipeId!: number;
   reviews: ReviewDto[] = [];
   currentUserId!: number;
+  exist!: Boolean;
 
   constructor(private router: Router, private route: ActivatedRoute, private service: ReviewService, private authService: AuthService) {}
 
@@ -28,8 +29,15 @@ export class ReviewsComponent implements OnInit {
   };
 
   goToCreateReview(): void {
-    // Naviga alla pagina di creazione recensione con l'ID della ricetta nel percorso
-    this.router.navigate([`/create-review/${this.recipeId}`]);
+    this.service.checkReviewExists(this.recipeId).subscribe((data: Boolean) => {
+      this.exist = data;
+      if(this.exist){
+        alert('non puoi fare la recensione');
+      }else {
+        // Naviga alla pagina di creazione recensione con l'ID della ricetta nel percorso
+        this.router.navigate([`/create-review/${this.recipeId}`]);
+      }
+    });
   }
 
   loadReviews(): void {
