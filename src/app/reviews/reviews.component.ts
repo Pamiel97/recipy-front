@@ -45,8 +45,12 @@ export class ReviewsComponent implements OnInit {
     })
   }
 
-  onEditReview(review: any) {
-    console.log('Modifica recensione:', review);
-    // Qui puoi aprire un modal, navigare a un'altra pagina, o eseguire altra logica
-  }
+  onEditReview(review: ReviewDto) {
+    this.router.navigate([`/create-review/${this.recipeId}`], {
+        queryParams: { reviewId: review.id },
+    });
+}
+
+
+
 }

@@ -3,8 +3,8 @@ import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } fr
 import { Router, ActivatedRoute } from '@angular/router';
 import { ReviewService } from '../../model/reviews/review-service';
 import { ReviewDto } from '../../model/reviews/review-dto';
-import { CommonModule } from '@angular/common'; 
-import { RecipeService } from '../../model/recipes/recipe-service'; 
+import { CommonModule } from '@angular/common';
+import { RecipeService } from '../../model/recipes/recipe-service';
 import { RecipeDto } from '../../model/recipes/recipe-dto';
 import { UserDto } from '../../model/users/user-dto';
 
@@ -19,7 +19,9 @@ export class CreateReviewComponent implements OnInit {
   reviewForm!: FormGroup;
   hoveredRating: number = 0; // Gestisce il rating hover per le stelle
   recipeId!: number; // ID della ricetta da recensire
-  // recipe!: RecipeDto;
+  isEditMode: boolean = false; // Di default, è in modalità creazione
+  currentReviewId!: number; // ID della recensione che si sta modificando (se applicabile)
+
 
   constructor(
     private recipeService: RecipeService,
@@ -27,35 +29,47 @@ export class CreateReviewComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-  // Recupera l'ID della ricetta dai parametri di percorso
-  const recipeIdParam = this.route.snapshot.paramMap.get('id');
-  this.recipeId = recipeIdParam ? Number(recipeIdParam) : NaN; // Se non c'è, usa NaN
+    this.route.queryParams.subscribe(params => {
+      const reviewId = params['reviewId'];
+      if (reviewId) {
+        this.isEditMode = true;
+        this.currentReviewId = +reviewId;
+        this.loadReviewDetails(reviewId); // Carica i dati della recensione
+      }
+    });
 
-  if (isNaN(this.recipeId)) {
-    alert('ID ricetta mancante!');
-    this.router.navigate(['/']); // Torna alla homepage o altra pagina
-    return;
-  }
+    // Recupera l'ID della ricetta dai parametri di percorso
+    const recipeIdParam = this.route.snapshot.paramMap.get('id');
+    this.recipeId = recipeIdParam ? Number(recipeIdParam) : NaN; // Se non c'è, usa NaN
+
+
+    if (isNaN(this.recipeId)) {
+      alert('ID ricetta mancante!');
+      this.router.navigate(['/']); // Torna alla homepage o altra pagina
+      return;
+    }
 
     // Usa il servizio per caricare la ricetta
     // this.loadRecipe(this.recipeId);
-  this.initializeForm();
+    this.initializeForm();
+  }
+
+  private loadReviewDetails(reviewId: number): void {
+    this.reviewService.getReviewById(reviewId).subscribe({
+        next: (review: ReviewDto) => {
+            console.log('Recensione caricata:', review);
+            this.reviewForm.patchValue(review); // Inserisce i dati nel modulo
+        },
+        error: (err) => {
+            console.error('Errore nel caricamento della recensione:', err);
+            // Puoi mostrare un messaggio all'utente, se necessario
+        },
+    });
 }
 
-// private loadRecipe(id: number): void {
-//   this.recipeService.getRecipeById(id).subscribe({
-//     next: (recipe) => {
-//       this.recipe = recipe;
-//       console.log('Recipe loaded:', this.recipe);
-//     },
-//     error: (err) => {
-//       console.error('Error loading recipe:', err);
-//     },
-//   });
-// }
 
   private initializeForm(): void {
     this.reviewForm = this.fb.group({
@@ -80,31 +94,45 @@ export class CreateReviewComponent implements OnInit {
       alert('Per favore, compila tutti i campi correttamente.');
       return;
     }
-  
+
     const review = {
+      id : this.currentReviewId,  
       ...this.reviewForm.value,
       recipeId: this.recipeId, // Invia solo l'ID della ricetta
       userId: this.getUserFromLocalStorage()?.id, // Recupera solo l'ID dell'utente
       creationDate: new Date().toISOString(), // Data di creazione
     };
-  
+
     console.log('Payload inviato al backend:', review);
-  
-    this.reviewService.createReview(review).subscribe({
-      next: () => {
-        alert('Recensione salvata con successo!');
-        this.router.navigate(['/recipe-detail/', this.recipeId]);
-      },
-      error: (err) => {
-        console.error('Errore durante il salvataggio della recensione:', err);
-      },
-    });
+
+    if (this.isEditMode) {
+      this.reviewService.updateReview(review).subscribe({
+        next: () => {
+          alert('Recensione aggiornata con successo!');
+          this.router.navigate(['/recipe-detail/', this.recipeId]);
+        },
+        error: (err) => {
+          console.error('Errore durante il salvataggio della recensione:', err);
+        },
+      })
+    } else {  
+      this.reviewService.createReview(review).subscribe({
+        next: () => {
+          alert('Recensione salvata con successo!');
+          this.router.navigate(['/recipe-detail/', this.recipeId]);
+        },
+        error: (err) => {
+          console.error('Errore durante il salvataggio della recensione:', err);
+        },
+      });
+    }
+   
   }
-  
-  
+
+
   private getUserFromLocalStorage(): UserDto {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
   }
-  
+
 }  
