@@ -26,18 +26,18 @@ export class ReviewsComponent implements OnInit {
     this.recipeId = Number(this.route.snapshot.paramMap.get('id'));
     this.loadReviews();
     this.loadUser();
+    this.service.checkReviewExists(this.recipeId).subscribe((data: Boolean) => {
+      this.exist = data;  
+    });
   };
 
   goToCreateReview(): void {
-    this.service.checkReviewExists(this.recipeId).subscribe((data: Boolean) => {
-      this.exist = data;
       if(this.exist){
         alert('non puoi fare la recensione');
       }else {
         // Naviga alla pagina di creazione recensione con l'ID della ricetta nel percorso
         this.router.navigate([`/create-review/${this.recipeId}`]);
       }
-    });
   }
 
   loadReviews(): void {

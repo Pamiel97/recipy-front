@@ -1,4 +1,11 @@
-<button class="creates-recipe-btn" (click)="goToCreateReview()">Crea una nuova Recensione</button>
+<button 
+  *ngIf="!exist" 
+  class="creates-recipe-btn" 
+  (click)="goToCreateReview()"
+>
+  Crea una nuova Recensione
+</button>
+
 
 <h2>Lista delle Recensioni</h2>
 <div class="reviews-list">
