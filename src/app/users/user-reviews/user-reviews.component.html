@@ -1,0 +1,23 @@
+<div class="reviews-container">
+    <h2>Le tue recensioni</h2>
+  
+    <div *ngIf="loading">
+      <p>Caricamento recensioni...</p>
+    </div>
+  
+    <div *ngIf="errorMessage">
+      <p style="color: red;">{{ errorMessage }}</p>
+    </div>
+  
+    <div *ngIf="userReviews.length > 0; else noReviews">
+      <div *ngFor="let review of userReviews" class="review-card">
+        <h3>{{ review.recipeDto.title}}</h3>
+        <p>{{ review.text }}</p>
+      </div>
+    </div>
+  
+    <ng-template #noReviews>
+      <p>Non hai ancora lasciato recensioni.</p>
+    </ng-template>
+  </div>
+  

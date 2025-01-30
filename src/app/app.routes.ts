@@ -17,6 +17,8 @@ import { ChiSiamoComponent } from './chi-siamo/chi-siamo.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
 import { CreateReviewComponent } from './reviews/create-review/create-review.component';
+import { UserReviewsComponent } from './users/user-reviews/user-reviews.component';
+
 
 export const routes: Routes = [
     {path: 'create-recipe', component: RecipeAddFormComponent },
@@ -30,6 +32,8 @@ export const routes: Routes = [
     {path: 'recipe-detail/:id', component: RecipeDetailComponent},
     {path: 'recipe-search/:title', component: RecipeSearchComponent},
     {path: 'chi-siamo', component: ChiSiamoComponent},
+    {path: 'user-reviews', component: UserReviewsComponent},
+
 
     {path: 'user-pantries', component: UserPantriesComponent},
     {path: 'create-pantry', component: PantryAddFormComponent},

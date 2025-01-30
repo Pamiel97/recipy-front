@@ -79,6 +79,8 @@ export class ReviewService {
 
   // Ottieni tutte le recensioni di un utente autenticato
   getAllReviewsByUser(): Observable<ReviewDto[]> {
-    return this.http.get<ReviewDto[]>(`${this.apiUrl}/user/reviews`);
+     return this.http.get<ReviewDto[]>(`${this.apiUrl}/user`, {
+      headers: this.getHeaders(),
+    });
   }
-}
+}  
